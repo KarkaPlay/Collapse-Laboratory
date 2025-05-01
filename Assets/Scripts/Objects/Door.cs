@@ -13,6 +13,8 @@ public class Door : Interactable
 
     public void SwitchState()
     {
+        if (!gameObject.activeSelf) return;
+
         isOpen = !isOpen;
         animator.SetBool("isOpen", isOpen);
     }
