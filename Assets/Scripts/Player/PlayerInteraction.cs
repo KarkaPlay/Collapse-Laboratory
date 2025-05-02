@@ -8,6 +8,8 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private IInteractable currentInteractable;
     [SerializeField] private ICollapsible currentCollapsible;
 
+    public LayerMask interactableLayer;
+
     void OnDrawGizmos()
     {
         Gizmos.color = (currentInteractable == null && currentCollapsible == null) ? Color.yellow : Color.green;
@@ -23,6 +25,7 @@ public class PlayerInteraction : MonoBehaviour
     public void OnCollapse()
     {
         currentCollapsible?.OnCollapse();
+        ClearCollapsible();
     }
 
     void Update()
@@ -33,7 +36,7 @@ public class PlayerInteraction : MonoBehaviour
     private void RaycastCheck()
     {
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
-        if (Physics.Raycast(ray, out var hit, interactionDistance))
+        if (Physics.Raycast(ray, out var hit, interactionDistance, interactableLayer))
         {
             // Ищем IInteractable
             if (hit.collider.TryGetComponent(out IInteractable interactable))
