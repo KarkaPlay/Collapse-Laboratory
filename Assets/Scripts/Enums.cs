@@ -1,5 +1,5 @@
 public enum CollapseState
 {
-    New,
-    Old
+    New = 0,
+    Old = 1
 }
