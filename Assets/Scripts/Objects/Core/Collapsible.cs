@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 // Базовый класс для всех объектов, поддерживающих схлопывание
 public class Collapsible : MonoBehaviour
@@ -19,6 +20,11 @@ public class Collapsible : MonoBehaviour
     [Header("Может ли игрок схлопывать")]
     public bool canPlayerCollapse = true;
 
+    [Header("Объект сломан")]
+    public bool isBroken = false;
+
+    public UnityEvent<Collapsible> OnCollapse;
+
     private void Awake()
     {
         currentState = initialState;
@@ -32,6 +38,11 @@ public class Collapsible : MonoBehaviour
     public void SetDynamic(bool newState)
     {
         isDynamic = newState;
+    }
+
+    public void SetIsBroken(bool newState)
+    {
+        isBroken = newState;
     }
 
     public void SetCanPlayerCollapse(bool newState)
@@ -59,6 +70,7 @@ public class Collapsible : MonoBehaviour
         {
             currentState = currentState == CollapseState.Old ? CollapseState.New : CollapseState.Old;
             SetObjectsActive();
+            OnCollapse.Invoke(this);
         }
         else
         {

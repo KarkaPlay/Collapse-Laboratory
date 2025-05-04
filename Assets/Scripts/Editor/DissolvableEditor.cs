@@ -12,6 +12,7 @@ public class DissolvableEditor : Editor
     private SerializedProperty onTransitionStartedProp;
     private SerializedProperty onTransitionEndedProp;
     private SerializedProperty onDissolvedProp;
+    private SerializedProperty onUndissolvedProp;
 
     private ReorderableList renderersList;
     private ReorderableList collidersList;
@@ -27,6 +28,7 @@ public class DissolvableEditor : Editor
         onTransitionStartedProp = serializedObject.FindProperty("OnTransitionStarted");
         onTransitionEndedProp = serializedObject.FindProperty("OnTransitionEnded");
         onDissolvedProp = serializedObject.FindProperty("OnDissolved");
+        onUndissolvedProp = serializedObject.FindProperty("OnUndissolved");
 
         // Инициализация списка рендереров
         if (renderersProp != null)
@@ -192,7 +194,9 @@ public class DissolvableEditor : Editor
         if (onTransitionEndedProp != null)
             EditorGUILayout.PropertyField(onTransitionEndedProp, new GUIContent("Конец перехода"));
         if (onDissolvedProp != null)
-            EditorGUILayout.PropertyField(onDissolvedProp, new GUIContent("Диссолв завершён"));
+            EditorGUILayout.PropertyField(onDissolvedProp, new GUIContent("Объект исчез"));
+        if (onUndissolvedProp != null)
+            EditorGUILayout.PropertyField(onUndissolvedProp, new GUIContent("Объект появился"));
 
         // Управление диссольвом
         EditorGUILayout.Space();

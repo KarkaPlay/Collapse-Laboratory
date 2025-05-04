@@ -15,11 +15,17 @@ public class CollapsileGroupController : MonoBehaviour
 
     private Coroutine dynamicStateSwitchingCoroutine;
 
+    private float timeToDissolve;
+
     void Start()
     {
         if (collapsibles.Count == 0)
         {
             GameDebug.LogWarning($"{gameObject.name}: CollapseGroup содержит 0 элементов");
+        }
+        else
+        {
+            timeToDissolve = collapsibles[0].stateNew.GetComponent<Dissolvable>().timeToDissolve;
         }
     }
 
@@ -57,16 +63,50 @@ public class CollapsileGroupController : MonoBehaviour
 
         while (true)
         {
+            // Отключаем возможность взаимодействия со всеми объектами сразу
             foreach (var collapsible in collapsibles)
             {
-                Debug.Log($"{collapsible.name}. Динамический: {collapsible.isDynamic}");
                 if (collapsible.isDynamic)
                 {
-                    collapsible.Collapse();
+                    collapsible.SetCanPlayerCollapse(false);
+                    collapsible.stateNew.OnCollapseUnhighlight();
+                    collapsible.stateOld.OnCollapseUnhighlight();
                 }
             }
+
+            // Запускаем анимацию схлопывания для всех объектов одновременно
+            List<Coroutine> collapseCoroutines = new List<Coroutine>();
+            foreach (var collapsible in collapsibles)
+            {
+                if (collapsible.isDynamic)
+                {
+                    // Запускаем корутину для каждого объекта параллельно
+                    collapseCoroutines.Add(StartCoroutine(AnimateCollapse(collapsible)));
+                }
+            }
+
+            // Ждем завершения анимации у всех объектов
+            foreach (var coroutine in collapseCoroutines)
+            {
+                yield return coroutine;
+            }
+
+            // Ждем интервал перед следующим циклом
             yield return new WaitForSeconds(switchStateInterval);
         }
+    }
+
+    // Корутина для анимации схлопывания одного объекта
+    private IEnumerator AnimateCollapse(Collapsible collapsible)
+    {
+        // Ждем время анимации
+        yield return new WaitForSeconds(timeToDissolve * 2 + 0.1f);
+
+        // Выполняем схлопывание
+        collapsible.Collapse();
+
+        // Включаем возможность взаимодействия обратно (если нужно)
+        collapsible.SetCanPlayerCollapse(true);
     }
 
     public void SetCollapsiblesFromChildren()

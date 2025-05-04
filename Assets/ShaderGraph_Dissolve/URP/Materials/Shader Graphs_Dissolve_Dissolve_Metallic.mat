@@ -65,10 +65,10 @@ Material:
     m_Ints: []
     m_Floats:
     - _Dissolve: 0
-    - _EdgeColorIntensity: 2
+    - _EdgeColorIntensity: 500
     - _EdgeWidth: 0.1
     - _Metallic: 0.337
-    - _NoiseScale: 10
+    - _NoiseScale: 20
     - _NormalScale: 1
     - _OcclusionStrength: 1
     - _QueueControl: 0
@@ -76,7 +76,7 @@ Material:
     - _Smoothness: 0.932
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _EdgeColor: {r: 0.9494723, g: 3.9999995, b: 0, a: 0}
+    - _EdgeColor: {r: 0, g: 2.9261892, b: 3.9999995, a: 0}
     - _NoiseUVSpeed: {r: 0, g: 0, b: 0, a: 0}
     - _Offest: {r: 0, g: 0, b: 0, a: 0}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}
