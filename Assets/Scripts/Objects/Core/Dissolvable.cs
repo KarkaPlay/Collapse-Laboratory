@@ -13,6 +13,7 @@ public class Dissolvable : MonoBehaviour
     public UnityEvent OnTransitionStarted;
     public UnityEvent OnTransitionEnded;
     public UnityEvent OnDissolved;
+    public UnityEvent OnUndissolved;
 
 #region Editor
     public void SetRendererThis()
@@ -22,7 +23,7 @@ public class Dissolvable : MonoBehaviour
 
     public void SetRenderersInChildren()
     {
-        renderers.AddRange(GetComponentsInChildren<Renderer>());
+        renderers = new List<Renderer>(GetComponentsInChildren<Renderer>());
     }
 
     public void SetColliderThis()
@@ -32,7 +33,7 @@ public class Dissolvable : MonoBehaviour
 
     public void SetCollidersInChildren()
     {
-        colliders.AddRange(GetComponentsInChildren<Collider>());
+        colliders = new List<Collider>(GetComponentsInChildren<Collider>());
     }
 #endregion
 
@@ -82,6 +83,8 @@ public class Dissolvable : MonoBehaviour
 
         SetAllRenderers(renderers, 0);
         SetCollidersActive(true);
+
+        OnUndissolved.Invoke();
         OnTransitionEnded.Invoke();
     }
 

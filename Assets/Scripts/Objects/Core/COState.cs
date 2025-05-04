@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Outline))]
+[RequireComponent(typeof(Outline), typeof(Dissolvable))]
 public class COState : MonoBehaviour, ICollapsible
 {
     public Collapsible parentCollapsible;
@@ -14,7 +14,6 @@ public class COState : MonoBehaviour, ICollapsible
 
     private void Awake()
     {
-
         if (parentCollapsible == null)
             Debug.LogError($"COState {name}: parentCollapsible is null");
 
@@ -56,8 +55,11 @@ public class COState : MonoBehaviour, ICollapsible
 
         yield return new WaitForSeconds(dissolvable.timeToDissolve);
 
-        parentCollapsible.canPlayerCollapse = true;
-        SetHighlightable(true); // Включаем подсветку для нового состояния
+        if (!parentCollapsible.isBroken)
+        {
+            parentCollapsible.canPlayerCollapse = true;
+            SetHighlightable(true); // Включаем подсветку для нового состояния
+        }
     }
 
     public void SetOutlineColor(Color color)
