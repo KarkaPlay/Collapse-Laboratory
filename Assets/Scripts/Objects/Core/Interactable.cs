@@ -11,15 +11,9 @@ public abstract class Interactable : MonoBehaviour, IInteractable
 
     public UnityEvent OnInteractEvent;
 
-    public void SetCanPlayerInteract(bool newState)
-    {
-        canPlayerInteract = newState;
-    }
+    public void SetCanPlayerInteract(bool newState) => canPlayerInteract = newState;
 
-    public void SetIsWorking(bool newState)
-    {
-        isWorking = newState;
-    }
+    public void SetIsWorking(bool newState) => isWorking = newState;
 
     void Awake()
     {
@@ -28,9 +22,10 @@ public abstract class Interactable : MonoBehaviour, IInteractable
 
     public virtual void OnInteract()
     {
-        if (!canPlayerInteract || !isWorking)
-            return;
-        OnInteractEvent.Invoke();
+        if (canPlayerInteract && isWorking)
+        {
+            OnInteractEvent?.Invoke();
+        }
     }
 
     public virtual void OnHighlight()

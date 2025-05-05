@@ -76,20 +76,14 @@ public class PlayerInteraction : MonoBehaviour
 
     private void ClearCollapsible()
     {
-        if (currentCollapsible != null)
-        {
-            currentCollapsible.OnCollapseUnhighlight();
-            currentCollapsible = null;
-        }
+        currentCollapsible?.OnCollapseUnhighlight();
+        currentCollapsible = null;
     }
 
     private void ClearInteractable()
     {
-        if (currentInteractable != null)
-        {
-            currentInteractable.OnUnhighlight();
-            currentInteractable = null;
-        }
+        currentInteractable?.OnUnhighlight();
+        currentInteractable = null;
     }
 
     private void ClearAllCurrents()

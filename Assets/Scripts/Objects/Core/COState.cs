@@ -14,11 +14,16 @@ public class COState : MonoBehaviour, ICollapsible
 
     private void Awake()
     {
+        ValidateComponents();
+    }
+
+    private void ValidateComponents()
+    {
         if (parentCollapsible == null)
-            Debug.LogError($"COState {name}: parentCollapsible is null");
+            GameDebug.LogError($"COState {gameObject.name}: Parent collapsible is missing.");
 
         if (outline == null)
-            Debug.LogError($"COState {name}: outline is null");
+            GameDebug.LogError($"COState {gameObject.name}: Outline component is missing.");
     }
 
     public void SetParentOutlineAndDissolve()
@@ -30,18 +35,21 @@ public class COState : MonoBehaviour, ICollapsible
 
     public void SetHighlightable(bool _isHighlightable)
     {
-        isHighlightable = _isHighlightable;
-        if (!isHighlightable) SetOutlineActive(false);
+        if (isHighlightable != _isHighlightable)
+        {
+            isHighlightable = _isHighlightable;
+            if (!isHighlightable) SetOutlineActive(false);
+        }
     }
 
-    public void Acivate(bool active)
+    public void Activate(bool active)
     {
         StartCoroutine(Activating(active));
     }
 
     private IEnumerator Activating(bool active)
     {
-        parentCollapsible.canPlayerCollapse = false;
+        parentCollapsible.SetCanPlayerCollapse(false);
         SetHighlightable(false);
 
         if (active)
@@ -57,15 +65,12 @@ public class COState : MonoBehaviour, ICollapsible
 
         if (!parentCollapsible.isBroken)
         {
-            parentCollapsible.canPlayerCollapse = true;
+            parentCollapsible.SetCanPlayerCollapse(true);
             SetHighlightable(true); // Включаем подсветку для нового состояния
         }
     }
 
-    public void SetOutlineColor(Color color)
-    {
-        outline.OutlineColor = color;
-    }
+    public void SetOutlineColor(Color color) => outline.OutlineColor = color;
 
     public void SetOutlineActive(bool active)
     {
@@ -82,14 +87,7 @@ public class COState : MonoBehaviour, ICollapsible
 
     public void OnCollapseHighlight()
     {
-        if (isHighlightable)
-        {
-            SetOutlineActive(true);
-        }
-        else
-        {
-            SetOutlineActive(false);
-        }
+        SetOutlineActive(isHighlightable);
     }
 
     public void OnCollapseUnhighlight()
