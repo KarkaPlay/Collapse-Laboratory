@@ -14,10 +14,7 @@ public class PlayerDeath : MonoBehaviour
 
     public List<Transform> respawnPoints = new List<Transform>();
 
-    public void SetRoom(int room)
-    {
-        currentRoom = room;
-    }
+    public void SetRoom(int room) => currentRoom = room;
 
     public void Die(string deathText = "Вы погибли...")
     {
@@ -26,6 +23,7 @@ public class PlayerDeath : MonoBehaviour
         GameOverText.text = deathText;
         GetComponent<FirstPersonController>().enabled = false;
         GetComponent<StarterAssetsInputs>().enabled = false;
+        GetComponent<CharacterController>().enabled = false;
         isDead = true;
     }
 
@@ -36,17 +34,15 @@ public class PlayerDeath : MonoBehaviour
         GameOverScreen.gameObject.SetActive(false);
         GetComponent<FirstPersonController>().enabled = true;
         GetComponent<StarterAssetsInputs>().enabled = true;
+        GetComponent<CharacterController>().enabled = true;
         isDead = false;
     }
 
-    void Update()
+    public void OnRespawn()
     {
         if (isDead)
         {
-            if (Keyboard.current.rKey.wasPressedThisFrame)
-            {
-                Respawn();
-            }
+            Respawn();
         }
     }
 }

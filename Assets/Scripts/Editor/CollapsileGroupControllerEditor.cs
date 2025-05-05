@@ -2,12 +2,12 @@ using UnityEditor;
 using UnityEngine;
 using System.Collections.Generic;
 
-[CustomEditor(typeof(CollapsileGroupController))]
+[CustomEditor(typeof(CollapsibleGroupController))]
 public class CollapsileGroupControllerEditor : Editor
 {
     public override void OnInspectorGUI()
     {
-        CollapsileGroupController controller = (CollapsileGroupController)target;
+        CollapsibleGroupController controller = (CollapsibleGroupController)target;
 
         SerializedProperty collapsiblesProp = serializedObject.FindProperty("collapsibles");
         SerializedProperty intervalProp = serializedObject.FindProperty("switchStateInterval");

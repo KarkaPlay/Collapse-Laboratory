@@ -35,48 +35,40 @@ public class Collapsible : MonoBehaviour
         SetObjectsActive();
     }
 
-    public void SetDynamic(bool newState)
-    {
-        isDynamic = newState;
-    }
+    public void SetDynamic(bool newState) => isDynamic = newState;
 
-    public void SetIsBroken(bool newState)
-    {
-        isBroken = newState;
-    }
+    public void SetIsBroken(bool newState) => isBroken = newState;
 
-    public void SetCanPlayerCollapse(bool newState)
-    {
-        canPlayerCollapse = newState;
-    }
+    public void SetCanPlayerCollapse(bool newState) => canPlayerCollapse = newState;
 
     public void SetCOStatesFromChildren()
     {
-        if (transform.Find($"{gameObject.name}_OLD") == null || transform.Find($"{gameObject.name}_NEW") == null)
+        var old = transform.Find($"{gameObject.name}_OLD");
+        var newState = transform.Find($"{gameObject.name}_NEW");
+
+        if (old == null || newState == null)
         {
             Debug.LogError($"COState {gameObject.name}_OLD или {gameObject.name}_NEW не найдены. Проверьте названия дочерних объектов");
             return;
         }
 
-        // Дочерние объекты названы по шаблону name_OLD и name_NEW
-        stateOld = transform.Find($"{gameObject.name}_OLD").GetComponent<COState>();
-        stateNew = transform.Find($"{gameObject.name}_NEW").GetComponent<COState>();
+        stateOld = old.GetComponent<COState>();
+        stateNew = newState.GetComponent<COState>();
     }
 
     #region Схлопывание
     public void Collapse(bool byPlayer = false)
     {
-        if (!byPlayer || (byPlayer && canPlayerCollapse))
-        {
-            currentState = currentState == CollapseState.Old ? CollapseState.New : CollapseState.Old;
-            SetObjectsActive();
-            OnCollapse.Invoke(this);
-        }
-        else
+        if (byPlayer && !canPlayerCollapse)
         {
             Debug.Log($"Игрок не может схлопнуть {gameObject.name}");
             // TODO: Добавить эффект или звук
+            return;
         }
+
+        currentState = currentState == CollapseState.Old ? CollapseState.New : CollapseState.Old;
+        SetObjectsActive();
+        OnCollapse?.Invoke(this);
     }
 
     public void Collapse(CollapseState toState)
@@ -98,8 +90,8 @@ public class Collapsible : MonoBehaviour
 
     private void SetObjectsActive()
     {
-        stateNew.Acivate(currentState == CollapseState.New);
-        stateOld.Acivate(currentState == CollapseState.Old);
+        stateNew.Activate(currentState == CollapseState.New);
+        stateOld.Activate(currentState == CollapseState.Old);
     }
     #endregion
 }

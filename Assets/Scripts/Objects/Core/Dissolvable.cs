@@ -33,7 +33,8 @@ public class Dissolvable : MonoBehaviour
 
     public void SetCollidersInChildren()
     {
-        colliders = new List<Collider>(GetComponentsInChildren<Collider>());
+        colliders.Clear();
+        colliders.AddRange(GetComponentsInChildren<Collider>());
     }
 #endregion
 

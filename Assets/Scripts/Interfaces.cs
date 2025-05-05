@@ -13,9 +13,3 @@ public interface ICollapsible
     void OnCollapseHighlight();  // Активирует Outline и подсказку F
     void OnCollapseUnhighlight();
 }
-
-// Интерфейс для объектов, у которых есть выполняемое действие
-/*public interface IUsable
-{
-    void OnUse();
-}*/

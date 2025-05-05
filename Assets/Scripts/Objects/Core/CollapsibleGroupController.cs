@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class CollapsileGroupController : MonoBehaviour
+public class CollapsibleGroupController : MonoBehaviour
 {
     [Header("Динамичские схлопывающиеся объекты")]
     [SerializeField] private List<Collapsible> collapsibles = new();
@@ -36,12 +36,9 @@ public class CollapsileGroupController : MonoBehaviour
             GameDebug.LogWarning("DynamicStateSwitchingCoroutine уже запущен! Запускаем заново");
             StopCoroutine(dynamicStateSwitchingCoroutine);
             dynamicStateSwitchingCoroutine = null;
-            dynamicStateSwitchingCoroutine = StartCoroutine(DynamicStateSwitching());
         }
-        else
-        {
-            dynamicStateSwitchingCoroutine = StartCoroutine(DynamicStateSwitching());
-        }
+        
+        dynamicStateSwitchingCoroutine = StartCoroutine(DynamicStateSwitching());
     }
 
     public void StopDynamicStateSwitching()
@@ -59,31 +56,25 @@ public class CollapsileGroupController : MonoBehaviour
 
     private IEnumerator DynamicStateSwitching()
     {
-        yield return new WaitForSeconds(switchStateInterval);
+        // Если перестанет работать нестабильное схлопывание - раскомментировать
+        //yield return new WaitForSeconds(switchStateInterval);
 
         while (true)
         {
             // Отключаем возможность взаимодействия со всеми объектами сразу
-            foreach (var collapsible in collapsibles)
+            foreach (var collapsible in collapsibles.Where(c => c.isDynamic))
             {
-                if (collapsible.isDynamic)
-                {
-                    collapsible.SetCanPlayerCollapse(false);
-                    collapsible.stateNew.OnCollapseUnhighlight();
-                    collapsible.stateOld.OnCollapseUnhighlight();
-                }
+                collapsible.SetCanPlayerCollapse(false);
+                collapsible.stateNew.OnCollapseUnhighlight();
+                collapsible.stateOld.OnCollapseUnhighlight();
             }
 
             // Запускаем анимацию схлопывания для всех объектов одновременно
-            List<Coroutine> collapseCoroutines = new List<Coroutine>();
-            foreach (var collapsible in collapsibles)
-            {
-                if (collapsible.isDynamic)
-                {
-                    // Запускаем корутину для каждого объекта параллельно
-                    collapseCoroutines.Add(StartCoroutine(AnimateCollapse(collapsible)));
-                }
-            }
+            var collapseCoroutines = collapsibles
+                .Where(c => c.isDynamic)
+                .Select(c => StartCoroutine(AnimateCollapse(c)))
+                .ToList();
+           
 
             // Ждем завершения анимации у всех объектов
             foreach (var coroutine in collapseCoroutines)
