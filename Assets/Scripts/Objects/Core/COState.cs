@@ -85,12 +85,12 @@ public class COState : MonoBehaviour, ICollapsible
         parentCollapsible.Collapse(true);
     }
 
-    public void OnCollapseHighlight()
+    public void OnHighlight()
     {
         SetOutlineActive(isHighlightable);
     }
 
-    public void OnCollapseUnhighlight()
+    public void OnUnhighlight()
     {
         SetOutlineActive(false);
     }

@@ -6,7 +6,7 @@ public class COStateChild : MonoBehaviour,ICollapsible
 
     public void OnCollapse() => parentCOState.OnCollapse();
 
-    public void OnCollapseHighlight() => parentCOState.OnCollapseHighlight();
+    public void OnHighlight() => parentCOState.OnHighlight();
 
-    public void OnCollapseUnhighlight() => parentCOState.OnCollapseUnhighlight();
+    public void OnUnhighlight() => parentCOState.OnUnhighlight();
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEditorInternal;
 
 [CustomEditor(typeof(Dissolvable))]
-public class DissolvableEditor : Editor
+public class DissolvableEditor : UnityEditor.Editor
 {
     private Dissolvable targetScript;
     private SerializedProperty renderersProp;

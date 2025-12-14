@@ -65,8 +65,8 @@ public class CollapsibleGroupController : MonoBehaviour
             foreach (var collapsible in collapsibles.Where(c => c.isDynamic))
             {
                 collapsible.SetCanPlayerCollapse(false);
-                collapsible.stateNew.OnCollapseUnhighlight();
-                collapsible.stateOld.OnCollapseUnhighlight();
+                collapsible.stateNew.OnUnhighlight();
+                collapsible.stateOld.OnUnhighlight();
             }
 
             // Запускаем анимацию схлопывания для всех объектов одновременно

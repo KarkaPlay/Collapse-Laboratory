@@ -1,36 +1,46 @@
+using Objects;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInteraction : MonoBehaviour
 {
     [Header("Дальность взаимодействия")]
     public float interactionDistance = 5;
 
-    [SerializeField] private IInteractable currentInteractable;
-    [SerializeField] private ICollapsible currentCollapsible;
+    private IHighlightable currentTarget;
+    private IAnimatedCollapsible currentAnimatedTarget;
 
     public LayerMask interactableLayer;
+    
+    private float _animationDirection;
 
     void OnDrawGizmos()
     {
-        Gizmos.color = (currentInteractable == null && currentCollapsible == null) ? Color.yellow : Color.green;
+        Gizmos.color = currentTarget == null ? Color.yellow : Color.green;
 
         Gizmos.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * interactionDistance);
     }
 
     public void OnInteract()
     {
-        currentInteractable?.OnInteract();
+        (currentTarget as IInteractable)?.OnInteract();
+    }
+
+    public void OnAnimateScroll(InputValue value)
+    {
+        _animationDirection = value.Get<float>();
     }
 
     public void OnCollapse()
     {
-        currentCollapsible?.OnCollapse();
-        ClearCollapsible();
+        (currentTarget as ICollapsible)?.OnCollapse();
+        ClearTarget();
     }
 
     void Update()
     {
         RaycastCheck();
+        AnimateCollapsible();
     }
 
     private void RaycastCheck()
@@ -38,57 +48,42 @@ public class PlayerInteraction : MonoBehaviour
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
         if (Physics.Raycast(ray, out var hit, interactionDistance, interactableLayer))
         {
-            // Ищем IInteractable
-            if (hit.collider.TryGetComponent(out IInteractable interactable))
+            if (hit.collider.TryGetComponent(out IHighlightable target))
             {
-                if (currentInteractable != interactable)
+                if (currentTarget != target)
                 {
-                    ClearInteractable();
-                    currentInteractable = interactable;
-                    currentInteractable.OnHighlight();
+                    ClearTarget();
+                    currentTarget = target;
+                    currentTarget.OnHighlight();
+                    
+                    currentAnimatedTarget = currentTarget as IAnimatedCollapsible;
+                    PlayerUI.Instance.SetAnimatedTargetSliderVisible(currentAnimatedTarget != null);
                 }
             }
             else
             {
-                ClearInteractable();
-            }
-
-            // Ищем ICollapsible
-            if (hit.collider.TryGetComponent(out ICollapsible collapsible))
-            {
-                if (currentCollapsible != collapsible)
-                {
-                    ClearCollapsible();
-                    currentCollapsible = collapsible;
-                    currentCollapsible.OnCollapseHighlight();
-                }
-            }
-            else
-            {
-                ClearCollapsible();
+                ClearTarget();
             }
         }
         else
         {
-            ClearAllCurrents();
+            ClearTarget();
         }
     }
 
-    private void ClearCollapsible()
+    private void AnimateCollapsible()
     {
-        currentCollapsible?.OnCollapseUnhighlight();
-        currentCollapsible = null;
+        if (_animationDirection != 0f)
+        { 
+            currentAnimatedTarget?.Animate(_animationDirection);
+        }
     }
 
-    private void ClearInteractable()
+    private void ClearTarget()
     {
-        currentInteractable?.OnUnhighlight();
-        currentInteractable = null;
-    }
-
-    private void ClearAllCurrents()
-    {
-        ClearInteractable();
-        ClearCollapsible();
+        currentTarget?.OnUnhighlight();
+        currentTarget = null;
+        currentAnimatedTarget = null;
+        PlayerUI.Instance.SetAnimatedTargetSliderVisible(false);
     }
 }

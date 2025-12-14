@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(COState))]
-public class COStateEditor : Editor
+public class COStateEditor : UnityEditor.Editor
 {
     public override void OnInspectorGUI()
     {
@@ -71,12 +71,12 @@ public class COStateEditor : Editor
 
             if (GUILayout.Button("Highlight", GUILayout.Height(22)))
             {
-                coState.OnCollapseHighlight();
+                coState.OnHighlight();
             }
 
             if (GUILayout.Button("Unhighlight", GUILayout.Height(22)))
             {
-                coState.OnCollapseUnhighlight();
+                coState.OnUnhighlight();
             }
         }
 

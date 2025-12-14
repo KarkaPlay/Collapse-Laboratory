@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 
 [CustomEditor(typeof(CollapsibleGroupController))]
-public class CollapsileGroupControllerEditor : Editor
+public class CollapsileGroupControllerEditor : UnityEditor.Editor
 {
     public override void OnInspectorGUI()
     {
