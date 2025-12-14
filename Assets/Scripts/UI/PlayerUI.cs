@@ -1,21 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Utils;
 
-public class PlayerUI : MonoBehaviour
+public class PlayerUI : SingletonBehaviour<PlayerUI>
 {
     public Slider animatedCollapsibleSlider;
     
-    public static PlayerUI Instance;
-    
-    void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(this);
-    }
-    
-    void Start()
+    private void Start()
     {
         CheckAllElements();
     }

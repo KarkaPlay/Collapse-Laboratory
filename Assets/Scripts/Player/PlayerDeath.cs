@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using StarterAssets;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerDeath : MonoBehaviour
 {

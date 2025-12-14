@@ -1,4 +1,3 @@
-using Objects;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,23 +6,25 @@ public class PlayerInteraction : MonoBehaviour
     [Header("Дальность взаимодействия")]
     public float interactionDistance = 5;
 
-    private IHighlightable currentTarget;
-    private IAnimatedCollapsible currentAnimatedTarget;
+    private IHighlightable _currentTarget;
+    private IAnimatedCollapsible _currentAnimatedTarget;
 
     public LayerMask interactableLayer;
+
+    public Camera playerCamera;
     
     private float _animationDirection;
 
     void OnDrawGizmos()
     {
-        Gizmos.color = currentTarget == null ? Color.yellow : Color.green;
+        Gizmos.color = _currentTarget == null ? Color.yellow : Color.green;
 
-        Gizmos.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * interactionDistance);
+        Gizmos.DrawRay(playerCamera.transform.position, playerCamera.transform.forward * interactionDistance);
     }
 
     public void OnInteract()
     {
-        (currentTarget as IInteractable)?.OnInteract();
+        (_currentTarget as IInteractable)?.OnInteract();
     }
 
     public void OnAnimateScroll(InputValue value)
@@ -33,7 +34,7 @@ public class PlayerInteraction : MonoBehaviour
 
     public void OnCollapse()
     {
-        (currentTarget as ICollapsible)?.OnCollapse();
+        (_currentTarget as ICollapsible)?.OnCollapse();
         ClearTarget();
     }
 
@@ -45,19 +46,19 @@ public class PlayerInteraction : MonoBehaviour
 
     private void RaycastCheck()
     {
-        Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
         if (Physics.Raycast(ray, out var hit, interactionDistance, interactableLayer))
         {
             if (hit.collider.TryGetComponent(out IHighlightable target))
             {
-                if (currentTarget != target)
+                if (_currentTarget != target)
                 {
                     ClearTarget();
-                    currentTarget = target;
-                    currentTarget.OnHighlight();
+                    _currentTarget = target;
+                    _currentTarget.OnHighlight();
                     
-                    currentAnimatedTarget = currentTarget as IAnimatedCollapsible;
-                    PlayerUI.Instance.SetAnimatedTargetSliderVisible(currentAnimatedTarget != null);
+                    _currentAnimatedTarget = _currentTarget as IAnimatedCollapsible;
+                    PlayerUI.Instance.SetAnimatedTargetSliderVisible(_currentAnimatedTarget != null);
                 }
             }
             else
@@ -75,15 +76,15 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (_animationDirection != 0f)
         { 
-            currentAnimatedTarget?.Animate(_animationDirection);
+            _currentAnimatedTarget?.Animate(_animationDirection);
         }
     }
 
     private void ClearTarget()
     {
-        currentTarget?.OnUnhighlight();
-        currentTarget = null;
-        currentAnimatedTarget = null;
+        _currentTarget?.OnUnhighlight();
+        _currentTarget = null;
+        _currentAnimatedTarget = null;
         PlayerUI.Instance.SetAnimatedTargetSliderVisible(false);
     }
 }

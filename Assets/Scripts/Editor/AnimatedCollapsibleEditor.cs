@@ -15,7 +15,7 @@ namespace Editor
         {
             _animatorProperty = serializedObject.FindProperty("animator");
             _animationSpeedProperty = serializedObject.FindProperty("animationSpeed");
-            _startAnimationProgressProperty = serializedObject.FindProperty("_startAnimationProgress");
+            _startAnimationProgressProperty = serializedObject.FindProperty("startAnimationProgress");
         }
 
         public override void OnInspectorGUI()

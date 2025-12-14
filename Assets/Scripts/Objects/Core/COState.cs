@@ -7,10 +7,12 @@ public class COState : MonoBehaviour, ICollapsible
     public Collapsible parentCollapsible;
     [SerializeField] private Outline outline;
     [SerializeField] private Dissolvable dissolvable;
-    public Outline Outline { get => outline; }
-    public Dissolvable Dissolvable { get => dissolvable; }
+    public Outline Outline => outline;
+    public Dissolvable Dissolvable => dissolvable;
 
     public bool isHighlightable = true;
+
+    #region Validation
 
     private void Awake()
     {
@@ -26,6 +28,10 @@ public class COState : MonoBehaviour, ICollapsible
             GameDebug.LogError($"COState {gameObject.name}: Outline component is missing.");
     }
 
+    #endregion
+
+    #region Editor
+
     public void SetParentOutlineAndDissolve()
     {
         parentCollapsible = transform.parent.GetComponent<Collapsible>();
@@ -33,14 +39,55 @@ public class COState : MonoBehaviour, ICollapsible
         dissolvable = GetComponent<Dissolvable>();
     }
 
-    public void SetHighlightable(bool _isHighlightable)
+    #endregion
+
+    #region Setters
+
+    public void SetHighlightable(bool highlightable)
     {
-        if (isHighlightable != _isHighlightable)
+        if (isHighlightable != highlightable)
         {
-            isHighlightable = _isHighlightable;
+            isHighlightable = highlightable;
             if (!isHighlightable) SetOutlineActive(false);
         }
     }
+    
+    public void SetOutlineColor(Color color) => outline.OutlineColor = color;
+
+    public void SetOutlineActive(bool active)
+    {
+        if (outline.enabled != active)
+        {
+            outline.enabled = active;
+        }
+    }
+
+    #endregion
+
+    #region Collapsible
+    
+    public void OnCollapse()
+    {
+        parentCollapsible.Collapse(true);
+    }
+    
+    #endregion
+
+    #region Highlightable
+
+    public void OnHighlight()
+    {
+        SetOutlineActive(isHighlightable);
+    }
+
+    public void OnUnhighlight()
+    {
+        SetOutlineActive(false);
+    }
+
+    #endregion
+
+    #region Активация этого состояния
 
     public void Activate(bool active)
     {
@@ -70,28 +117,5 @@ public class COState : MonoBehaviour, ICollapsible
         }
     }
 
-    public void SetOutlineColor(Color color) => outline.OutlineColor = color;
-
-    public void SetOutlineActive(bool active)
-    {
-        if (outline.enabled != active)
-        {
-            outline.enabled = active;
-        }
-    }
-
-    public void OnCollapse()
-    {
-        parentCollapsible.Collapse(true);
-    }
-
-    public void OnHighlight()
-    {
-        SetOutlineActive(isHighlightable);
-    }
-
-    public void OnUnhighlight()
-    {
-        SetOutlineActive(false);
-    }
+    #endregion
 }

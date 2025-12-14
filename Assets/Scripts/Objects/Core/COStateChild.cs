@@ -9,4 +9,10 @@ public class COStateChild : MonoBehaviour,ICollapsible
     public void OnHighlight() => parentCOState.OnHighlight();
 
     public void OnUnhighlight() => parentCOState.OnUnhighlight();
+
+    private void Start()
+    {
+        if (parentCOState == null)
+            Debug.LogError($"COStateChild {gameObject.name}: Не установлен parentCOState.", this.gameObject);
+    }
 }

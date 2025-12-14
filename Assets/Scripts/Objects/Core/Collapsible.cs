@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,8 +10,8 @@ public class Collapsible : MonoBehaviour
 
     [Header("Начальное состояние")]
     public CollapseState initialState = CollapseState.Old;
-    private CollapseState currentState = CollapseState.Old;
-    public CollapseState CurrentState { get => currentState; }
+    private CollapseState _currentState = CollapseState.Old;
+    public CollapseState CurrentState => _currentState;
 
     [Header("Будет ли периодически менять состояние")]
     public bool isDynamic;
@@ -21,13 +20,13 @@ public class Collapsible : MonoBehaviour
     public bool canPlayerCollapse = true;
 
     [Header("Объект сломан")]
-    public bool isBroken = false;
+    public bool isBroken;
 
     public UnityEvent<Collapsible> OnCollapse;
 
     private void Awake()
     {
-        currentState = initialState;
+        _currentState = initialState;
     }
 
     void Start()
@@ -35,11 +34,17 @@ public class Collapsible : MonoBehaviour
         SetObjectsActive();
     }
 
+    #region SetParams
+
     public void SetDynamic(bool newState) => isDynamic = newState;
 
     public void SetIsBroken(bool newState) => isBroken = newState;
 
     public void SetCanPlayerCollapse(bool newState) => canPlayerCollapse = newState;
+
+    #endregion
+    
+    #region Editor
 
     public void SetCOStatesFromChildren()
     {
@@ -55,6 +60,8 @@ public class Collapsible : MonoBehaviour
         stateOld = old.GetComponent<COState>();
         stateNew = newState.GetComponent<COState>();
     }
+    
+    #endregion
 
     #region Схлопывание
     public void Collapse(bool byPlayer = false)
@@ -66,14 +73,14 @@ public class Collapsible : MonoBehaviour
             return;
         }
 
-        currentState = currentState == CollapseState.Old ? CollapseState.New : CollapseState.Old;
+        _currentState = _currentState == CollapseState.Old ? CollapseState.New : CollapseState.Old;
         SetObjectsActive();
         OnCollapse?.Invoke(this);
     }
 
     public void Collapse(CollapseState toState)
     {
-        currentState = toState;
+        _currentState = toState;
         SetObjectsActive();
     }
 
@@ -84,14 +91,14 @@ public class Collapsible : MonoBehaviour
 
     public void Reset()
     {
-        currentState = initialState;
+        _currentState = initialState;
         SetObjectsActive();
     }
 
     private void SetObjectsActive()
     {
-        stateNew.Activate(currentState == CollapseState.New);
-        stateOld.Activate(currentState == CollapseState.Old);
+        stateNew.Activate(_currentState == CollapseState.New);
+        stateOld.Activate(_currentState == CollapseState.Old);
     }
     #endregion
 }

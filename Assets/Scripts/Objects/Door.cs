@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Door : Interactable
 {
+    private static readonly int IsOpen = Animator.StringToHash("isOpen");
     public bool isOpen;
     public Animator animator;
 
@@ -16,18 +17,18 @@ public class Door : Interactable
         if (!gameObject.activeSelf) return;
 
         isOpen = !isOpen;
-        animator.SetBool("isOpen", isOpen);
+        animator.SetBool(IsOpen, isOpen);
     }
 
     public void Open()
     {
         isOpen = true;
-        animator.SetBool("isOpen", true);
+        animator.SetBool(IsOpen, true);
     }
 
     public void Close()
     {
         isOpen = false;
-        animator.SetBool("isOpen", false);
+        animator.SetBool(IsOpen, false);
     }    
 }

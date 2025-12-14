@@ -38,14 +38,11 @@ public class Dissolvable : MonoBehaviour
     }
 #endregion
 
+#region Dissolve
+
     public void Dissolve()
     {
         StartCoroutine(Dissolving());
-    }
-
-    public void Undissolve()
-    {
-        StartCoroutine(Undissolving());
     }
 
     IEnumerator Dissolving()
@@ -69,8 +66,17 @@ public class Dissolvable : MonoBehaviour
         OnTransitionEnded.Invoke();
         OnDissolved.Invoke();
     }
+    
+#endregion
 
-    IEnumerator Undissolving()
+#region Undissolve
+
+    public void Undissolve()
+    {
+        StartCoroutine(Undissolving());
+    }
+
+    private IEnumerator Undissolving()
     {
         OnTransitionStarted.Invoke();
 
@@ -89,9 +95,13 @@ public class Dissolvable : MonoBehaviour
         OnTransitionEnded.Invoke();
     }
 
-    private void SetAllRenderers(List<Renderer> renderers, float amount)
+#endregion
+
+#region Setters
+
+    private void SetAllRenderers(List<Renderer> newRenderers, float amount)
     {
-        foreach (var r in renderers)
+        foreach (var r in newRenderers)
         {
             r.material.SetFloat("_Dissolve", amount);
         }
@@ -112,4 +122,6 @@ public class Dissolvable : MonoBehaviour
             c.enabled = active;
         }
     }
+
+#endregion
 }

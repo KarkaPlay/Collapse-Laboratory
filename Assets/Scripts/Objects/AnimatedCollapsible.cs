@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Objects
@@ -10,13 +9,13 @@ namespace Objects
         public Animator animator;
         
         [SerializeField] private float animationSpeed = 1;
-        [SerializeField] private float _startAnimationProgress;
+        [SerializeField] private float startAnimationProgress;
         
         private float _animationProgress;
 
         private void Start()
         {
-            SetAnimationProgress(_startAnimationProgress);
+            SetAnimationProgress(startAnimationProgress);
         }
 
         public void Animate(float directionMultiplier)

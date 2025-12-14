@@ -8,16 +8,16 @@ public class CollapsibleGroupController : MonoBehaviour
     [Header("Динамичские схлопывающиеся объекты")]
     [SerializeField] private List<Collapsible> collapsibles = new();
 
-    public List<Collapsible> Collapsibles { get => collapsibles; }
+    public List<Collapsible> Collapsibles => collapsibles;
 
     [Header("Интервал между схлопываниями")]
     [SerializeField] public float switchStateInterval;
 
-    private Coroutine dynamicStateSwitchingCoroutine;
+    private Coroutine _dynamicStateSwitchingCoroutine;
 
-    private float timeToDissolve;
+    private float _timeToDissolve;
 
-    void Start()
+    private void Start()
     {
         if (collapsibles.Count == 0)
         {
@@ -25,28 +25,28 @@ public class CollapsibleGroupController : MonoBehaviour
         }
         else
         {
-            timeToDissolve = collapsibles[0].stateNew.GetComponent<Dissolvable>().timeToDissolve;
+            _timeToDissolve = collapsibles[0].stateNew.GetComponent<Dissolvable>().timeToDissolve;
         }
     }
 
     public void StartDynamicStateSwitching()
     {
-        if (dynamicStateSwitchingCoroutine != null)
+        if (_dynamicStateSwitchingCoroutine != null)
         {
             GameDebug.LogWarning("DynamicStateSwitchingCoroutine уже запущен! Запускаем заново");
-            StopCoroutine(dynamicStateSwitchingCoroutine);
-            dynamicStateSwitchingCoroutine = null;
+            StopCoroutine(_dynamicStateSwitchingCoroutine);
+            _dynamicStateSwitchingCoroutine = null;
         }
         
-        dynamicStateSwitchingCoroutine = StartCoroutine(DynamicStateSwitching());
+        _dynamicStateSwitchingCoroutine = StartCoroutine(DynamicStateSwitching());
     }
 
     public void StopDynamicStateSwitching()
     {
-        if (dynamicStateSwitchingCoroutine != null)
+        if (_dynamicStateSwitchingCoroutine != null)
         {
-            StopCoroutine(dynamicStateSwitchingCoroutine);
-            dynamicStateSwitchingCoroutine = null;
+            StopCoroutine(_dynamicStateSwitchingCoroutine);
+            _dynamicStateSwitchingCoroutine = null;
         }
         else
         {
@@ -91,7 +91,7 @@ public class CollapsibleGroupController : MonoBehaviour
     private IEnumerator AnimateCollapse(Collapsible collapsible)
     {
         // Ждем время анимации
-        yield return new WaitForSeconds(timeToDissolve * 2 + 0.1f);
+        yield return new WaitForSeconds(_timeToDissolve * 2 + 0.1f);
 
         // Выполняем схлопывание
         collapsible.Collapse();
@@ -100,8 +100,12 @@ public class CollapsibleGroupController : MonoBehaviour
         collapsible.SetCanPlayerCollapse(true);
     }
 
+    #region Editor
+
     public void SetCollapsiblesFromChildren()
     {
         collapsibles = GetComponentsInChildren<Collapsible>().ToList();
     }
+
+    #endregion
 }

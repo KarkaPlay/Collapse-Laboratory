@@ -4,7 +4,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Outline))]
 public abstract class Interactable : MonoBehaviour, IInteractable
 {
-    private Outline outline;
+    private Outline _outline;
 
     public bool canPlayerInteract = true;
     public bool isWorking = true;
@@ -17,7 +17,7 @@ public abstract class Interactable : MonoBehaviour, IInteractable
 
     void Awake()
     {
-        outline = GetComponent<Outline>();
+        _outline = GetComponent<Outline>();
     }
 
     public virtual void OnInteract()
@@ -30,11 +30,11 @@ public abstract class Interactable : MonoBehaviour, IInteractable
 
     public virtual void OnHighlight()
     {
-        outline.enabled = true;
+        _outline.enabled = true;
     }
 
     public virtual void OnUnhighlight()
     {
-        outline.enabled = false;
+        _outline.enabled = false;
     }
 }
