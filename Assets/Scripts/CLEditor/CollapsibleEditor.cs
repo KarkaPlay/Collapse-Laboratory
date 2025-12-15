@@ -1,10 +1,10 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Editor
+namespace CLEditor
 {
     [CustomEditor(typeof(Collapsible))]
-    public class CollapsibleEditor : UnityEditor.Editor
+    public class CollapsibleEditor : Editor
     {
         public override void OnInspectorGUI()
         {

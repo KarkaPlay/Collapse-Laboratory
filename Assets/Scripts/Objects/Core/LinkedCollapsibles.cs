@@ -11,7 +11,7 @@ public class LinkedCollapsibles : MonoBehaviour
         {
             if (collapsible != invokerCollapsible)
             {
-                collapsible.Collapse(false);
+                collapsible.Collapse(false, false);
             }
         }
     }

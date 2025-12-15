@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AnimatedBridge
+  m_Controller: {fileID: 9100000, guid: a1d26fd8f2dd640bdb43f586d9284a53, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 838d93a3684b043b192319565ec857da, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 11dc74b4d47b54a0482d540f81d8e84b, type: 2}

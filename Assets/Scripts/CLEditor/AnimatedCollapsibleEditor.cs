@@ -2,10 +2,10 @@ using Objects;
 using UnityEditor;
 using UnityEngine;
 
-namespace Editor
+namespace CLEditor
 {
     [CustomEditor(typeof(AnimatedCollapsible))]
-    public class AnimatedCollapsibleEditor : UnityEditor.Editor
+    public class AnimatedCollapsibleEditor : Editor
     {
         private SerializedProperty _animatorProperty;
         private SerializedProperty _animationSpeedProperty;

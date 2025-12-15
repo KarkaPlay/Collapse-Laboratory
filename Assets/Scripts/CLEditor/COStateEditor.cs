@@ -1,10 +1,10 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Editor
+namespace CLEditor
 {
     [CustomEditor(typeof(COState))]
-    public class COStateEditor : UnityEditor.Editor
+    public class COStateEditor : Editor
     {
         public override void OnInspectorGUI()
         {

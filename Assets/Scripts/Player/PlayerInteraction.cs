@@ -34,6 +34,7 @@ public class PlayerInteraction : MonoBehaviour
 
     public void OnCollapse()
     {
+        Debug.Log("Collapse");
         (_currentTarget as ICollapsible)?.OnCollapse();
         ClearTarget();
     }

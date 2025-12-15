@@ -64,7 +64,7 @@ public class Collapsible : MonoBehaviour
     #endregion
 
     #region Схлопывание
-    public void Collapse(bool byPlayer = false)
+    public void Collapse(bool byPlayer = false, bool invokeOnCollapse = true)
     {
         if (byPlayer && !canPlayerCollapse)
         {
@@ -75,7 +75,10 @@ public class Collapsible : MonoBehaviour
 
         _currentState = _currentState == CollapseState.Old ? CollapseState.New : CollapseState.Old;
         SetObjectsActive();
-        OnCollapse?.Invoke(this);
+        if (invokeOnCollapse)
+        {
+            OnCollapse?.Invoke(this);
+        }
     }
 
     public void Collapse(CollapseState toState)

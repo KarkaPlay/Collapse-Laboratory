@@ -2,10 +2,10 @@ using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
 
-namespace Editor
+namespace CLEditor
 {
     [CustomEditor(typeof(Dissolvable))]
-    public class DissolvableEditor : UnityEditor.Editor
+    public class DissolvableEditor : Editor
     {
         private Dissolvable _targetScript;
         private SerializedProperty _renderersProp;
