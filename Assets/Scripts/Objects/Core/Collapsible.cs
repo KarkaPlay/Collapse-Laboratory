@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -23,6 +24,8 @@ public class Collapsible : MonoBehaviour
     public bool isBroken;
 
     public UnityEvent<Collapsible> OnCollapse;
+    
+    public CollapsibleGroupController _groupController;
 
     private void Awake()
     {
@@ -32,6 +35,7 @@ public class Collapsible : MonoBehaviour
     void Start()
     {
         SetObjectsActive();
+        _groupController = GetComponentInParent<CollapsibleGroupController>();
     }
 
     #region SetParams
@@ -59,6 +63,34 @@ public class Collapsible : MonoBehaviour
 
         stateOld = old.GetComponent<COState>();
         stateNew = newState.GetComponent<COState>();
+    }
+    
+    private void OnDrawGizmos()
+    {
+#if UNITY_EDITOR
+        if (!isDynamic || _groupController == null) return;
+    
+        // Рассчитываем оставшееся время
+        float timeRemaining = Mathf.Max(0, _groupController.switchStateInterval - _groupController.timeSinceLastSwitch);
+        string timeText = $"Next collapse: {timeRemaining:F1}s";
+    
+        // Позиция для отображения текста (над объектом)
+        Vector3 position = transform.position + Vector3.up * 0.5f;
+    
+        // Стиль текста
+        GUIStyle style = new GUIStyle();
+        style.normal.textColor = Color.yellow;
+        style.fontSize = 12;
+        style.fontStyle = FontStyle.Bold;
+        style.alignment = TextAnchor.MiddleCenter;
+    
+        // Рисуем текст
+        Handles.Label(position, timeText, style);
+    
+        // Рисуем линию к объекту
+        Handles.color = Color.yellow;
+        Handles.DrawDottedLine(position, transform.position, 2f);
+#endif
     }
     
     #endregion

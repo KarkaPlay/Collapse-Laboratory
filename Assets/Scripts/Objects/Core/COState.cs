@@ -96,24 +96,25 @@ public class COState : MonoBehaviour, ICollapsible
 
     private IEnumerator Activating(bool active)
     {
-        parentCollapsible.SetCanPlayerCollapse(false);
         SetHighlightable(false);
 
         if (active)
         {
-            dissolvable.Undissolve();
+            var initialCanPlayerCollapse = parentCollapsible.canPlayerCollapse;
+            parentCollapsible.SetCanPlayerCollapse(false);
+            
+            yield return StartCoroutine(dissolvable.Undissolving());
+            
+            parentCollapsible.SetCanPlayerCollapse(initialCanPlayerCollapse);
+            
+            if (!parentCollapsible.isBroken)
+            { 
+                SetHighlightable(true); // Включаем подсветку для нового состояния
+            }
         }
         else
         {
-            dissolvable.Dissolve();
-        }
-
-        yield return new WaitForSeconds(dissolvable.timeToDissolve);
-
-        if (!parentCollapsible.isBroken)
-        {
-            parentCollapsible.SetCanPlayerCollapse(true);
-            SetHighlightable(true); // Включаем подсветку для нового состояния
+            yield return StartCoroutine(dissolvable.Dissolving());
         }
     }
 

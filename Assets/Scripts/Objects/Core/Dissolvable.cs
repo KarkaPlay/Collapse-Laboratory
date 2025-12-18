@@ -45,7 +45,7 @@ public class Dissolvable : MonoBehaviour
         StartCoroutine(Dissolving());
     }
 
-    IEnumerator Dissolving()
+    public IEnumerator Dissolving()
     {
         OnTransitionStarted.Invoke();
 
@@ -76,7 +76,7 @@ public class Dissolvable : MonoBehaviour
         StartCoroutine(Undissolving());
     }
 
-    private IEnumerator Undissolving()
+    public IEnumerator Undissolving()
     {
         OnTransitionStarted.Invoke();
 

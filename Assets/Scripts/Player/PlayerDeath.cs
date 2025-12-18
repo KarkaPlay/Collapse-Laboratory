@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using StarterAssets;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerDeath : MonoBehaviour
 {
@@ -43,5 +44,11 @@ public class PlayerDeath : MonoBehaviour
         {
             Respawn();
         }
+    }
+
+    public void OnEscape()
+    {
+        SceneManager.LoadScene("Menu");
+        Cursor.lockState = CursorLockMode.None;
     }
 }

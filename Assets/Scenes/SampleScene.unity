@@ -2066,6 +2066,7 @@ MonoBehaviour:
   OnCollapse:
     m_PersistentCalls:
       m_Calls: []
+  _groupController: {fileID: 0}
 --- !u!4 &104956359
 Transform:
   m_ObjectHideFlags: 0
@@ -3726,8 +3727,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321354771}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.4999981, y: -0.5, z: -5.148181}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5357,8 +5358,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 459585883}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.70710677}
+  m_LocalPosition: {x: 0.80752945, y: 0.1400528, z: -11.598101}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5399,6 +5400,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _groupController: {fileID: 0}
 --- !u!21 &462558277
 Material:
   serializedVersion: 8
@@ -5577,8 +5579,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 477678018}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.70710677}
-  m_LocalPosition: {x: 0.80752945, y: 0.1400528, z: -11.598101}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27969,6 +27971,7 @@ MonoBehaviour:
   OnCollapse:
     m_PersistentCalls:
       m_Calls: []
+  _groupController: {fileID: 0}
 --- !u!43 &565407321
 Mesh:
   m_ObjectHideFlags: 0
@@ -36543,8 +36546,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 852526237}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.4999981, y: -0.5, z: -5.148181}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37068,8 +37071,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875258121}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.70710677}
-  m_LocalPosition: {x: 0.80752945, y: 0.1400528, z: -11.598101}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -39079,7 +39082,7 @@ Transform:
   m_GameObject: {fileID: 947225010}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.467, y: -0.41, z: -9.191}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43027,6 +43030,7 @@ MonoBehaviour:
   OnCollapse:
     m_PersistentCalls:
       m_Calls: []
+  _groupController: {fileID: 0}
 --- !u!1 &1161553414
 GameObject:
   m_ObjectHideFlags: 0
@@ -49671,6 +49675,7 @@ MonoBehaviour:
   OnCollapse:
     m_PersistentCalls:
       m_Calls: []
+  _groupController: {fileID: 0}
 --- !u!4 &1352528777
 Transform:
   m_ObjectHideFlags: 0
@@ -54119,7 +54124,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff4df7016b6684867990c61d69c350e6, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::Dissolvable
 --- !u!1 &1535028557
 GameObject:
   m_ObjectHideFlags: 0
@@ -54388,8 +54393,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1611090879}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -1.4999981, y: 0, z: -5.148181}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -54418,6 +54423,7 @@ MonoBehaviour:
   OnCollapse:
     m_PersistentCalls:
       m_Calls: []
+  _groupController: {fileID: 0}
 --- !u!1001 &1616983884
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59389,6 +59395,7 @@ MonoBehaviour:
   OnCollapse:
     m_PersistentCalls:
       m_Calls: []
+  _groupController: {fileID: 0}
 --- !u!1 &1921378464
 GameObject:
   m_ObjectHideFlags: 0
@@ -65954,6 +65961,7 @@ MonoBehaviour:
   OnCollapse:
     m_PersistentCalls:
       m_Calls: []
+  _groupController: {fileID: 0}
 --- !u!4 &8471240916951029929
 Transform:
   m_ObjectHideFlags: 0
