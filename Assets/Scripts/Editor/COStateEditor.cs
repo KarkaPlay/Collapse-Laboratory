@@ -1,3 +1,4 @@
+using System;
 using UnityEditor;
 using UnityEngine;
 
@@ -92,6 +93,11 @@ namespace CLEditor
             if (objectName.EndsWith("_OLD")) return "Old";
             if (objectName.EndsWith("_NEW")) return "New";
             return "Не определено";
+        }
+
+        private void OnDisable()
+        {
+            
         }
     }
 }

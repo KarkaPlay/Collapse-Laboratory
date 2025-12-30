@@ -1,3 +1,4 @@
+using System;
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
@@ -216,6 +217,32 @@ namespace CLEditor
             EditorGUI.EndDisabledGroup();
 
             serializedObject.ApplyModifiedProperties();
+        }
+
+        private void OnDisable()
+        {
+            // Clean up ReorderableList instances
+            if (_renderersList != null)
+            {
+                _renderersList = null;
+            }
+    
+            if (_collidersList != null)
+            {
+                _collidersList = null;
+            }
+    
+            // Clear serialized properties to prevent reference leaks
+            _renderersProp = null;
+            _collidersProp = null;
+            _timeToDissolveProp = null;
+            _onTransitionStartedProp = null;
+            _onTransitionEndedProp = null;
+            _onDissolvedProp = null;
+            _onUndissolvedProp = null;
+    
+            // Clear target reference
+            _targetScript = null;
         }
     }
 }

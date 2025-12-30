@@ -24,8 +24,6 @@ public class Collapsible : MonoBehaviour
     public bool isBroken;
 
     public UnityEvent<Collapsible> OnCollapse;
-    
-    public CollapsibleGroupController _groupController;
 
     private void Awake()
     {
@@ -35,7 +33,6 @@ public class Collapsible : MonoBehaviour
     void Start()
     {
         SetObjectsActive();
-        _groupController = GetComponentInParent<CollapsibleGroupController>();
     }
 
     #region SetParams
@@ -68,10 +65,12 @@ public class Collapsible : MonoBehaviour
     private void OnDrawGizmos()
     {
 #if UNITY_EDITOR
-        if (!isDynamic || _groupController == null) return;
+        var groupController = GetComponentInParent<CollapsibleGroupController>();
+        
+        if (!isDynamic || groupController == null) return;
     
         // Рассчитываем оставшееся время
-        float timeRemaining = Mathf.Max(0, _groupController.switchStateInterval - _groupController.timeSinceLastSwitch);
+        float timeRemaining = Mathf.Max(0, groupController.switchStateInterval - groupController.timeSinceLastSwitch);
         string timeText = $"Next collapse: {timeRemaining:F1}s";
     
         // Позиция для отображения текста (над объектом)
