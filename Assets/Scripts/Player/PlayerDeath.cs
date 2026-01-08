@@ -48,7 +48,7 @@ public class PlayerDeath : MonoBehaviour
 
     public void OnEscape()
     {
-        SceneManager.LoadScene("Menu");
-        Cursor.lockState = CursorLockMode.None;
+        //SceneManager.LoadScene("Menu");
+        //Cursor.lockState = CursorLockMode.None;
     }
 }
