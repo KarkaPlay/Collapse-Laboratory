@@ -1,0 +1,12 @@
+﻿<Solution>
+  <Project Path="MerryYellow.CodeAssist.Editor.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="BetterHierarchy.csproj" />
+  <Project Path="Assembly-CSharp-Editor.csproj" />
+  <Project Path="Unity.StarterAssets.csproj" />
+  <Project Path="BetterHierarchyDemoScripts.csproj" />
+  <Project Path="Assembly-CSharp-firstpass.csproj" />
+  <Project Path="Assembly-CSharp-Editor-firstpass.csproj" />
+  <Project Path="URPWizard.csproj" />
+  <Project Path="Unity.StarterAssets.Editor.csproj" />
+</Solution>

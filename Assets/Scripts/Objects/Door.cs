@@ -17,18 +17,30 @@ public class Door : Interactable
         if (!gameObject.activeSelf) return;
 
         isOpen = !isOpen;
-        animator.SetBool(IsOpen, isOpen);
+        SetAnimatorIsOpen(isOpen);
     }
 
     public void Open()
     {
         isOpen = true;
-        animator.SetBool(IsOpen, true);
+        SetAnimatorIsOpen(true);
     }
 
     public void Close()
     {
         isOpen = false;
-        animator.SetBool(IsOpen, false);
-    }    
+        SetAnimatorIsOpen(false);
+    }
+
+    private void SetAnimatorIsOpen(bool newState)
+    {
+        if (animator)
+        {
+            animator.SetBool(IsOpen, newState);
+        }
+        else
+        {
+            Debug.LogWarning("Не настроен аниматор двери", gameObject);
+        }
+    }
 }

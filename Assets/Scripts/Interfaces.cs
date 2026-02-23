@@ -20,4 +20,6 @@ public interface ICollapsible : IHighlightable
 public interface IAnimatedCollapsible : IHighlightable
 {
     void Animate(float directionMultiplier);
+
+    void StopPlayerControl();
 }

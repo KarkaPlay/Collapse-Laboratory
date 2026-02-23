@@ -12,7 +12,7 @@ public class PlayerInteraction : MonoBehaviour
     public LayerMask interactableLayer;
 
     public Camera playerCamera;
-    
+
     private float _animationDirection;
 
     void OnDrawGizmos()
@@ -57,7 +57,7 @@ public class PlayerInteraction : MonoBehaviour
                     ClearTarget();
                     _currentTarget = target;
                     _currentTarget.OnHighlight();
-                    
+
                     _currentAnimatedTarget = _currentTarget as IAnimatedCollapsible;
                     PlayerUI.Instance.SetAnimatedTargetSliderVisible(_currentAnimatedTarget != null);
                 }
@@ -76,8 +76,14 @@ public class PlayerInteraction : MonoBehaviour
     private void AnimateCollapsible()
     {
         if (_animationDirection != 0f)
-        { 
+        {
+            // Игрок управляет анимацией
             _currentAnimatedTarget?.Animate(_animationDirection);
+        }
+        else
+        {
+            // Игрок отпустил клавишу — возвращаем автоматическое управление
+            _currentAnimatedTarget?.StopPlayerControl();
         }
     }
 
@@ -85,6 +91,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         _currentTarget?.OnUnhighlight();
         _currentTarget = null;
+        _currentAnimatedTarget?.StopPlayerControl();
         _currentAnimatedTarget = null;
         PlayerUI.Instance.SetAnimatedTargetSliderVisible(false);
     }
