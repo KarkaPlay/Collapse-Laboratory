@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Objects
 {
@@ -8,6 +9,8 @@ namespace Objects
 
         public Animator animator;
 
+        public UnityEvent<float> onAnimationProgressChanged;
+
         [Header("Настройки анимации")]
         [SerializeField] private float animationSpeed = 1;
         [SerializeField] private float startAnimationProgress;
@@ -16,6 +19,10 @@ namespace Objects
         [SerializeField] private bool isAutomaticAnimation = false;
         [SerializeField] private float automaticAnimationSpeed = 1f;
         [SerializeField] private float automaticAnimationDirection = 1f;
+
+        [Header("Визуальная обратная связь")]
+        public AnimatedObjectVFX visualFeedback;
+        //public AnimatedObjectAudio audioFeedback;
 
         private float _animationProgress;
         private bool _isPlayerControlling = false;
@@ -64,6 +71,15 @@ namespace Objects
 
             _animationProgress = progress;
             animator.SetFloat(MotionTime, _animationProgress);
+
+            onAnimationProgressChanged?.Invoke(_animationProgress);
+
+            // Обновляем визуальные эффекты
+            if (visualFeedback != null)
+            {
+                visualFeedback.UpdateVFX(_animationProgress);
+            }
+
             PlayerUI.Instance.UpdateAnimatedCollapsibleSlider(_animationProgress);
         }
 
