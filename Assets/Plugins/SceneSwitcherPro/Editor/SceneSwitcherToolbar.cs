@@ -1,11 +1,11 @@
 #if UNITY_EDITOR
+using System.IO;
+using System.Linq;
+using System.Reflection;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UIElements;
-using System.Reflection;
-using System.Linq;
-using System.IO;
 
 [InitializeOnLoad]
 public static class SceneSwitcherToolbar
@@ -15,7 +15,7 @@ public static class SceneSwitcherToolbar
     private static string lastActiveScene = "";
     private static VisualElement toolbarUI;
 
-    private static float positionOffset = 180f; // Move closer to Play button
+    private static float positionOffset = 0f; // Move closer to Play button
     private static float dropdownBoxHeight = 20f; // Dropdown button height
 
     private static bool fetchAllScenes
