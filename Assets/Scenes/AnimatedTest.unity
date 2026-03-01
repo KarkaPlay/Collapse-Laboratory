@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1278952}
   - component: {fileID: 1278951}
+  - component: {fileID: 1278953}
   m_Layer: 0
   m_Name: Linked 2
   m_TagString: Untagged
@@ -151,6 +152,8 @@ MonoBehaviour:
   linkedCollapsibles:
   - {fileID: 2094564453}
   - {fileID: 1838675042}
+  trailMoveTime: 1
+  invokesChainReaction: 0
 --- !u!4 &1278952
 Transform:
   m_ObjectHideFlags: 0
@@ -166,6 +169,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1871336605}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1278953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a388204524044d43b2a9f336c8dd45b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrailMoving
+  trailPrefab: {fileID: 0}
 --- !u!65 &5166340 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 3332939972972716662, guid: 3ee31620d2f1fe64189ef79ca43a2c03, type: 3}
@@ -2986,6 +3002,7 @@ GameObject:
   m_Component:
   - component: {fileID: 245024573}
   - component: {fileID: 245024572}
+  - component: {fileID: 245024574}
   m_Layer: 0
   m_Name: "\u041A\u0432\u0430\u043D\u0442\u043E\u0432\u043E \u0437\u0430\u043F\u0443\u0442\u0430\u043D\u043D\u044B\u0435"
   m_TagString: Untagged
@@ -3010,6 +3027,8 @@ MonoBehaviour:
   - {fileID: 903361325}
   - {fileID: 60780404}
   - {fileID: 2105328081}
+  trailMoveTime: 1
+  invokesChainReaction: 0
 --- !u!4 &245024573
 Transform:
   m_ObjectHideFlags: 0
@@ -3030,6 +3049,19 @@ Transform:
   - {fileID: 1257444070}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &245024574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245024571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a388204524044d43b2a9f336c8dd45b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrailMoving
+  trailPrefab: {fileID: 0}
 --- !u!1 &248296650
 GameObject:
   m_ObjectHideFlags: 0
@@ -3670,6 +3702,7 @@ GameObject:
   - component: {fileID: 294538224}
   - component: {fileID: 294538223}
   - component: {fileID: 294538228}
+  - component: {fileID: 294538229}
   m_Layer: 0
   m_Name: Sphere_OLD
   m_TagString: Untagged
@@ -3833,6 +3866,32 @@ MonoBehaviour:
   outline: {fileID: 294538224}
   dissolvable: {fileID: 294538223}
   isHighlightable: 1
+--- !u!114 &294538229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294538221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d190dae4352fc84d9f2dc12413c8feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TemporalFX.TemporalInstabilityEffect
+  _effectEnabled: 1
+  _intensity: 1
+  _speed: 1
+  _warpAmount: 0.01
+  _glitchAmount: 0.1
+  _noiseScale: 3
+  _colorShiftAmount: 0.1
+  _glowColor: {r: 0.115521535, g: 0.16642936, b: 0.41509432, a: 1}
+  _seed: 0
+  _autoSeed: 1
+  _surgeEnabled: 0
+  _surgeDuration: 2
+  _surgeMultiplier: 3
+  _useGlobalSync: 0
 --- !u!1 &299613940
 GameObject:
   m_ObjectHideFlags: 0
@@ -4514,6 +4573,7 @@ GameObject:
   m_Component:
   - component: {fileID: 344285584}
   - component: {fileID: 344285583}
+  - component: {fileID: 344285585}
   m_Layer: 0
   m_Name: Linked 1
   m_TagString: Untagged
@@ -4536,6 +4596,8 @@ MonoBehaviour:
   linkedCollapsibles:
   - {fileID: 1754522032}
   - {fileID: 2094564453}
+  trailMoveTime: 1
+  invokesChainReaction: 0
 --- !u!4 &344285584
 Transform:
   m_ObjectHideFlags: 0
@@ -4551,6 +4613,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1871336605}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &344285585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344285582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a388204524044d43b2a9f336c8dd45b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrailMoving
+  trailPrefab: {fileID: 0}
 --- !u!43 &357769813
 Mesh:
   m_ObjectHideFlags: 0
@@ -6649,6 +6724,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 834763529}
     m_Modifications:
     - target: {fileID: 8048405437902404720, guid: 7c0be212a310e324d9f1c3d0a9ab5182, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048405437902404720, guid: 7c0be212a310e324d9f1c3d0a9ab5182, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e0e4e1847f27840b082e77a5bbaf1263, type: 2}
@@ -7655,6 +7734,7 @@ GameObject:
   m_Component:
   - component: {fileID: 569155424}
   - component: {fileID: 569155423}
+  - component: {fileID: 569155425}
   m_Layer: 0
   m_Name: "\u0417\u0430\u043F\u0443\u0442\u0430\u043D\u043D\u044B\u0435"
   m_TagString: Untagged
@@ -7683,6 +7763,8 @@ MonoBehaviour:
   - {fileID: 742244748}
   - {fileID: 736999853}
   - {fileID: 2066412409}
+  trailMoveTime: 1
+  invokesChainReaction: 0
 --- !u!4 &569155424
 Transform:
   m_ObjectHideFlags: 0
@@ -7703,6 +7785,19 @@ Transform:
   - {fileID: 1640471684}
   m_Father: {fileID: 1147706707}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &569155425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569155422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a388204524044d43b2a9f336c8dd45b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrailMoving
+  trailPrefab: {fileID: 0}
 --- !u!1001 &577011713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8383,6 +8478,7 @@ GameObject:
   - component: {fileID: 642632947}
   - component: {fileID: 642632946}
   - component: {fileID: 642632945}
+  - component: {fileID: 642632952}
   m_Layer: 0
   m_Name: Cube_OLD
   m_TagString: Untagged
@@ -8546,6 +8642,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 60780405}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &642632952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642632944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d190dae4352fc84d9f2dc12413c8feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TemporalFX.TemporalInstabilityEffect
+  _effectEnabled: 1
+  _intensity: 1
+  _speed: 1
+  _warpAmount: 0.01
+  _glitchAmount: 0.1
+  _noiseScale: 3
+  _colorShiftAmount: 0.1
+  _glowColor: {r: 0.115521535, g: 0.16642936, b: 0.41509432, a: 1}
+  _seed: 0
+  _autoSeed: 1
+  _surgeEnabled: 0
+  _surgeDuration: 2
+  _surgeMultiplier: 3
+  _useGlobalSync: 0
 --- !u!1 &682118223
 GameObject:
   m_ObjectHideFlags: 0
@@ -9329,6 +9451,7 @@ GameObject:
   m_Component:
   - component: {fileID: 796611424}
   - component: {fileID: 796611423}
+  - component: {fileID: 796611425}
   m_Layer: 0
   m_Name: Linked 3
   m_TagString: Untagged
@@ -9351,6 +9474,8 @@ MonoBehaviour:
   linkedCollapsibles:
   - {fileID: 1754522032}
   - {fileID: 1838675042}
+  trailMoveTime: 1
+  invokesChainReaction: 0
 --- !u!4 &796611424
 Transform:
   m_ObjectHideFlags: 0
@@ -9366,6 +9491,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1871336605}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &796611425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796611422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a388204524044d43b2a9f336c8dd45b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrailMoving
+  trailPrefab: {fileID: 0}
 --- !u!1 &801746442
 GameObject:
   m_ObjectHideFlags: 0
@@ -10742,6 +10880,7 @@ GameObject:
   - component: {fileID: 882015528}
   - component: {fileID: 882015525}
   - component: {fileID: 882015524}
+  - component: {fileID: 882015531}
   m_Layer: 0
   m_Name: Sphere_NEW
   m_TagString: Untagged
@@ -10905,6 +11044,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2105328082}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &882015531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882015523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d190dae4352fc84d9f2dc12413c8feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TemporalFX.TemporalInstabilityEffect
+  _effectEnabled: 1
+  _intensity: 1
+  _speed: 1
+  _warpAmount: 0.01
+  _glitchAmount: 0.1
+  _noiseScale: 3
+  _colorShiftAmount: 0.1
+  _glowColor: {r: 0.115521535, g: 0.16642936, b: 0.41509432, a: 1}
+  _seed: 0
+  _autoSeed: 1
+  _surgeEnabled: 0
+  _surgeDuration: 2
+  _surgeMultiplier: 3
+  _useGlobalSync: 0
 --- !u!1 &885555313
 GameObject:
   m_ObjectHideFlags: 0
@@ -11456,6 +11621,7 @@ GameObject:
   m_Component:
   - component: {fileID: 922797061}
   - component: {fileID: 922797060}
+  - component: {fileID: 922797062}
   m_Layer: 0
   m_Name: "\u0417\u0430\u043F\u0443\u0442\u0430\u043D\u043D\u044B\u0435 (\u043E\u0434\u0438\u043D
     \u0441\u0442\u0430\u0431\u0438\u043B\u044C\u043D\u044B\u0439)"
@@ -11479,6 +11645,8 @@ MonoBehaviour:
   linkedCollapsibles:
   - {fileID: 67204948}
   - {fileID: 1404184460}
+  trailMoveTime: 1
+  invokesChainReaction: 0
 --- !u!4 &922797061
 Transform:
   m_ObjectHideFlags: 0
@@ -11496,6 +11664,19 @@ Transform:
   - {fileID: 1404184461}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &922797062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922797059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a388204524044d43b2a9f336c8dd45b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrailMoving
+  trailPrefab: {fileID: 0}
 --- !u!1 &928582470
 GameObject:
   m_ObjectHideFlags: 0
@@ -14667,6 +14848,7 @@ GameObject:
   - component: {fileID: 1043880424}
   - component: {fileID: 1043880421}
   - component: {fileID: 1043880420}
+  - component: {fileID: 1043880427}
   m_Layer: 0
   m_Name: Sphere_OLD
   m_TagString: Untagged
@@ -14830,6 +15012,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1445003022}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1043880427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043880419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d190dae4352fc84d9f2dc12413c8feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TemporalFX.TemporalInstabilityEffect
+  _effectEnabled: 1
+  _intensity: 1
+  _speed: 1
+  _warpAmount: 0.01
+  _glitchAmount: 0.1
+  _noiseScale: 3
+  _colorShiftAmount: 0.1
+  _glowColor: {r: 0.115521535, g: 0.16642936, b: 0.41509432, a: 1}
+  _seed: 0
+  _autoSeed: 1
+  _surgeEnabled: 0
+  _surgeDuration: 2
+  _surgeMultiplier: 3
+  _useGlobalSync: 0
 --- !u!1 &1055073716
 GameObject:
   m_ObjectHideFlags: 0
@@ -18941,6 +19149,7 @@ GameObject:
   - component: {fileID: 1458232130}
   - component: {fileID: 1458232129}
   - component: {fileID: 1458232134}
+  - component: {fileID: 1458232135}
   m_Layer: 0
   m_Name: Cube_OLD
   m_TagString: Untagged
@@ -19104,6 +19313,32 @@ MonoBehaviour:
   outline: {fileID: 1458232130}
   dissolvable: {fileID: 1458232129}
   isHighlightable: 1
+--- !u!114 &1458232135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458232127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d190dae4352fc84d9f2dc12413c8feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TemporalFX.TemporalInstabilityEffect
+  _effectEnabled: 1
+  _intensity: 1
+  _speed: 1
+  _warpAmount: 0.01
+  _glitchAmount: 0.1
+  _noiseScale: 3
+  _colorShiftAmount: 0.1
+  _glowColor: {r: 0.115521535, g: 0.16642936, b: 0.41509432, a: 1}
+  _seed: 0
+  _autoSeed: 1
+  _surgeEnabled: 0
+  _surgeDuration: 2
+  _surgeMultiplier: 3
+  _useGlobalSync: 0
 --- !u!1 &1458406982
 GameObject:
   m_ObjectHideFlags: 0
@@ -20162,6 +20397,7 @@ GameObject:
   - component: {fileID: 1628557044}
   - component: {fileID: 1628557041}
   - component: {fileID: 1628557040}
+  - component: {fileID: 1628557047}
   m_Layer: 0
   m_Name: Sphere_NEW
   m_TagString: Untagged
@@ -20325,6 +20561,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1445003022}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1628557047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628557039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d190dae4352fc84d9f2dc12413c8feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TemporalFX.TemporalInstabilityEffect
+  _effectEnabled: 1
+  _intensity: 1
+  _speed: 1
+  _warpAmount: 0.01
+  _glitchAmount: 0.1
+  _noiseScale: 3
+  _colorShiftAmount: 0.1
+  _glowColor: {r: 0.115521535, g: 0.16642936, b: 0.41509432, a: 1}
+  _seed: 0
+  _autoSeed: 1
+  _surgeEnabled: 0
+  _surgeDuration: 2
+  _surgeMultiplier: 3
+  _useGlobalSync: 0
 --- !u!1 &1631620486
 GameObject:
   m_ObjectHideFlags: 0
@@ -24268,6 +24530,7 @@ GameObject:
   - component: {fileID: 1899416420}
   - component: {fileID: 1899416417}
   - component: {fileID: 1899416416}
+  - component: {fileID: 1899416423}
   m_Layer: 0
   m_Name: Cube_NEW
   m_TagString: Untagged
@@ -24431,6 +24694,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 903361326}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1899416423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899416415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d190dae4352fc84d9f2dc12413c8feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TemporalFX.TemporalInstabilityEffect
+  _effectEnabled: 1
+  _intensity: 1
+  _speed: 1
+  _warpAmount: 0.01
+  _glitchAmount: 0.1
+  _noiseScale: 3
+  _colorShiftAmount: 0.1
+  _glowColor: {r: 0.115521535, g: 0.16642936, b: 0.41509432, a: 1}
+  _seed: 0
+  _autoSeed: 1
+  _surgeEnabled: 0
+  _surgeDuration: 2
+  _surgeMultiplier: 3
+  _useGlobalSync: 0
 --- !u!1 &1900084448
 GameObject:
   m_ObjectHideFlags: 0
@@ -25491,6 +25780,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 834763529}
     m_Modifications:
+    - target: {fileID: 8048405437902404720, guid: 7c0be212a310e324d9f1c3d0a9ab5182, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8048405437902404720, guid: 7c0be212a310e324d9f1c3d0a9ab5182, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -27061,6 +27354,7 @@ GameObject:
   - component: {fileID: 2119509557}
   - component: {fileID: 2119509556}
   - component: {fileID: 2119509555}
+  - component: {fileID: 2119509562}
   m_Layer: 0
   m_Name: Cube_NEW
   m_TagString: Untagged
@@ -27224,6 +27518,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 60780405}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2119509562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119509554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d190dae4352fc84d9f2dc12413c8feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TemporalFX.TemporalInstabilityEffect
+  _effectEnabled: 1
+  _intensity: 1
+  _speed: 1
+  _warpAmount: 0.01
+  _glitchAmount: 0.1
+  _noiseScale: 3
+  _colorShiftAmount: 0.1
+  _glowColor: {r: 0.115521535, g: 0.16642936, b: 0.41509432, a: 1}
+  _seed: 0
+  _autoSeed: 1
+  _surgeEnabled: 0
+  _surgeDuration: 2
+  _surgeMultiplier: 3
+  _useGlobalSync: 0
 --- !u!1 &2120485772
 GameObject:
   m_ObjectHideFlags: 0
@@ -27420,8 +27740,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   animator: {fileID: 2121174132}
+  onAnimationProgressChanged:
+    m_PersistentCalls:
+      m_Calls: []
   animationSpeed: 0.1
   startAnimationProgress: 0.999
+  isAutomaticAnimation: 0
+  automaticAnimationSpeed: 1
+  automaticAnimationDirection: 1
+  visualFeedback: {fileID: 0}
 --- !u!114 &2121174131
 MonoBehaviour:
   m_ObjectHideFlags: 0

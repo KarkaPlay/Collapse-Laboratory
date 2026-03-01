@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Mat OLD
-  m_Shader: {fileID: -6465566751694194690, guid: 2c6e52535f17dfc4b8e0bb3d1e91aea4, type: 3}
+  m_Shader: {fileID: 4800000, guid: 3c07149a80289f84ebc68200a2183dfc, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -111,19 +111,27 @@ Material:
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
+    - _ColorShiftAmount: 0.15
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _Dissolve: 0
+    - _Dissolve: 0.009
+    - _DissolveEdgeIntensity: 3
+    - _DissolveEdgeWidth: 0.06
+    - _DissolveNoiseScale: 5
+    - _DistortShadows: 0
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EdgeColorIntensity: 1
     - _EdgeWidth: 0.05
+    - _EffectEnabled: 1
     - _EnvironmentReflections: 1
+    - _GlitchAmount: 0.1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _InstanceSeed: 0
     - _Metallic: 0
     - _Mode: 0
     - _NoiseScale: 1000
@@ -139,15 +147,20 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
+    - _TemporalIntensity: 0
+    - _TemporalSpeed: 1.5
     - _UVSec: 0
+    - _WarpAmount: 0.05
     - _WorkflowMode: 1
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 0.6886792, g: 0.4462369, b: 0.15267888, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DissolveEdgeColor: {r: 1, g: 0.4, b: 0.1, a: 1}
     - _EdgeColor: {r: 0, g: 372.97067, b: 383.49808, a: 0.14901961}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _GlowColor: {r: 0.39999998, g: 0.5, b: 1, a: 1}
     - _NoiseUVSpeed: {r: 0, g: 0, b: 0, a: 0}
     - _Offest: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}

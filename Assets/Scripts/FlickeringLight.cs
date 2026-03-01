@@ -4,7 +4,7 @@ using UnityEngine.Rendering.Universal;
 /// <summary>
 /// Flickering Light — компонент мерцающего света для Unity 6 URP.
 /// Поддерживает несколько режимов мерцания, два значения яркости,
-/// опциональное изменение цвета и радиуса.
+/// опциональное изменение цвета, радиуса и Emissive-параметра материала.
 /// </summary>
 [RequireComponent(typeof(Light))]
 public class FlickeringLight : MonoBehaviour
@@ -15,11 +15,11 @@ public class FlickeringLight : MonoBehaviour
 
     public enum FlickerMode
     {
-        Random,     // случайные скачки между двумя значениями
-        SineWave,   // плавная синусоида
-        Candle,     // имитация пламени свечи (Perlin noise)
-        Strobe,     // резкое вкл/выкл
-        Pulse       // плавный пульс (ease-in-out)
+        Random,
+        SineWave,
+        Candle,
+        Strobe,
+        Pulse
     }
 
     // ──────────────────────────────────────────────
@@ -69,10 +69,10 @@ public class FlickeringLight : MonoBehaviour
     public bool enableColorShift = false;
 
     [Tooltip("Первый цвет")]
-    public Color colorA = new Color(1f, 0.85f, 0.6f); // тёплый
+    public Color colorA = new Color(1f, 0.85f, 0.6f);
 
     [Tooltip("Второй цвет")]
-    public Color colorB = new Color(1f, 0.5f, 0.2f);  // оранжевый
+    public Color colorB = new Color(1f, 0.5f, 0.2f);
 
     // ──────────────────────────────────────────────
     //  РАДИУС (опционально)
@@ -91,7 +91,30 @@ public class FlickeringLight : MonoBehaviour
     public float rangeB = 10f;
 
     // ──────────────────────────────────────────────
-    //  STROBE — специальные настройки
+    //  EMISSIVE МАТЕРИАЛА
+    // ──────────────────────────────────────────────
+
+    [Header("═══ Emissive материала ═══")]
+    [Tooltip("Перетащите сюда объект (Renderer), у которого нужно менять Emission")]
+    public Renderer emissiveTarget;
+
+    [Tooltip("Включить синхронизацию Emission с мерцанием")]
+    public bool enableEmissiveFlicker = true;
+
+    [Tooltip("Базовый HDR-цвет Emission")]
+    [ColorUsage(false, true)]
+    public Color emissiveColor = new Color(1f, 0.7f, 0.3f, 1f);
+
+    [Tooltip("Минимальный множитель яркости Emission (при brightnessA)")]
+    [Min(0f)]
+    public float emissiveIntensityMin = 0.2f;
+
+    [Tooltip("Максимальный множитель яркости Emission (при brightnessB)")]
+    [Min(0f)]
+    public float emissiveIntensityMax = 3.0f;
+
+    // ──────────────────────────────────────────────
+    //  STROBE
     // ──────────────────────────────────────────────
 
     [Header("═══ Strobe ═══")]
@@ -111,6 +134,13 @@ public class FlickeringLight : MonoBehaviour
     private float _effectiveSpeed;
     private float _timer;
 
+    // Emissive
+    private MaterialPropertyBlock _emissiveMPB;
+    private float _currentEmissiveIntensity;
+
+    private static readonly int PropEmissionColor =
+        Shader.PropertyToID("_EmissionColor");
+
     // ══════════════════════════════════════════════
     //  LIFECYCLE
     // ══════════════════════════════════════════════
@@ -120,28 +150,34 @@ public class FlickeringLight : MonoBehaviour
         _light = GetComponent<Light>();
         _urpData = GetComponent<UniversalAdditionalLightData>();
 
-        // Случайный сдвиг, чтобы одинаковые источники не мерцали синхронно
         _noiseOffset = randomizeOffset
             ? Random.Range(0f, 1000f)
             : 0f;
 
-        // Вариация скорости
         float variation = speedVariation / 100f;
-        _effectiveSpeed = speed * Random.Range(1f - variation, 1f + variation);
+        _effectiveSpeed = speed * Random.Range(
+            1f - variation, 1f + variation);
 
         _currentIntensity = Mathf.Lerp(brightnessA, brightnessB, 0.5f);
+
+        // Инициализация MaterialPropertyBlock для Emissive
+        if (emissiveTarget != null)
+        {
+            _emissiveMPB = new MaterialPropertyBlock();
+            _currentEmissiveIntensity = Mathf.Lerp(
+                emissiveIntensityMin, emissiveIntensityMax, 0.5f);
+        }
     }
 
     private void Update()
     {
         float t = CalculateFlickerValue();
 
-        // Целевая яркость
+        // ---- Яркость света ----
         float minB = Mathf.Min(brightnessA, brightnessB);
         float maxB = Mathf.Max(brightnessA, brightnessB);
         _targetIntensity = Mathf.Lerp(minB, maxB, t);
 
-        // Сглаживание
         float smoothFactor = Mathf.Lerp(50f, 1f, smoothing);
         _currentIntensity = Mathf.Lerp(
             _currentIntensity,
@@ -149,31 +185,64 @@ public class FlickeringLight : MonoBehaviour
             Time.deltaTime * smoothFactor
         );
 
-        // Применяем яркость
         _light.intensity = _currentIntensity;
 
-        // Цвет
+        // ---- Цвет света ----
         if (enableColorShift)
         {
             _light.color = Color.Lerp(colorA, colorB, t);
         }
 
-        // Радиус
+        // ---- Радиус ----
         if (enableRangeFlicker)
         {
             float minR = Mathf.Min(rangeA, rangeB);
             float maxR = Mathf.Max(rangeA, rangeB);
             _light.range = Mathf.Lerp(minR, maxR, t);
         }
+
+        // ---- Emissive материала ----
+        if (enableEmissiveFlicker && emissiveTarget != null)
+        {
+            UpdateEmissive(t, smoothFactor);
+        }
+    }
+
+    // ══════════════════════════════════════════════
+    //  EMISSIVE UPDATE
+    // ══════════════════════════════════════════════
+
+    private void UpdateEmissive(float t, float smoothFactor)
+    {
+        if (_emissiveMPB == null)
+            _emissiveMPB = new MaterialPropertyBlock();
+
+        // Целевая яркость emission, синхронная с мерцанием
+        float minE = Mathf.Min(emissiveIntensityMin, emissiveIntensityMax);
+        float maxE = Mathf.Max(emissiveIntensityMin, emissiveIntensityMax);
+        float targetEmissive = Mathf.Lerp(minE, maxE, t);
+
+        // То же сглаживание, что и для света
+        _currentEmissiveIntensity = Mathf.Lerp(
+            _currentEmissiveIntensity,
+            targetEmissive,
+            Time.deltaTime * smoothFactor
+        );
+
+        // Вычисляем итоговый HDR-цвет:
+        // baseColor * intensity = финальный emission color
+        Color finalEmission = emissiveColor * _currentEmissiveIntensity;
+
+        // Применяем через MaterialPropertyBlock (без копии материала)
+        emissiveTarget.GetPropertyBlock(_emissiveMPB);
+        _emissiveMPB.SetColor(PropEmissionColor, finalEmission);
+        emissiveTarget.SetPropertyBlock(_emissiveMPB);
     }
 
     // ══════════════════════════════════════════════
     //  АЛГОРИТМЫ МЕРЦАНИЯ
     // ══════════════════════════════════════════════
 
-    /// <summary>
-    /// Возвращает значение 0..1, определяющее текущую «фазу» мерцания.
-    /// </summary>
     private float CalculateFlickerValue()
     {
         float time = Time.time * _effectiveSpeed + _noiseOffset;
@@ -182,50 +251,39 @@ public class FlickeringLight : MonoBehaviour
         {
             case FlickerMode.Random:
                 return RandomFlicker(time);
-
             case FlickerMode.SineWave:
                 return SineFlicker(time);
-
             case FlickerMode.Candle:
                 return CandleFlicker(time);
-
             case FlickerMode.Strobe:
                 return StrobeFlicker(time);
-
             case FlickerMode.Pulse:
                 return PulseFlicker(time);
-
             default:
                 return 0.5f;
         }
     }
 
-    // --- Random ---
     private float RandomFlicker(float time)
     {
-        // Два слоя Perlin noise для более интересного результата
         float n1 = Mathf.PerlinNoise(time, 0f);
         float n2 = Mathf.PerlinNoise(time * 2.7f, 100f);
         return Mathf.Clamp01(n1 * 0.7f + n2 * 0.3f);
     }
 
-    // --- Sine Wave ---
     private float SineFlicker(float time)
     {
         return (Mathf.Sin(time * Mathf.PI * 2f) + 1f) * 0.5f;
     }
 
-    // --- Candle ---
     private float CandleFlicker(float time)
     {
-        // Многослойный Perlin noise имитирует пламя
         float n1 = Mathf.PerlinNoise(time * 1.0f, _noiseOffset);
         float n2 = Mathf.PerlinNoise(time * 2.3f, _noiseOffset + 50f);
         float n3 = Mathf.PerlinNoise(time * 5.7f, _noiseOffset + 100f);
 
         float result = n1 * 0.5f + n2 * 0.3f + n3 * 0.2f;
 
-        // Иногда резкие провалы (имитация порыва ветра)
         float gust = Mathf.PerlinNoise(time * 0.3f, _noiseOffset + 200f);
         if (gust < 0.3f)
             result *= Mathf.Lerp(0.3f, 1f, gust / 0.3f);
@@ -233,18 +291,15 @@ public class FlickeringLight : MonoBehaviour
         return Mathf.Clamp01(result);
     }
 
-    // --- Strobe ---
     private float StrobeFlicker(float time)
     {
         float phase = (time % 1f);
         return phase < strobeDuty ? 1f : 0f;
     }
 
-    // --- Pulse (ease-in-out) ---
     private float PulseFlicker(float time)
     {
         float t = (Mathf.Sin(time * Mathf.PI * 2f) + 1f) * 0.5f;
-        // Smooth-step для более выраженного ease-in-out
         return t * t * (3f - 2f * t);
     }
 
@@ -252,32 +307,59 @@ public class FlickeringLight : MonoBehaviour
     //  PUBLIC API
     // ══════════════════════════════════════════════
 
-    /// <summary>
-    /// Установить новый диапазон яркости в рантайме.
-    /// </summary>
     public void SetBrightnessRange(float a, float b)
     {
         brightnessA = a;
         brightnessB = b;
     }
 
-    /// <summary>
-    /// Сменить режим мерцания в рантайме.
-    /// </summary>
     public void SetMode(FlickerMode newMode)
     {
         mode = newMode;
     }
 
-    /// <summary>
-    /// Включить / выключить мерцание. При выключении яркость = среднее.
-    /// </summary>
     public void SetEnabled(bool enabled)
     {
         this.enabled = enabled;
         if (!enabled)
         {
-            _light.intensity = Mathf.Lerp(brightnessA, brightnessB, 0.5f);
+            _light.intensity = Mathf.Lerp(
+                brightnessA, brightnessB, 0.5f);
+
+            // При выключении — зафиксировать emission
+            if (emissiveTarget != null && _emissiveMPB != null)
+            {
+                float midEmissive = Mathf.Lerp(
+                    emissiveIntensityMin, emissiveIntensityMax, 0.5f);
+                Color midColor = emissiveColor * midEmissive;
+                emissiveTarget.GetPropertyBlock(_emissiveMPB);
+                _emissiveMPB.SetColor(PropEmissionColor, midColor);
+                emissiveTarget.SetPropertyBlock(_emissiveMPB);
+            }
         }
+    }
+
+    /// <summary>
+    /// Установить целевой Renderer для Emissive в рантайме.
+    /// </summary>
+    public void SetEmissiveTarget(Renderer target)
+    {
+        emissiveTarget = target;
+        if (target != null)
+        {
+            _emissiveMPB = new MaterialPropertyBlock();
+            _currentEmissiveIntensity = Mathf.Lerp(
+                emissiveIntensityMin, emissiveIntensityMax, 0.5f);
+        }
+    }
+
+    /// <summary>
+    /// Установить параметры Emissive в рантайме.
+    /// </summary>
+    public void SetEmissiveRange(Color color, float min, float max)
+    {
+        emissiveColor = color;
+        emissiveIntensityMin = min;
+        emissiveIntensityMax = max;
     }
 }
