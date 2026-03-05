@@ -2,7 +2,7 @@
 - Project name: Collapse-Laboratory
 - Unity version: Unity 6000.3.9f1
 - Active game object:
-  - Name: Двери
-  - Tag: Untagged
-  - Layer: Interactable
+  - Name: PlayerCapsule
+  - Tag: Player
+  - Layer: Player
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

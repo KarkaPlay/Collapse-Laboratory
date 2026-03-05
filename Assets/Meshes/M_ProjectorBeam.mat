@@ -103,7 +103,7 @@ Material:
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _BeamEdgeFade: 0.677
-    - _BeamIntensity: 0.156
+    - _BeamIntensity: 1
     - _BeamNoiseScale: 2
     - _BeamNoiseSpeed: 0.3
     - _Blend: 0
