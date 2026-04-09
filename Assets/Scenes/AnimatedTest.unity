@@ -889,9 +889,8 @@ MonoBehaviour:
   stateOld: {fileID: 642632945}
   stateNew: {fileID: 2119509555}
   initialState: 1
-  isDynamic: 0
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
     m_PersistentCalls:
       m_Calls:
@@ -907,6 +906,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &60780405
 Transform:
   m_ObjectHideFlags: 0
@@ -956,10 +961,15 @@ MonoBehaviour:
   stateOld: {fileID: 31253057}
   stateNew: {fileID: 336107168}
   initialState: 1
-  isDynamic: 0
-  canPlayerCollapse: 0
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &67204949
@@ -1699,10 +1709,15 @@ MonoBehaviour:
   stateOld: {fileID: 1583826433}
   stateNew: {fileID: 1040884090}
   initialState: 1
-  isDynamic: 1
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &157399170
@@ -2273,9 +2288,8 @@ MonoBehaviour:
   stateOld: {fileID: 1443863708}
   stateNew: {fileID: 1279133426}
   initialState: 1
-  isDynamic: 0
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
     m_PersistentCalls:
       m_Calls:
@@ -2291,6 +2305,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &188543553
 Transform:
   m_ObjectHideFlags: 0
@@ -3271,7 +3291,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollapsibleGroupController
   collapsibles:
   - {fileID: 1289817742}
+  pattern: 0
   switchStateInterval: 5
+  delayBetweenObjects: 0.3
+  minInterval: 0.5
+  accelerationRate: 0.05
+  randomIntervalVariance: 1
+  _timeSinceLastSwitch: 0
 --- !u!4 &251433012
 Transform:
   m_ObjectHideFlags: 0
@@ -4528,9 +4554,8 @@ MonoBehaviour:
   stateOld: {fileID: 1675727016}
   stateNew: {fileID: 32195518}
   initialState: 1
-  isDynamic: 0
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
     m_PersistentCalls:
       m_Calls:
@@ -4546,6 +4571,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &338816383
 Transform:
   m_ObjectHideFlags: 0
@@ -5516,10 +5547,15 @@ MonoBehaviour:
   stateOld: {fileID: 2117237249}
   stateNew: {fileID: 497507266}
   initialState: 0
-  isDynamic: 1
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &404153734
@@ -6721,11 +6757,11 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 834763529}
+    m_TransformParent: {fileID: 1271824495}
     m_Modifications:
     - target: {fileID: 8048405437902404720, guid: 7c0be212a310e324d9f1c3d0a9ab5182, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8048405437902404720, guid: 7c0be212a310e324d9f1c3d0a9ab5182, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -6733,7 +6769,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: e0e4e1847f27840b082e77a5bbaf1263, type: 2}
     - target: {fileID: 8408592595719101861, guid: 7c0be212a310e324d9f1c3d0a9ab5182, type: 3}
       propertyPath: m_Name
-      value: Crate_NEW
+      value: Crate_NEW_OLD
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408592595719101861, guid: 7c0be212a310e324d9f1c3d0a9ab5182, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9221826977439237919, guid: 7c0be212a310e324d9f1c3d0a9ab5182, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6781,13 +6821,16 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8408592595719101861, guid: 7c0be212a310e324d9f1c3d0a9ab5182, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 482730640}
+      addedObject: {fileID: 1748249881}
     - targetCorrespondingSourceObject: {fileID: 8408592595719101861, guid: 7c0be212a310e324d9f1c3d0a9ab5182, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 482730639}
+      addedObject: {fileID: 1748249880}
     - targetCorrespondingSourceObject: {fileID: 8408592595719101861, guid: 7c0be212a310e324d9f1c3d0a9ab5182, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 482730638}
+      addedObject: {fileID: 1748249879}
+    - targetCorrespondingSourceObject: {fileID: 8408592595719101861, guid: 7c0be212a310e324d9f1c3d0a9ab5182, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1748249882}
   m_SourcePrefab: {fileID: 100100000, guid: 7c0be212a310e324d9f1c3d0a9ab5182, type: 3}
 --- !u!1 &482730636 stripped
 GameObject:
@@ -6799,69 +6842,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9221826977439237919, guid: 7c0be212a310e324d9f1c3d0a9ab5182, type: 3}
   m_PrefabInstance: {fileID: 482730635}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &482730638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482730636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc4e969d374bb423dbd7694f47747201, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::COState
-  parentCollapsible: {fileID: 834763528}
-  outline: {fileID: 482730640}
-  dissolvable: {fileID: 482730639}
-  isHighlightable: 1
---- !u!114 &482730639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482730636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff4df7016b6684867990c61d69c350e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Dissolvable
-  renderers:
-  - {fileID: 1748249878}
-  colliders:
-  - {fileID: 1748249877}
-  timeToDissolve: 3
-  OnTransitionStarted:
-    m_PersistentCalls:
-      m_Calls: []
-  OnTransitionEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDissolved:
-    m_PersistentCalls:
-      m_Calls: []
-  OnUndissolved:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &482730640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482730636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp-firstpass::Outline
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 10
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &497507265
 GameObject:
   m_ObjectHideFlags: 0
@@ -8953,9 +8933,8 @@ MonoBehaviour:
   stateOld: {fileID: 477599290}
   stateNew: {fileID: 147010058}
   initialState: 1
-  isDynamic: 1
-  canPlayerCollapse: 0
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
     m_PersistentCalls:
       m_Calls:
@@ -8971,6 +8950,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &736999854
 Transform:
   m_ObjectHideFlags: 0
@@ -9020,9 +9005,8 @@ MonoBehaviour:
   stateOld: {fileID: 435876824}
   stateNew: {fileID: 1917234430}
   initialState: 1
-  isDynamic: 1
-  canPlayerCollapse: 0
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
     m_PersistentCalls:
       m_Calls:
@@ -9038,6 +9022,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &742244749
 Transform:
   m_ObjectHideFlags: 0
@@ -9087,10 +9077,15 @@ MonoBehaviour:
   stateOld: {fileID: 196459255}
   stateNew: {fileID: 133468780}
   initialState: 1
-  isDynamic: 1
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &752309801
@@ -9888,61 +9883,6 @@ RectTransform:
   m_AnchoredPosition: {x: 21.267, y: 1.941}
   m_SizeDelta: {x: 3, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &834763527
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 834763529}
-  - component: {fileID: 834763528}
-  m_Layer: 0
-  m_Name: Crate
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &834763528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 834763527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a397bfe4bb2334dbebc6122a1505c6ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Collapsible
-  stateOld: {fileID: 1979969948}
-  stateNew: {fileID: 482730638}
-  initialState: 1
-  isDynamic: 0
-  canPlayerCollapse: 1
-  isBroken: 0
-  OnCollapse:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!4 &834763529
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 834763527}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 482730637}
-  - {fileID: 1979969947}
-  m_Father: {fileID: 1356893976}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &844705226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11398,9 +11338,8 @@ MonoBehaviour:
   stateOld: {fileID: 1458232134}
   stateNew: {fileID: 1899416416}
   initialState: 1
-  isDynamic: 0
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
     m_PersistentCalls:
       m_Calls:
@@ -11416,6 +11355,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &903361326
 Transform:
   m_ObjectHideFlags: 0
@@ -15070,10 +15015,15 @@ MonoBehaviour:
   stateOld: {fileID: 783904212}
   stateNew: {fileID: 1748171034}
   initialState: 1
-  isDynamic: 1
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &1055073718
@@ -15547,10 +15497,15 @@ MonoBehaviour:
   stateOld: {fileID: 708267952}
   stateNew: {fileID: 233399431}
   initialState: 1
-  isDynamic: 1
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &1193742014
@@ -15803,9 +15758,8 @@ MonoBehaviour:
   stateOld: {fileID: 405117427}
   stateNew: {fileID: 190335740}
   initialState: 1
-  isDynamic: 0
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
     m_PersistentCalls:
       m_Calls:
@@ -15821,6 +15775,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1238321996
 Transform:
   m_ObjectHideFlags: 0
@@ -15870,10 +15830,15 @@ MonoBehaviour:
   stateOld: {fileID: 1264550024}
   stateNew: {fileID: 2067677779}
   initialState: 1
-  isDynamic: 1
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &1239866710
@@ -16658,6 +16623,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1289817743}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1271824493
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1271824495}
+  - component: {fileID: 1271824494}
+  m_Layer: 0
+  m_Name: Crate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1271824494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271824493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a397bfe4bb2334dbebc6122a1505c6ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Collapsible
+  stateOld: {fileID: 1748249879}
+  stateNew: {fileID: 2090106638}
+  initialState: 1
+  stabilityLevel: 3
+  _currentState: 1
+  OnCollapse:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &1271824495
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271824493}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 482730637}
+  - {fileID: 1979969947}
+  m_Father: {fileID: 1356893976}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1279133421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16843,10 +16868,15 @@ MonoBehaviour:
   stateOld: {fileID: 1271648797}
   stateNew: {fileID: 248296655}
   initialState: 1
-  isDynamic: 1
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &1289817743
@@ -16898,10 +16928,15 @@ MonoBehaviour:
   stateOld: {fileID: 796092473}
   stateNew: {fileID: 273963069}
   initialState: 1
-  isDynamic: 1
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &1296550342
@@ -16953,9 +16988,8 @@ MonoBehaviour:
   stateOld: {fileID: 1995008582}
   stateNew: {fileID: 1568425058}
   initialState: 1
-  isDynamic: 0
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
     m_PersistentCalls:
       m_Calls:
@@ -16971,6 +17005,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1306133235
 Transform:
   m_ObjectHideFlags: 0
@@ -18548,8 +18588,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 834763529}
   - {fileID: 192372705}
+  - {fileID: 1271824495}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1385924776
@@ -18589,7 +18629,13 @@ MonoBehaviour:
   - {fileID: 1704992410}
   - {fileID: 157399169}
   - {fileID: 742244748}
+  pattern: 0
   switchStateInterval: 5
+  delayBetweenObjects: 0.3
+  minInterval: 0.5
+  accelerationRate: 0.05
+  randomIntervalVariance: 1
+  _timeSinceLastSwitch: 0
 --- !u!4 &1385924778
 Transform:
   m_ObjectHideFlags: 0
@@ -18660,10 +18706,15 @@ MonoBehaviour:
   stateOld: {fileID: 1811430209}
   stateNew: {fileID: 564788527}
   initialState: 1
-  isDynamic: 0
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1404184459
@@ -18698,9 +18749,8 @@ MonoBehaviour:
   stateOld: {fileID: 1240005717}
   stateNew: {fileID: 1748371111}
   initialState: 0
-  isDynamic: 0
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
     m_PersistentCalls:
       m_Calls:
@@ -18716,6 +18766,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1404184461
 Transform:
   m_ObjectHideFlags: 0
@@ -18765,10 +18821,15 @@ MonoBehaviour:
   stateOld: {fileID: 1081642005}
   stateNew: {fileID: 1266232426}
   initialState: 1
-  isDynamic: 1
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &1443273854
@@ -18973,9 +19034,8 @@ MonoBehaviour:
   stateOld: {fileID: 1043880420}
   stateNew: {fileID: 1628557040}
   initialState: 1
-  isDynamic: 0
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
     m_PersistentCalls:
       m_Calls:
@@ -18991,6 +19051,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1445003022
 Transform:
   m_ObjectHideFlags: 0
@@ -20757,9 +20823,8 @@ MonoBehaviour:
   stateOld: {fileID: 2031113729}
   stateNew: {fileID: 112300313}
   initialState: 1
-  isDynamic: 0
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
     m_PersistentCalls:
       m_Calls:
@@ -20775,6 +20840,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1640471684
 Transform:
   m_ObjectHideFlags: 0
@@ -21411,10 +21482,15 @@ MonoBehaviour:
   stateOld: {fileID: 1957069192}
   stateNew: {fileID: 46121276}
   initialState: 1
-  isDynamic: 1
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &1704992411
@@ -21852,6 +21928,82 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 8048405437902404720, guid: 7c0be212a310e324d9f1c3d0a9ab5182, type: 3}
   m_PrefabInstance: {fileID: 482730635}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1748249879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482730636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4e969d374bb423dbd7694f47747201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::COState
+  parentCollapsible: {fileID: 1271824494}
+  outline: {fileID: 1748249881}
+  dissolvable: {fileID: 1748249880}
+  isHighlightable: 1
+--- !u!114 &1748249880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482730636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff4df7016b6684867990c61d69c350e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Dissolvable
+  renderers:
+  - {fileID: 1748249878}
+  colliders:
+  - {fileID: 1748249877}
+  timeToDissolve: 1
+  OnTransitionStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTransitionEnded:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDissolved:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUndissolved:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1748249881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482730636}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp-firstpass::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &1748249882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482730636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 230e83313a861446e8f96eceaa3e5975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::COStateChild
+  parentCOState: {fileID: 1748249879}
 --- !u!1 &1748371110
 GameObject:
   m_ObjectHideFlags: 0
@@ -22159,9 +22311,8 @@ MonoBehaviour:
   stateOld: {fileID: 2114778251}
   stateNew: {fileID: 177414960}
   initialState: 1
-  isDynamic: 0
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
     m_PersistentCalls:
       m_Calls:
@@ -22177,6 +22328,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1754522033
 Transform:
   m_ObjectHideFlags: 0
@@ -23974,9 +24131,8 @@ MonoBehaviour:
   stateOld: {fileID: 892282592}
   stateNew: {fileID: 1479904199}
   initialState: 1
-  isDynamic: 0
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
     m_PersistentCalls:
       m_Calls:
@@ -23992,6 +24148,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1838675043
 Transform:
   m_ObjectHideFlags: 0
@@ -25778,7 +25940,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 834763529}
+    m_TransformParent: {fileID: 1271824495}
     m_Modifications:
     - target: {fileID: 8048405437902404720, guid: 7c0be212a310e324d9f1c3d0a9ab5182, type: 3}
       propertyPath: m_Enabled
@@ -25790,7 +25952,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 856cfa65bb9b74a83b58c8dc39a36027, type: 2}
     - target: {fileID: 8408592595719101861, guid: 7c0be212a310e324d9f1c3d0a9ab5182, type: 3}
       propertyPath: m_Name
-      value: Crate_OLD
+      value: Crate_NEW_NEW
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408592595719101861, guid: 7c0be212a310e324d9f1c3d0a9ab5182, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9221826977439237919, guid: 7c0be212a310e324d9f1c3d0a9ab5182, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25838,13 +26004,16 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8408592595719101861, guid: 7c0be212a310e324d9f1c3d0a9ab5182, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1979969950}
+      addedObject: {fileID: 2090106640}
     - targetCorrespondingSourceObject: {fileID: 8408592595719101861, guid: 7c0be212a310e324d9f1c3d0a9ab5182, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1979969949}
+      addedObject: {fileID: 2090106639}
     - targetCorrespondingSourceObject: {fileID: 8408592595719101861, guid: 7c0be212a310e324d9f1c3d0a9ab5182, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1979969948}
+      addedObject: {fileID: 2090106638}
+    - targetCorrespondingSourceObject: {fileID: 8408592595719101861, guid: 7c0be212a310e324d9f1c3d0a9ab5182, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2090106641}
   m_SourcePrefab: {fileID: 100100000, guid: 7c0be212a310e324d9f1c3d0a9ab5182, type: 3}
 --- !u!1 &1979969946 stripped
 GameObject:
@@ -25856,69 +26025,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9221826977439237919, guid: 7c0be212a310e324d9f1c3d0a9ab5182, type: 3}
   m_PrefabInstance: {fileID: 1979969945}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1979969948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1979969946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc4e969d374bb423dbd7694f47747201, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::COState
-  parentCollapsible: {fileID: 834763528}
-  outline: {fileID: 1979969950}
-  dissolvable: {fileID: 1979969949}
-  isHighlightable: 1
---- !u!114 &1979969949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1979969946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff4df7016b6684867990c61d69c350e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Dissolvable
-  renderers:
-  - {fileID: 2090106637}
-  colliders:
-  - {fileID: 2090106636}
-  timeToDissolve: 3
-  OnTransitionStarted:
-    m_PersistentCalls:
-      m_Calls: []
-  OnTransitionEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDissolved:
-    m_PersistentCalls:
-      m_Calls: []
-  OnUndissolved:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1979969950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1979969946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp-firstpass::Outline
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 10
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &1988315231
 GameObject:
   m_ObjectHideFlags: 0
@@ -26394,9 +26500,8 @@ MonoBehaviour:
   stateOld: {fileID: 260054734}
   stateNew: {fileID: 512271329}
   initialState: 1
-  isDynamic: 1
-  canPlayerCollapse: 0
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
     m_PersistentCalls:
       m_Calls:
@@ -26412,6 +26517,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &2066412410
 Transform:
   m_ObjectHideFlags: 0
@@ -26592,6 +26703,82 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 8048405437902404720, guid: 7c0be212a310e324d9f1c3d0a9ab5182, type: 3}
   m_PrefabInstance: {fileID: 1979969945}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2090106638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979969946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4e969d374bb423dbd7694f47747201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::COState
+  parentCollapsible: {fileID: 1271824494}
+  outline: {fileID: 2090106640}
+  dissolvable: {fileID: 2090106639}
+  isHighlightable: 1
+--- !u!114 &2090106639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979969946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff4df7016b6684867990c61d69c350e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Dissolvable
+  renderers:
+  - {fileID: 2090106637}
+  colliders:
+  - {fileID: 2090106636}
+  timeToDissolve: 1
+  OnTransitionStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTransitionEnded:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDissolved:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUndissolved:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2090106640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979969946}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp-firstpass::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &2090106641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979969946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 230e83313a861446e8f96eceaa3e5975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::COStateChild
+  parentCOState: {fileID: 2090106638}
 --- !u!1 &2091727096
 GameObject:
   m_ObjectHideFlags: 0
@@ -26625,7 +26812,13 @@ MonoBehaviour:
   - {fileID: 1055073717}
   - {fileID: 1193742013}
   - {fileID: 404153733}
+  pattern: 0
   switchStateInterval: 5
+  delayBetweenObjects: 0.3
+  minInterval: 0.5
+  accelerationRate: 0.05
+  randomIntervalVariance: 1
+  _timeSinceLastSwitch: 0
 --- !u!4 &2091727098
 Transform:
   m_ObjectHideFlags: 0
@@ -26677,9 +26870,8 @@ MonoBehaviour:
   stateOld: {fileID: 1877223974}
   stateNew: {fileID: 844705228}
   initialState: 1
-  isDynamic: 0
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
     m_PersistentCalls:
       m_Calls:
@@ -26695,6 +26887,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &2094564454
 Transform:
   m_ObjectHideFlags: 0
@@ -26744,9 +26942,8 @@ MonoBehaviour:
   stateOld: {fileID: 294538228}
   stateNew: {fileID: 882015524}
   initialState: 1
-  isDynamic: 0
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
     m_PersistentCalls:
       m_Calls:
@@ -26762,6 +26959,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &2105328082
 Transform:
   m_ObjectHideFlags: 0

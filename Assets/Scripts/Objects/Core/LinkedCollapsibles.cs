@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+[Obsolete]
 [RequireComponent(typeof(TrailMoving))]
 public class LinkedCollapsibles : MonoBehaviour
 {
@@ -31,7 +33,7 @@ public class LinkedCollapsibles : MonoBehaviour
         {
             trailMoving.StartTrail(collapsible.transform);
             yield return new WaitForSeconds(trailMoveTime);
-            collapsible.Collapse(false, invokesChainReaction);
+            //collapsible.Collapse(false, invokesChainReaction);
         }
     }
 }

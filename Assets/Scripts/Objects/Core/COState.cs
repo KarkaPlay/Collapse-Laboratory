@@ -51,7 +51,7 @@ public class COState : MonoBehaviour, ICollapsible
             if (!isHighlightable) SetOutlineActive(false);
         }
     }
-    
+
     public void SetOutlineColor(Color color) => outline.OutlineColor = color;
 
     public void SetOutlineActive(bool active)
@@ -65,24 +65,60 @@ public class COState : MonoBehaviour, ICollapsible
     #endregion
 
     #region Collapsible
-    
+
     public void OnCollapse()
     {
-        parentCollapsible.Collapse(true);
+        // Вызывается когда игрок нажимает F на этом объекте
+        parentCollapsible.CollapseByPlayer();
     }
-    
+
     #endregion
 
     #region Highlightable
 
     public void OnHighlight()
     {
-        SetOutlineActive(isHighlightable);
+        if (!isHighlightable) return;
+
+        // Цвет outline зависит от стабильности
+        UpdateOutlineColor();
+        SetOutlineActive(true);
     }
 
     public void OnUnhighlight()
     {
         SetOutlineActive(false);
+    }
+
+    /// <summary>
+    /// Обновляет цвет outline на основе уровня стабильности родителя.
+    /// </summary>
+    private void UpdateOutlineColor()
+    {
+        if (parentCollapsible == null) return;
+
+        Color color;
+
+        // Пробуем получить цвет из настроек
+        var settings = CollapseSettings.CollapseLabSettings.Instance;
+        if (settings != null)
+        {
+            color = settings.GetOutlineColor(parentCollapsible.stabilityLevel);
+        }
+        else
+        {
+            // Fallback
+            color = parentCollapsible.stabilityLevel switch
+            {
+                StabilityLevel.Absolute => new Color(0.5f, 0.5f, 0.5f),
+                StabilityLevel.Strong => new Color(1f, 0.8f, 0f),
+                StabilityLevel.Weak => new Color(0.3f, 0.7f, 1f),
+                StabilityLevel.Unstable => new Color(1f, 0.3f, 0.3f),
+                _ => Color.white
+            };
+        }
+
+        SetOutlineColor(color);
     }
 
     #endregion
@@ -100,16 +136,12 @@ public class COState : MonoBehaviour, ICollapsible
 
         if (active)
         {
-            var initialCanPlayerCollapse = parentCollapsible.canPlayerCollapse;
-            parentCollapsible.SetCanPlayerCollapse(false);
-            
             yield return StartCoroutine(dissolvable.Undissolving());
-            
-            parentCollapsible.SetCanPlayerCollapse(initialCanPlayerCollapse);
-            
-            if (!parentCollapsible.isBroken)
-            { 
-                SetHighlightable(true); // Включаем подсветку для нового состояния
+
+            // Highlightable только если объект не Absolute
+            if (parentCollapsible.CanBeChanged)
+            {
+                SetHighlightable(true);
             }
         }
         else
