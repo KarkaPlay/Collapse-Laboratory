@@ -55,17 +55,6 @@ public class Collapsible : MonoBehaviour
     /// <summary>Можно ли вообще изменить состояние объекта</summary>
     public bool CanBeChanged => stabilityLevel != StabilityLevel.Absolute;
 
-    // === Обратная совместимость (deprecated, но работает) ===
-
-    [Obsolete("Используйте stabilityLevel вместо isDynamic")]
-    public bool isDynamic => IsDynamic;
-
-    [Obsolete("Используйте stabilityLevel вместо canPlayerCollapse")]
-    public bool canPlayerCollapse => CanPlayerCollapse;
-
-    [Obsolete("Используйте stabilityLevel")]
-    public bool isBroken => stabilityLevel == StabilityLevel.Absolute;
-
     private void Awake()
     {
         _currentState = initialState;
@@ -194,6 +183,84 @@ public class Collapsible : MonoBehaviour
 
     #endregion
 
+    #region Управление стабильностью
+
+    /// <summary>
+    /// Изменить уровень стабильности объекта.
+    /// </summary>
+    public void SetStabilityLevel(StabilityLevel newLevel)
+    {
+        if (stabilityLevel == newLevel) return;
+
+        StabilityLevel previousLevel = stabilityLevel;
+        stabilityLevel = newLevel;
+
+        GameDebug.Log($"[Collapsible] {name}: стабильность изменена {previousLevel} → {newLevel}");
+
+        // Если объект стал Absolute — отключаем подсветку
+        if (stabilityLevel == StabilityLevel.Absolute)
+        {
+            stateOld?.SetHighlightable(false);
+            stateNew?.SetHighlightable(false);
+        }
+        // Если объект перестал быть Absolute — включаем подсветку
+        else if (previousLevel == StabilityLevel.Absolute)
+        {
+            stateOld?.SetHighlightable(true);
+            stateNew?.SetHighlightable(true);
+        }
+    }
+
+    /// <summary>
+    /// Установить стабильность из int (для Unity Events).
+    /// </summary>
+    public void SetStabilityLevel(int level)
+    {
+        SetStabilityLevel((StabilityLevel)level);
+    }
+
+    /// <summary>
+    /// Зафиксировать нестабильный объект в текущем состоянии.
+    /// Используется для "заморозки" Unstable объектов.
+    /// </summary>
+    public void FreezeInCurrentState()
+    {
+        if (stabilityLevel != StabilityLevel.Unstable)
+        {
+            GameDebug.LogWarning($"[Collapsible] {name}: попытка заморозить объект, который не Unstable");
+            return;
+        }
+
+        // Останавливаем динамическое переключение через группу
+        var group = GetComponentInParent<CollapsibleGroupController>();
+        if (group != null && group.Collapsibles.Contains(this))
+        {
+            GameDebug.Log($"[Collapsible] {name}: удалён из группы нестабильности");
+            group.Collapsibles.Remove(this);
+        }
+
+        // Меняем стабильность на Strong (нельзя схлопнуть напрямую, но можно через связь)
+        SetStabilityLevel(StabilityLevel.Strong);
+    }
+
+    /// <summary>
+    /// Разморозить объект — вернуть в Unstable состояние.
+    /// </summary>
+    public void UnfreezeToUnstable()
+    {
+        SetStabilityLevel(StabilityLevel.Unstable);
+
+        // Добавляем обратно в группу (если она есть)
+        var group = GetComponentInParent<CollapsibleGroupController>();
+        if (group != null && !group.Collapsibles.Contains(this))
+        {
+            group.Collapsibles.Add(this);
+            GameDebug.Log($"[Collapsible] {name}: возвращён в группу нестабильности");
+        }
+    }
+
+    #endregion
+
     #region Информация для дизайнеров
 
     /// <summary>
@@ -249,64 +316,6 @@ public class Collapsible : MonoBehaviour
         stateOld = old.GetComponent<COState>();
         stateNew = newState.GetComponent<COState>();
     }
-
-#if UNITY_EDITOR
-    private void OnDrawGizmos()
-    {
-        // Цвет по стабильности
-        Gizmos.color = GetStabilityColor();
-        Gizmos.DrawWireCube(transform.position, Vector3.one * 0.3f);
-
-        // Для нестабильных — пульсирующий эффект
-        if (stabilityLevel == StabilityLevel.Unstable)
-        {
-            float pulse = Mathf.Sin(Time.realtimeSinceStartup * 3f) * 0.5f + 0.5f;
-            Color c = GetStabilityColor();
-            c.a = pulse * 0.5f;
-            Gizmos.color = c;
-            Gizmos.DrawCube(transform.position, Vector3.one * 0.35f);
-        }
-
-        // Для Dynamic — таймер
-        var groupController = GetComponentInParent<CollapsibleGroupController>();
-        if (IsDynamic && groupController != null)
-        {
-            float timeRemaining =
-                Mathf.Max(0, groupController.switchStateInterval - groupController.TimeSinceLastSwitch);
-            string timeText = $"{stabilityLevel} | Next: {timeRemaining:F1}s";
-
-            Vector3 position = transform.position + Vector3.up * 0.5f;
-
-            GUIStyle style = new GUIStyle();
-            style.normal.textColor = GetStabilityColor();
-            style.fontSize = 11;
-            style.fontStyle = FontStyle.Bold;
-            style.alignment = TextAnchor.MiddleCenter;
-
-            UnityEditor.Handles.Label(position, timeText, style);
-        }
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        // При выделении — показать более подробную информацию
-        Vector3 position = transform.position + Vector3.up * 1f;
-
-        GUIStyle style = new GUIStyle();
-        style.normal.textColor = Color.white;
-        style.fontSize = 12;
-        style.alignment = TextAnchor.MiddleCenter;
-        style.normal.background = Texture2D.grayTexture;
-        style.padding = new RectOffset(5, 5, 3, 3);
-
-        string info = $"[{stabilityLevel}] {_currentState}\n" +
-                      $"Player: {(CanPlayerCollapse ? "✓" : "✗")} | " +
-                      $"Chain: {(CanBeLinkedTarget ? "✓" : "✗")} | " +
-                      $"Timer: {(IsDynamic ? "✓" : "✗")}";
-
-        UnityEditor.Handles.Label(position, info, style);
-    }
-#endif
 
     #endregion
 }

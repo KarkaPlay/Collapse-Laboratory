@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db352bc7732c43e45a46ce55f9ccf4bd, type: 3}
+  m_Name: LabBuilderSettings
+  m_EditorClassIdentifier: Assembly-CSharp::LabBuilder.Data.LabBuilderSettings
+  _defaultFloorMaterial: {fileID: 2100000, guid: 20cfb14bc1e82e14ab77ccf715a2d348, type: 2}
+  _defaultCeilingMaterial: {fileID: 2100000, guid: ab1b8eae1e539f44cbd4cad034936679, type: 2}
+  _defaultWallMaterial: {fileID: 2100000, guid: 96963953906218d41b6650023446c615, type: 2}
+  _defaultRoomWidth: 5
+  _defaultRoomLength: 5
+  _defaultRoomHeight: 3
+  _defaultWallThickness: 0.15
+  _defaultDoorWidth: 1.2
+  _defaultDoorHeight: 2.4
+  _minConnectionLength: 1
+  _defaultConnectionLength: 3
+  _maxConnectionLength: 20
+  _doorGizmoColor: {r: 0.2, g: 0.9, b: 0.3, a: 0.8}
+  _connectionPreviewColor: {r: 0.9, g: 0.6, b: 0.1, a: 0.5}
+  _showDoorLabels: 1

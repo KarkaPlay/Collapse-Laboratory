@@ -1,4 +1,3 @@
-using System;
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
@@ -20,12 +19,7 @@ namespace CLEditor
         private ReorderableList _renderersList;
         private ReorderableList _collidersList;
 
-        public DissolvableEditor(SerializedProperty timeToDissolveProp)
-        {
-            _timeToDissolveProp = timeToDissolveProp;
-        }
-
-        void OnEnable()
+        private void OnEnable()
         {
             _targetScript = (Dissolvable)target;
 
@@ -43,11 +37,12 @@ namespace CLEditor
                 _renderersList = new ReorderableList(serializedObject, _renderersProp, true, true, true, true)
                 {
                     drawHeaderCallback = rect => EditorGUI.LabelField(rect, "Список рендереров"),
-                    drawElementCallback = (rect, index, _, _) =>
+                    drawElementCallback = (rect, index, isActive, isFocused) =>
                     {
                         var element = _renderersProp.GetArrayElementAtIndex(index);
                         rect.y += 2;
-                        EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width, EditorGUIUtility.singleLineHeight),
+                        EditorGUI.PropertyField(
+                            new Rect(rect.x, rect.y, rect.width, EditorGUIUtility.singleLineHeight),
                             element, GUIContent.none);
                     }
                 };
@@ -59,19 +54,15 @@ namespace CLEditor
                 _collidersList = new ReorderableList(serializedObject, _collidersProp, true, true, true, true)
                 {
                     drawHeaderCallback = rect => EditorGUI.LabelField(rect, "Список коллайдеров"),
-                    drawElementCallback = (rect, index, _, _) =>
+                    drawElementCallback = (rect, index, isActive, isFocused) =>
                     {
                         var element = _collidersProp.GetArrayElementAtIndex(index);
                         rect.y += 2;
-                        EditorGUI.PropertyField(new Rect(rect.x, rect.y, rect.width, EditorGUIUtility.singleLineHeight),
+                        EditorGUI.PropertyField(
+                            new Rect(rect.x, rect.y, rect.width, EditorGUIUtility.singleLineHeight),
                             element, GUIContent.none);
                     }
                 };
-            }
-
-            if (_renderersProp == null || _collidersProp == null)
-            {
-                Debug.LogError("Не удалось найти свойства 'renderers' или 'colliders' в Dissolvable. Проверьте сериализацию.");
             }
         }
 
@@ -98,9 +89,10 @@ namespace CLEditor
                 {
                     if (_targetScript != null)
                     {
+                        Undo.RecordObject(_targetScript, "Set Renderer This");
                         _targetScript.SetRendererThis();
                         EditorUtility.SetDirty(_targetScript);
-                        Debug.Log("Добавлен из этого объекта");
+                        serializedObject.Update();
                     }
                 }
 
@@ -108,9 +100,10 @@ namespace CLEditor
                 {
                     if (_targetScript != null)
                     {
+                        Undo.RecordObject(_targetScript, "Set Renderers In Children");
                         _targetScript.SetRenderersInChildren();
                         EditorUtility.SetDirty(_targetScript);
-                        Debug.Log($"Добавлены рендереры из дочерних объектов {_targetScript.gameObject.name}");
+                        serializedObject.Update();
                     }
                 }
             }
@@ -145,9 +138,10 @@ namespace CLEditor
                 {
                     if (_targetScript != null)
                     {
+                        Undo.RecordObject(_targetScript, "Set Collider This");
                         _targetScript.SetColliderThis();
                         EditorUtility.SetDirty(_targetScript);
-                        Debug.Log($"Добавлен коллайдер из {_targetScript.gameObject.name}");
+                        serializedObject.Update();
                     }
                 }
 
@@ -155,9 +149,10 @@ namespace CLEditor
                 {
                     if (_targetScript != null)
                     {
+                        Undo.RecordObject(_targetScript, "Set Colliders In Children");
                         _targetScript.SetCollidersInChildren();
                         EditorUtility.SetDirty(_targetScript);
-                        Debug.Log($"Добавлены коллайдеры из дочерних объектов {_targetScript.gameObject.name}");
+                        serializedObject.Update();
                     }
                 }
             }
@@ -175,7 +170,8 @@ namespace CLEditor
             // Предупреждение о требованиях к шейдеру
             EditorGUILayout.Space();
             EditorGUILayout.HelpBox(
-                "Убедитесь, что материалы используют шейдер с параметром _Dissolve (float).",
+                "Убедитесь, что материалы используют шейдер с параметром _Dissolve (float).\n" +
+                "Рекомендуется: Custom/TemporalInstability",
                 MessageType.Info
             );
 
@@ -209,11 +205,13 @@ namespace CLEditor
                 {
                     _targetScript.Dissolve();
                 }
+
                 if (GUILayout.Button("Undissolve", GUILayout.Height(25)) && _targetScript != null)
                 {
                     _targetScript.Undissolve();
                 }
             }
+
             EditorGUI.EndDisabledGroup();
 
             serializedObject.ApplyModifiedProperties();
@@ -221,18 +219,18 @@ namespace CLEditor
 
         private void OnDisable()
         {
-            // Clean up ReorderableList instances
+            // Безопасная очистка — проверяем что объекты не null перед обнулением
             if (_renderersList != null)
             {
                 _renderersList = null;
             }
-    
+
             if (_collidersList != null)
             {
                 _collidersList = null;
             }
-    
-            // Clear serialized properties to prevent reference leaks
+
+            // Обнуляем SerializedProperty только если они были инициализированы
             _renderersProp = null;
             _collidersProp = null;
             _timeToDissolveProp = null;
@@ -240,8 +238,8 @@ namespace CLEditor
             _onTransitionEndedProp = null;
             _onDissolvedProp = null;
             _onUndissolvedProp = null;
-    
-            // Clear target reference
+
+            // Обнуляем target только если он не был уничтожен Unity
             _targetScript = null;
         }
     }

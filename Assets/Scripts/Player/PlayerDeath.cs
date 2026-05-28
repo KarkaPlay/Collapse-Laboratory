@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using StarterAssets;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -29,8 +29,8 @@ public class PlayerDeath : MonoBehaviour
 
     public void Respawn()
     {
-        transform.position = respawnPoints[currentRoom-1].position;
-        transform.rotation = respawnPoints[currentRoom-1].rotation;
+        transform.position = respawnPoints[currentRoom - 1].position;
+        transform.rotation = respawnPoints[currentRoom - 1].rotation;
         GameOverScreen.gameObject.SetActive(false);
         GetComponent<FirstPersonController>().enabled = true;
         GetComponent<StarterAssetsInputs>().enabled = true;

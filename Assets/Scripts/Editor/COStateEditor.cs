@@ -94,10 +94,5 @@ namespace CLEditor
             if (objectName.EndsWith("_NEW")) return "New";
             return "Не определено";
         }
-
-        private void OnDisable()
-        {
-            
-        }
     }
 }

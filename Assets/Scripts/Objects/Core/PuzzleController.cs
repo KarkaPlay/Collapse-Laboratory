@@ -135,70 +135,7 @@ public class PuzzleController : MonoBehaviour
         return status;
     }
 
-#if UNITY_EDITOR
-    private void OnDrawGizmos()
-    {
-        // Иконка головоломки
-        Color puzzleColor = _isSolved
-            ? new Color(0.2f, 1f, 0.3f, 0.8f)
-            : new Color(1f, 0.8f, 0.2f, 0.8f);
 
-        Gizmos.color = puzzleColor;
-        Gizmos.DrawWireSphere(transform.position, 0.4f);
-
-        // Линии к условиям
-        foreach (var condition in conditions)
-        {
-            if (condition.target == null) continue;
-
-            Color lineColor = condition.IsSatisfied
-                ? new Color(0.2f, 1f, 0.3f, 0.4f)
-                : new Color(1f, 0.3f, 0.3f, 0.4f);
-
-            bool isSelected = UnityEditor.Selection.activeGameObject == gameObject;
-
-            if (isSelected)
-            {
-                UnityEditor.Handles.color = lineColor;
-                UnityEditor.Handles.DrawDottedLine(transform.position, condition.target.transform.position, 3f);
-
-                // Метка состояния у цели
-                string label = condition.IsSatisfied ? "✓" : $"нужно: {condition.requiredState}";
-                GUIStyle style = new GUIStyle
-                {
-                    normal = { textColor = lineColor },
-                    fontSize = 11,
-                    fontStyle = FontStyle.Bold,
-                    alignment = TextAnchor.MiddleCenter
-                };
-                UnityEditor.Handles.Label(
-                    condition.target.transform.position + Vector3.up * 0.8f,
-                    label, style);
-            }
-            else
-            {
-                Gizmos.color = lineColor;
-                Gizmos.DrawLine(transform.position, condition.target.transform.position);
-            }
-        }
-
-        // Подпись
-        if (UnityEditor.Selection.activeGameObject == gameObject)
-        {
-            GUIStyle nameStyle = new GUIStyle
-            {
-                normal = { textColor = puzzleColor },
-                fontSize = 13,
-                fontStyle = FontStyle.Bold,
-                alignment = TextAnchor.MiddleCenter
-            };
-            UnityEditor.Handles.Label(
-                transform.position + Vector3.up * 0.7f,
-                $"🧩 {puzzleName} ({_satisfiedConditions}/{conditions.Count})",
-                nameStyle);
-        }
-    }
-#endif
 }
 
 /// <summary>

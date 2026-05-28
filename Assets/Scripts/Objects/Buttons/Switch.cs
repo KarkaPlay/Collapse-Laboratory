@@ -9,6 +9,12 @@ public class Switch : Interactable
     public UnityEvent onSwitchOn;
     public UnityEvent onSwitchOff;
 
+    public override void OnInteract()
+    {
+        base.OnInteract();
+        MakeSwitch();
+    }
+
     public void MakeSwitch()
     {
         Debug.Log($"Переключили isOn с {isOn} на {!isOn}", gameObject);

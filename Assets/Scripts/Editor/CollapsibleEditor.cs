@@ -172,5 +172,10 @@ namespace CLEditor
 
             EditorGUILayout.HelpBox(info, msgType);
         }
+
+        private void OnDisable()
+        {
+            // Очистка при переключении выбора
+        }
     }
 }

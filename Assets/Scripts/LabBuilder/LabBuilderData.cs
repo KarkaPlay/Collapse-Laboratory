@@ -11,19 +11,15 @@ namespace LabBuilder.Data
     public enum WallSide
     {
         North = 0,  // +Z
-        East = 1,  // +X
+        East = 1,   // +X
         South = 2,  // -Z
-        West = 3   // -X
+        West = 3    // -X
     }
 
     // ══════════════════════════════════════════════
     //  Данные дверного проёма
     // ══════════════════════════════════════════════
 
-    /// <summary>
-    /// Описывает один дверной проём на стене комнаты.
-    /// Position — нормализованная позиция вдоль стены (0 = левый край, 1 = правый).
-    /// </summary>
     [Serializable]
     public sealed class DoorData
     {
@@ -42,7 +38,9 @@ namespace LabBuilder.Data
         [Min(1.5f)]
         public float height = 2.4f;
 
-        /// <summary>Проверяет корректность двери относительно размеров стены.</summary>
+        [HideInInspector]
+        public string doorId = Guid.NewGuid().ToString();
+
         public bool Validate(float wallLength, float roomHeight, out string error)
         {
             error = null;
@@ -59,7 +57,6 @@ namespace LabBuilder.Data
                 return false;
             }
 
-            // Проверка: дверь не выходит за края стены
             float doorCenter = Mathf.Lerp(0f, wallLength, position);
             float halfDoor = width * 0.5f;
 
@@ -71,17 +68,24 @@ namespace LabBuilder.Data
 
             return true;
         }
+
+        public DoorData Clone()
+        {
+            return new DoorData
+            {
+                wall = wall,
+                position = position,
+                width = width,
+                height = height,
+                doorId = Guid.NewGuid().ToString()
+            };
+        }
     }
 
     // ══════════════════════════════════════════════
     //  Данные комнаты
     // ══════════════════════════════════════════════
 
-    /// <summary>
-    /// Полное описание комнаты: размеры, двери, материалы.
-    /// Комната центрирована в (0,0,0) по XZ, пол на y=0, потолок на y=height.
-    /// Width — по оси X, Length — по оси Z.
-    /// </summary>
     [Serializable]
     public sealed class RoomData
     {
@@ -100,7 +104,30 @@ namespace LabBuilder.Data
         public Material ceilingMaterial;
         public Material wallMaterial;
 
-        /// <summary>Валидация всех параметров комнаты.</summary>
+        public void ApplyDefaultMaterials()
+        {
+            var settings = LabBuilderSettings.Instance;
+            if (settings == null) return;
+
+            if (floorMaterial == null)
+                floorMaterial = settings.DefaultFloorMaterial;
+            if (ceilingMaterial == null)
+                ceilingMaterial = settings.DefaultCeilingMaterial;
+            if (wallMaterial == null)
+                wallMaterial = settings.DefaultWallMaterial;
+        }
+
+        public void ApplyDefaultDimensions()
+        {
+            var settings = LabBuilderSettings.Instance;
+            if (settings == null) return;
+
+            width = settings.DefaultRoomWidth;
+            length = settings.DefaultRoomLength;
+            height = settings.DefaultRoomHeight;
+            wallThickness = settings.DefaultWallThickness;
+        }
+
         public bool Validate(out List<string> errors)
         {
             errors = new List<string>();
@@ -124,38 +151,44 @@ namespace LabBuilder.Data
 
             return errors.Count == 0;
         }
-    }
 
-    // ══════════════════════════════════════════════
-    //  Данные коридора
-    // ══════════════════════════════════════════════
-
-    /// <summary>
-    /// Описание коридора. Строится вдоль +Z в локальных координатах.
-    /// Вход коридора — при z=0, выход — при z=length.
-    /// </summary>
-    [Serializable]
-    public sealed class CorridorData
-    {
-        [Header("Размеры коридора")]
-        [Min(1.5f)] public float width = 2f;
-        [Min(2.5f)] public float height = 3f;
-        [Min(1f)] public float length = 4f;
-        [Range(0.05f, 0.5f)]
-        public float wallThickness = 0.15f;
-
-        [Header("Материалы")]
-        public Material floorMaterial;
-        public Material ceilingMaterial;
-        public Material wallMaterial;
-
-        public bool Validate(out List<string> errors)
+        public RoomData Clone()
         {
-            errors = new List<string>();
-            if (width < 1.5f) errors.Add("Минимальная ширина коридора — 1.5м");
-            if (height < 2.5f) errors.Add("Минимальная высота коридора — 2.5м");
-            if (length < 1f) errors.Add("Минимальная длина коридора — 1м");
-            return errors.Count == 0;
+            var clone = new RoomData
+            {
+                width = width,
+                length = length,
+                height = height,
+                wallThickness = wallThickness,
+                floorMaterial = floorMaterial,
+                ceilingMaterial = ceilingMaterial,
+                wallMaterial = wallMaterial
+            };
+
+            foreach (var door in doors)
+            {
+                clone.doors.Add(door.Clone());
+            }
+
+            return clone;
+        }
+
+        /// <summary>Копирует параметры из другой RoomData.</summary>
+        public void CopyFrom(RoomData other)
+        {
+            width = other.width;
+            length = other.length;
+            height = other.height;
+            wallThickness = other.wallThickness;
+            floorMaterial = other.floorMaterial;
+            ceilingMaterial = other.ceilingMaterial;
+            wallMaterial = other.wallMaterial;
+
+            doors.Clear();
+            foreach (var door in other.doors)
+            {
+                doors.Add(door.Clone());
+            }
         }
     }
 
@@ -163,11 +196,34 @@ namespace LabBuilder.Data
     //  Информация о соединении
     // ══════════════════════════════════════════════
 
-    /// <summary>Хранит связь между дверью комнаты и подключённым коридором.</summary>
     [Serializable]
     public sealed class ConnectionInfo
     {
         public int sourceDoorIndex;
-        public GameObject connectedCorridor;
+        public string sourceDoorId;
+        public GameObject connectedObject;
+        public ConnectionType connectionType;
+        public int targetDoorIndex = -1;
+        public float connectionLength;
+
+        /// <summary>Путь коридора (для изогнутых коридоров).</summary>
+        public List<Vector3> corridorPath = new();
+    }
+
+    public enum ConnectionType
+    {
+        DirectRoom,
+        Connector,
+        Corridor
+    }
+
+    // ══════════════════════════════════════════════
+    //  Режим подключения
+    // ══════════════════════════════════════════════
+
+    public enum ConnectionMode
+    {
+        None,              // Создать отдельно стоящую комнату
+        ConnectToExisting  // Подключить к существующей двери
     }
 }
