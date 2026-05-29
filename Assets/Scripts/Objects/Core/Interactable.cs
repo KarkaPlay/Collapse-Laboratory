@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,6 +8,9 @@ public abstract class Interactable : MonoBehaviour, IInteractable
 
     public bool canPlayerInteract = true;
     public bool isWorking = true;
+
+    [Tooltip("Текст подсказки при наведении")]
+    public string promptOverride = "[E] Взаимодействовать";
 
     public UnityEvent OnInteractEvent;
 
@@ -31,11 +33,13 @@ public abstract class Interactable : MonoBehaviour, IInteractable
 
     public virtual void OnHighlight()
     {
-        _outline.enabled = true;
+        if (_outline != null)
+            _outline.enabled = true;
     }
 
     public virtual void OnUnhighlight()
     {
-        _outline.enabled = false;
+        if (_outline != null)
+            _outline.enabled = false;
     }
 }

@@ -147,7 +147,14 @@ public class PlayerInteraction : MonoBehaviour
         }
         else if (_currentTarget is IInteractable)
         {
-            PlayerUI.Instance.ShowInteractionPrompt("[E] Взаимодействовать", true, null, InteractionType.Interact);
+            // Используем кастомный текст из Interactable если он есть
+            string promptText = "[E] Взаимодействовать";
+            if (_currentTarget is Interactable interactable)
+            {
+                promptText = interactable.promptOverride;
+            }
+
+            PlayerUI.Instance.ShowInteractionPrompt(promptText, true, null, InteractionType.Interact);
             PlayerUI.Instance.HideLinkHint();
         }
         else if (_currentTarget is IAnimatedCollapsible)
