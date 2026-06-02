@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 1073772}
   - component: {fileID: 1073774}
   - component: {fileID: 1073775}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -414,7 +414,7 @@ GameObject:
   - component: {fileID: 10003778}
   - component: {fileID: 10003782}
   - component: {fileID: 10003781}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -576,7 +576,7 @@ GameObject:
   - component: {fileID: 53157482}
   - component: {fileID: 53157483}
   - component: {fileID: 53157484}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bridge part 1_NEW
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -692,6 +692,7 @@ MonoBehaviour:
   outline: {fileID: 53157483}
   dissolvable: {fileID: 53157484}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &53157483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -752,7 +753,7 @@ GameObject:
   - component: {fileID: 61997110}
   - component: {fileID: 61997113}
   - component: {fileID: 61997112}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1054,7 +1055,7 @@ GameObject:
   - component: {fileID: 72994032}
   - component: {fileID: 72994036}
   - component: {fileID: 72994035}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1246,7 +1247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 104956359}
   - component: {fileID: 104956358}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "\u0421up"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1268,10 +1269,15 @@ MonoBehaviour:
   stateOld: {fileID: 876335686}
   stateNew: {fileID: 1187573729}
   initialState: 1
-  isDynamic: 0
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &104956359
@@ -1327,6 +1333,7 @@ MonoBehaviour:
   outline: {fileID: 122765958}
   dissolvable: {fileID: 122765957}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &122765957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1418,7 +1425,7 @@ GameObject:
   - component: {fileID: 130494449}
   - component: {fileID: 130494453}
   - component: {fileID: 130494452}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1509,7 +1516,7 @@ GameObject:
   - component: {fileID: 154537836}
   - component: {fileID: 154537835}
   - component: {fileID: 154537838}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1550,12 +1557,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.AnimatedCollapsible
   canPlayerInteract: 1
   isWorking: 1
+  promptOverride: "[E] \u0412\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls: []
   animator: {fileID: 154537838}
+  onAnimationProgressChanged:
+    m_PersistentCalls:
+      m_Calls: []
   animationSpeed: 0.5
   startAnimationProgress: 0
+  isAutomaticAnimation: 0
+  automaticAnimationSpeed: 1
+  automaticAnimationDirection: 1
+  visualFeedback: {fileID: 0}
 --- !u!114 &154537836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1609,7 +1624,7 @@ GameObject:
   - component: {fileID: 156439798}
   - component: {fileID: 156439800}
   - component: {fileID: 156439801}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1911,7 +1926,7 @@ GameObject:
   - component: {fileID: 183344418}
   - component: {fileID: 183344422}
   - component: {fileID: 183344421}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2006,7 +2021,7 @@ GameObject:
   - component: {fileID: 215583610}
   - component: {fileID: 215583612}
   - component: {fileID: 215583611}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2099,7 +2114,7 @@ GameObject:
   - component: {fileID: 221396178}
   - component: {fileID: 221396177}
   - component: {fileID: 221396176}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Button (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2179,6 +2194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canPlayerInteract: 1
   isWorking: 1
+  promptOverride: "[E] \u0412\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls:
@@ -2283,7 +2299,7 @@ GameObject:
   - component: {fileID: 230712976}
   - component: {fileID: 230712979}
   - component: {fileID: 230712978}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2373,7 +2389,7 @@ GameObject:
   - component: {fileID: 268906500}
   - component: {fileID: 268906504}
   - component: {fileID: 268906503}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2463,7 +2479,7 @@ GameObject:
   - component: {fileID: 269944837}
   - component: {fileID: 269944841}
   - component: {fileID: 269944840}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2731,7 +2747,7 @@ GameObject:
   - component: {fileID: 271381676}
   - component: {fileID: 271381680}
   - component: {fileID: 271381679}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2821,7 +2837,7 @@ GameObject:
   - component: {fileID: 299555009}
   - component: {fileID: 299555013}
   - component: {fileID: 299555012}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2957,6 +2973,7 @@ MonoBehaviour:
   outline: {fileID: 321354777}
   dissolvable: {fileID: 321354774}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &321354774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3022,6 +3039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canPlayerInteract: 1
   isWorking: 1
+  promptOverride: "[E] \u0412\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -3459,6 +3477,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door
       objectReference: {fileID: 0}
+    - target: {fileID: 8829744791662538652, guid: 9bfe65e2133a649909ccb4162ff29465, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 325843256164847458, guid: 9bfe65e2133a649909ccb4162ff29465, type: 3}
@@ -3502,7 +3524,7 @@ GameObject:
   - component: {fileID: 391750947}
   - component: {fileID: 391750951}
   - component: {fileID: 391750950}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3616,6 +3638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SimpleInteractable
   canPlayerInteract: 1
   isWorking: 0
+  promptOverride: "[E] \u0412\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -3652,7 +3675,7 @@ GameObject:
   - component: {fileID: 396143361}
   - component: {fileID: 396143362}
   - component: {fileID: 396143363}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bridge part 2_NEW
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -3768,6 +3791,7 @@ MonoBehaviour:
   outline: {fileID: 396143362}
   dissolvable: {fileID: 396143363}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &396143362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4251,7 +4275,7 @@ GameObject:
   - component: {fileID: 433212336}
   - component: {fileID: 433212340}
   - component: {fileID: 433212339}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4365,6 +4389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SimpleInteractable
   canPlayerInteract: 1
   isWorking: 1
+  promptOverride: "[E] \u0412\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls:
@@ -4408,7 +4433,9 @@ GameObject:
   m_Component:
   - component: {fileID: 459585884}
   - component: {fileID: 459585885}
-  m_Layer: 0
+  - component: {fileID: 459585887}
+  - component: {fileID: 459585886}
+  m_Layer: 6
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4447,24 +4474,51 @@ MonoBehaviour:
   stateOld: {fileID: 875258124}
   stateNew: {fileID: 477678020}
   initialState: 0
-  isDynamic: 0
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 947225012}
-        m_TargetAssemblyTypeName: LinkedCollapsibles, Assembly-CSharp
-        m_MethodName: CollapseAllLinkedCollapsibles
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &459585886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459585883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecbedaac2cdbc54794ef70231be2a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollapseLinkController
+  links:
+  - target: {fileID: 1611090881}
+    triggerWhen: 0
+    action: 0
+    delay: 0.3
+    showTrail: 1
+    designerNote: 
+  maxChainDepth: 5
+--- !u!114 &459585887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459585883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a388204524044d43b2a9f336c8dd45b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrailMoving
+  trailPrefab: {fileID: 1367619002952535313, guid: 664c64bbb000f5e428ca3b8f7e0ea923, type: 3}
+  speed: 5
 --- !u!21 &462558277
 Material:
   serializedVersion: 8
@@ -4670,6 +4724,7 @@ MonoBehaviour:
   outline: {fileID: 477678022}
   dissolvable: {fileID: 477678021}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &477678021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26033,7 +26088,7 @@ GameObject:
   - component: {fileID: 506442957}
   - component: {fileID: 506442961}
   - component: {fileID: 506442960}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26124,7 +26179,7 @@ GameObject:
   - component: {fileID: 514062017}
   - component: {fileID: 514062016}
   - component: {fileID: 514062018}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26990,7 +27045,7 @@ GameObject:
   m_Component:
   - component: {fileID: 553196337}
   - component: {fileID: 553196338}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "\u0420\u044B\u0447\u0430\u0433"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27029,10 +27084,15 @@ MonoBehaviour:
   stateOld: {fileID: 1616983887}
   stateNew: {fileID: 122765956}
   initialState: 0
-  isDynamic: 0
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
     m_PersistentCalls:
       m_Calls: []
 --- !u!43 &565407321
@@ -27224,7 +27284,7 @@ GameObject:
   - component: {fileID: 571940722}
   - component: {fileID: 571940726}
   - component: {fileID: 571940725}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27493,7 +27553,7 @@ GameObject:
   - component: {fileID: 613742108}
   - component: {fileID: 613742107}
   - component: {fileID: 613742109}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27745,7 +27805,7 @@ GameObject:
   - component: {fileID: 631693495}
   - component: {fileID: 631693497}
   - component: {fileID: 631693496}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28597,7 +28657,7 @@ GameObject:
   - component: {fileID: 670640213}
   - component: {fileID: 670640212}
   - component: {fileID: 670640214}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Stairs_NEW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28924,6 +28984,7 @@ MonoBehaviour:
   outline: {fileID: 670640212}
   dissolvable: {fileID: 670640214}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &670640214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28966,7 +29027,7 @@ GameObject:
   - component: {fileID: 671160089}
   - component: {fileID: 671160091}
   - component: {fileID: 671160092}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29653,6 +29714,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button
       objectReference: {fileID: 0}
+    - target: {fileID: 9058356537072199300, guid: 582b9a9872d8543b597ad124e30ffea4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29748,6 +29813,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canPlayerInteract: 1
   isWorking: 1
+  promptOverride: "[E] \u0412\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls:
@@ -29893,7 +29959,7 @@ GameObject:
   - component: {fileID: 730231649}
   - component: {fileID: 730231652}
   - component: {fileID: 730231651}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30019,7 +30085,7 @@ GameObject:
   - component: {fileID: 740729675}
   - component: {fileID: 740729674}
   - component: {fileID: 740729677}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cage_OLD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30076,6 +30142,7 @@ MonoBehaviour:
   outline: {fileID: 740729676}
   dissolvable: {fileID: 740729675}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &740729675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30173,7 +30240,7 @@ GameObject:
   - component: {fileID: 742237214}
   - component: {fileID: 742237218}
   - component: {fileID: 742237217}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30418,6 +30485,7 @@ MonoBehaviour:
   outline: {fileID: 765401766}
   dissolvable: {fileID: 765401771}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &765401766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30476,6 +30544,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canPlayerInteract: 1
   isWorking: 1
+  promptOverride: "[E] \u0412\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -34819,7 +34888,7 @@ GameObject:
   - component: {fileID: 838194193}
   - component: {fileID: 838194192}
   - component: {fileID: 838194195}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35120,6 +35189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canPlayerInteract: 1
   isWorking: 1
+  promptOverride: "[E] \u0412\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -35520,6 +35590,7 @@ MonoBehaviour:
   outline: {fileID: 852526240}
   dissolvable: {fileID: 852526248}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &852526248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35738,7 +35809,7 @@ GameObject:
   - component: {fileID: 867801601}
   - component: {fileID: 867801603}
   - component: {fileID: 867801602}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36049,6 +36120,7 @@ MonoBehaviour:
   outline: {fileID: 875258126}
   dissolvable: {fileID: 875258125}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &875258125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36657,7 +36729,7 @@ GameObject:
   - component: {fileID: 876335688}
   - component: {fileID: 876335687}
   - component: {fileID: 876335686}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cup_OLD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36680,6 +36752,7 @@ MonoBehaviour:
   outline: {fileID: 876335688}
   dissolvable: {fileID: 876335687}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &876335687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36788,7 +36861,7 @@ GameObject:
   - component: {fileID: 887851812}
   - component: {fileID: 887851816}
   - component: {fileID: 887851815}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37057,7 +37130,7 @@ GameObject:
   - component: {fileID: 894431189}
   - component: {fileID: 894431188}
   - component: {fileID: 894431187}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cage_NEW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37106,6 +37179,7 @@ MonoBehaviour:
   outline: {fileID: 894431189}
   dissolvable: {fileID: 894431188}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &894431188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37173,7 +37247,7 @@ GameObject:
   - component: {fileID: 898776918}
   - component: {fileID: 898776920}
   - component: {fileID: 898776919}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38007,53 +38081,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1122752240}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!1 &947225010
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 947225011}
-  - component: {fileID: 947225012}
-  m_Layer: 0
-  m_Name: Linked
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &947225011
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 947225010}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.467, y: -0.41, z: -9.191}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1248136784}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &947225012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 947225010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f618864fd5f243b693641230ad413b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  linkedCollapsibles:
-  - {fileID: 459585885}
-  - {fileID: 1611090881}
 --- !u!1 &960608990
 GameObject:
   m_ObjectHideFlags: 0
@@ -38179,7 +38206,7 @@ GameObject:
   - component: {fileID: 962885704}
   - component: {fileID: 962885706}
   - component: {fileID: 962885707}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38310,7 +38337,7 @@ GameObject:
   - component: {fileID: 965845509}
   - component: {fileID: 965845508}
   - component: {fileID: 965845515}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Stairs_OLD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38464,6 +38491,7 @@ MonoBehaviour:
   outline: {fileID: 965845508}
   dissolvable: {fileID: 965845515}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!64 &965845510
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -39395,7 +39423,7 @@ GameObject:
   - component: {fileID: 983220898}
   - component: {fileID: 983220902}
   - component: {fileID: 983220901}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39524,7 +39552,7 @@ GameObject:
   - component: {fileID: 994715238}
   - component: {fileID: 994715237}
   - component: {fileID: 994715236}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39589,6 +39617,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canPlayerInteract: 1
   isWorking: 1
+  promptOverride: "[E] \u0412\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls:
@@ -39714,7 +39743,7 @@ GameObject:
   - component: {fileID: 1009362789}
   - component: {fileID: 1009362788}
   - component: {fileID: 1009362790}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40070,6 +40099,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canPlayerInteract: 1
   isWorking: 1
+  promptOverride: "[E] \u0412\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -40152,7 +40182,7 @@ GameObject:
   - component: {fileID: 1014987540}
   - component: {fileID: 1014987544}
   - component: {fileID: 1014987543}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40242,7 +40272,7 @@ GameObject:
   - component: {fileID: 1017569068}
   - component: {fileID: 1017569072}
   - component: {fileID: 1017569071}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40332,7 +40362,7 @@ GameObject:
   - component: {fileID: 1067874554}
   - component: {fileID: 1067874558}
   - component: {fileID: 1067874557}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40422,7 +40452,7 @@ GameObject:
   - component: {fileID: 1083709348}
   - component: {fileID: 1083709350}
   - component: {fileID: 1083709349}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40513,7 +40543,7 @@ GameObject:
   - component: {fileID: 1090685847}
   - component: {fileID: 1090685846}
   - component: {fileID: 1090685848}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40729,6 +40759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canPlayerInteract: 1
   isWorking: 1
+  promptOverride: "[E] \u0412\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls:
@@ -41416,7 +41447,7 @@ GameObject:
   - component: {fileID: 1110563968}
   - component: {fileID: 1110563972}
   - component: {fileID: 1110563971}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41506,7 +41537,7 @@ GameObject:
   - component: {fileID: 1111363991}
   - component: {fileID: 1111363995}
   - component: {fileID: 1111363994}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41813,7 +41844,7 @@ GameObject:
   - component: {fileID: 1139163457}
   - component: {fileID: 1139163460}
   - component: {fileID: 1139163459}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41936,7 +41967,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1150762488}
   - component: {fileID: 1150762489}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bridge part 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41975,10 +42006,15 @@ MonoBehaviour:
   stateOld: {fileID: 1206261472}
   stateNew: {fileID: 53157482}
   initialState: 1
-  isDynamic: 0
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1161553414
@@ -44367,6 +44403,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u0420\u044B\u0447\u0430\u0433_NEW"
       objectReference: {fileID: 0}
+    - target: {fileID: 5180696233142960058, guid: d9cac79e541b09c4c996ff419a009ea9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5414714436398973669, guid: d9cac79e541b09c4c996ff419a009ea9, type: 3}
       propertyPath: m_Size.y
       value: 0.14025828
@@ -44509,7 +44549,7 @@ GameObject:
   - component: {fileID: 1187573732}
   - component: {fileID: 1187573730}
   - component: {fileID: 1187573729}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cup_NEW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44532,6 +44572,7 @@ MonoBehaviour:
   outline: {fileID: 1187573732}
   dissolvable: {fileID: 1187573730}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1187573730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44611,7 +44652,7 @@ GameObject:
   - component: {fileID: 1199896113}
   - component: {fileID: 1199896115}
   - component: {fileID: 1199896116}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45142,7 +45183,7 @@ GameObject:
   - component: {fileID: 1206261472}
   - component: {fileID: 1206261473}
   - component: {fileID: 1206261474}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bridge part 1_OLD
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -45258,6 +45299,7 @@ MonoBehaviour:
   outline: {fileID: 1206261473}
   dissolvable: {fileID: 1206261474}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1206261473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45317,7 +45359,7 @@ GameObject:
   - component: {fileID: 1208977749}
   - component: {fileID: 1208977748}
   - component: {fileID: 1208977750}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45711,6 +45753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canPlayerInteract: 1
   isWorking: 1
+  promptOverride: "[E] \u0412\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls:
@@ -46386,7 +46429,7 @@ GameObject:
   - component: {fileID: 1223413800}
   - component: {fileID: 1223413804}
   - component: {fileID: 1223413803}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46476,7 +46519,7 @@ GameObject:
   - component: {fileID: 1232613794}
   - component: {fileID: 1232613798}
   - component: {fileID: 1232613797}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46570,6 +46613,10 @@ PrefabInstance:
     - target: {fileID: 8390579415333222944, guid: 1596024f73146204a852ff0000f778c2, type: 3}
       propertyPath: m_Name
       value: Cup
+      objectReference: {fileID: 0}
+    - target: {fileID: 8390579415333222944, guid: 1596024f73146204a852ff0000f778c2, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9167784205664673946, guid: 1596024f73146204a852ff0000f778c2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -46687,7 +46734,7 @@ GameObject:
   - component: {fileID: 1241259353}
   - component: {fileID: 1241259361}
   - component: {fileID: 1241259362}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Door_NEW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46745,6 +46792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canPlayerInteract: 0
   isWorking: 1
+  promptOverride: "[E] \u0412\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -47130,6 +47178,7 @@ MonoBehaviour:
   outline: {fileID: 1241259355}
   dissolvable: {fileID: 1241259362}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1241259362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47208,7 +47257,6 @@ Transform:
   - {fileID: 619615339518484282}
   - {fileID: 459585884}
   - {fileID: 1611090880}
-  - {fileID: 947225011}
   - {fileID: 2123914875}
   - {fileID: 960608994}
   - {fileID: 424084237}
@@ -47229,7 +47277,32 @@ MonoBehaviour:
   collapsibles:
   - {fileID: 1239716118}
   - {fileID: 7889328793387873133}
+  pattern: 0
   switchStateInterval: 5
+  delayBetweenObjects: 0.3
+  minInterval: 0.5
+  accelerationRate: 0.05
+  randomIntervalVariance: 1
+  clusterSize: 2
+  customSequence: 
+  showWarningEffect: 1
+  warningTime: 0.5
+  warningColor: {r: 1, g: 0.3, b: 0.3, a: 0.8}
+  collapseSound: {fileID: 0}
+  warningSound: {fileID: 0}
+  audioSource: {fileID: 0}
+  OnCycleStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCycleComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  OnIntervalChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  _isActive: 0
+  _currentInterval: 0
+  _timeSinceLastSwitch: 0
 --- !u!43 &1248623203
 Mesh:
   m_ObjectHideFlags: 0
@@ -47724,7 +47797,7 @@ GameObject:
   - component: {fileID: 1269340791}
   - component: {fileID: 1269340790}
   - component: {fileID: 1269340792}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47835,7 +47908,7 @@ GameObject:
   - component: {fileID: 1279783604}
   - component: {fileID: 1279783608}
   - component: {fileID: 1279783607}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47978,6 +48051,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin_02
       objectReference: {fileID: 0}
+    - target: {fileID: 5583695742079069958, guid: 779c5ca3c923f0e4386e047e98dfb46d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6232341700863610579, guid: 779c5ca3c923f0e4386e047e98dfb46d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -48035,7 +48112,7 @@ GameObject:
   - component: {fileID: 1287944530}
   - component: {fileID: 1287944529}
   - component: {fileID: 1287944531}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48180,7 +48257,7 @@ GameObject:
   - component: {fileID: 1311477078}
   - component: {fileID: 1311477082}
   - component: {fileID: 1311477081}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48270,7 +48347,7 @@ GameObject:
   - component: {fileID: 1339312017}
   - component: {fileID: 1339312019}
   - component: {fileID: 1339312018}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48362,7 +48439,7 @@ GameObject:
   - component: {fileID: 1345738602}
   - component: {fileID: 1345738604}
   - component: {fileID: 1345738605}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48485,7 +48562,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1352528777}
   - component: {fileID: 1352528776}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48507,10 +48584,15 @@ MonoBehaviour:
   stateOld: {fileID: 740729674}
   stateNew: {fileID: 894431187}
   initialState: 1
-  isDynamic: 0
-  canPlayerCollapse: 0
-  isBroken: 1
+  stabilityLevel: 2
+  _currentState: 1
   OnCollapse:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &1352528777
@@ -50760,6 +50842,17 @@ MonoBehaviour:
   OnPlayerExit:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1396030406 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1570368214938733644, guid: c0faee0bdd42c444888bf137d73b2d0b, type: 3}
+  m_PrefabInstance: {fileID: 5871325473669843339}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff4df7016b6684867990c61d69c350e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1399344507 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9066198808722632173, guid: 8f88a1f0b578445b188f57a6e7f29c65, type: 3}
@@ -50812,8 +50905,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 391518804}
         m_TargetAssemblyTypeName: Collapsible, Assembly-CSharp
-        m_MethodName: Collapse
-        m_Mode: 3
+        m_MethodName: CollapseToOld
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -50824,8 +50917,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 391518804}
         m_TargetAssemblyTypeName: Collapsible, Assembly-CSharp
-        m_MethodName: SetIsBroken
-        m_Mode: 6
+        m_MethodName: SetStabilityLevel
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -50833,18 +50926,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 391518804}
-        m_TargetAssemblyTypeName: Collapsible, Assembly-CSharp
-        m_MethodName: SetCanPlayerCollapse
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1248136785}
         m_TargetAssemblyTypeName: CollapsileGroupController, Assembly-CSharp
@@ -51252,7 +51333,7 @@ GameObject:
   - component: {fileID: 1421542514}
   - component: {fileID: 1421542524}
   - component: {fileID: 1421542516}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Door_OLD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51275,6 +51356,7 @@ MonoBehaviour:
   outline: {fileID: 1421542517}
   dissolvable: {fileID: 1421542524}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!95 &1421542515
 Animator:
   serializedVersion: 7
@@ -51311,6 +51393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canPlayerInteract: 0
   isWorking: 1
+  promptOverride: "[E] \u0412\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -51747,7 +51830,7 @@ GameObject:
   - component: {fileID: 1475814071}
   - component: {fileID: 1475814075}
   - component: {fileID: 1475814074}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51837,7 +51920,7 @@ GameObject:
   - component: {fileID: 1477692317}
   - component: {fileID: 1477692319}
   - component: {fileID: 1477692318}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51932,7 +52015,7 @@ GameObject:
   - component: {fileID: 1501625926}
   - component: {fileID: 1501625930}
   - component: {fileID: 1501625929}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52022,6 +52105,10 @@ PrefabInstance:
     - target: {fileID: 325843256164847458, guid: 9bfe65e2133a649909ccb4162ff29465, type: 3}
       propertyPath: m_Name
       value: Wall_OLD
+      objectReference: {fileID: 0}
+    - target: {fileID: 325843256164847458, guid: 9bfe65e2133a649909ccb4162ff29465, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 325843256164847458, guid: 9bfe65e2133a649909ccb4162ff29465, type: 3}
       propertyPath: m_IsActive
@@ -52431,6 +52518,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 8829744791662538652, guid: 9bfe65e2133a649909ccb4162ff29465, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4474076886983301392, guid: 9bfe65e2133a649909ccb4162ff29465, type: 3}
     - {fileID: 4339387080505888259, guid: 9bfe65e2133a649909ccb4162ff29465, type: 3}
@@ -52503,7 +52594,7 @@ GameObject:
   - component: {fileID: 1509340766}
   - component: {fileID: 1509340765}
   - component: {fileID: 1509340764}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52596,7 +52687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 325843256164847458, guid: 9bfe65e2133a649909ccb4162ff29465, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 325843256164847458, guid: 9bfe65e2133a649909ccb4162ff29465, type: 3}
       propertyPath: m_IsActive
@@ -52720,7 +52811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4479513933904856312, guid: 9bfe65e2133a649909ccb4162ff29465, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4479513933904856312, guid: 9bfe65e2133a649909ccb4162ff29465, type: 3}
       propertyPath: m_IsActive
@@ -52795,6 +52886,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7889328793493950144, guid: 9bfe65e2133a649909ccb4162ff29465, type: 3}
+      propertyPath: stabilityLevel
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7889328793493950144, guid: 9bfe65e2133a649909ccb4162ff29465, type: 3}
       propertyPath: canPlayerCollapse
       value: 0
       objectReference: {fileID: 0}
@@ -52821,6 +52916,10 @@ PrefabInstance:
     - target: {fileID: 8829744791662538652, guid: 9bfe65e2133a649909ccb4162ff29465, type: 3}
       propertyPath: m_Name
       value: Pit
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829744791662538652, guid: 9bfe65e2133a649909ccb4162ff29465, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4474076886983301392, guid: 9bfe65e2133a649909ccb4162ff29465, type: 3}
@@ -53254,10 +53353,15 @@ MonoBehaviour:
   stateOld: {fileID: 852526247}
   stateNew: {fileID: 321354773}
   initialState: 1
-  isDynamic: 0
-  canPlayerCollapse: 0
-  isBroken: 1
+  stabilityLevel: 2
+  _currentState: 1
   OnCollapse:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1001 &1616983884
@@ -53271,6 +53375,10 @@ PrefabInstance:
     - target: {fileID: 5180696233142960058, guid: d9cac79e541b09c4c996ff419a009ea9, type: 3}
       propertyPath: m_Name
       value: "\u0420\u044B\u0447\u0430\u0433_OLD"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5180696233142960058, guid: d9cac79e541b09c4c996ff419a009ea9, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5414714436398973669, guid: d9cac79e541b09c4c996ff419a009ea9, type: 3}
       propertyPath: m_Size.y
@@ -53395,6 +53503,7 @@ MonoBehaviour:
   outline: {fileID: 1616983889}
   dissolvable: {fileID: 1616983888}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1616983888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53872,7 +53981,7 @@ GameObject:
   - component: {fileID: 1634086861}
   - component: {fileID: 1634086863}
   - component: {fileID: 1634086864}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54174,7 +54283,7 @@ GameObject:
   - component: {fileID: 1703015210}
   - component: {fileID: 1703015212}
   - component: {fileID: 1703015211}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54321,6 +54430,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stairs
       objectReference: {fileID: 0}
+    - target: {fileID: 8829744791662538652, guid: 9bfe65e2133a649909ccb4162ff29465, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 325843256164847458, guid: 9bfe65e2133a649909ccb4162ff29465, type: 3}
@@ -54367,7 +54480,7 @@ GameObject:
   - component: {fileID: 1714259846}
   - component: {fileID: 1714259845}
   - component: {fileID: 1714259844}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Door (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54410,6 +54523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canPlayerInteract: 1
   isWorking: 1
+  promptOverride: "[E] \u0412\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -54805,7 +54919,7 @@ GameObject:
   - component: {fileID: 1719789332}
   - component: {fileID: 1719789334}
   - component: {fileID: 1719789333}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57171,7 +57285,7 @@ GameObject:
   - component: {fileID: 1805936624}
   - component: {fileID: 1805936628}
   - component: {fileID: 1805936627}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58072,6 +58186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canPlayerInteract: 1
   isWorking: 1
+  promptOverride: "[E] \u0412\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls:
@@ -58147,6 +58262,7 @@ MonoBehaviour:
   outline: {fileID: 1888226935}
   dissolvable: {fileID: 1888226937}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1888226937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58186,7 +58302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1897038322}
   - component: {fileID: 1897038323}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bridge part 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58225,10 +58341,15 @@ MonoBehaviour:
   stateOld: {fileID: 2055721439}
   stateNew: {fileID: 396143361}
   initialState: 1
-  isDynamic: 0
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 3
+  _currentState: 1
   OnCollapse:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1921378464
@@ -58242,7 +58363,7 @@ GameObject:
   - component: {fileID: 1921378465}
   - component: {fileID: 1921378469}
   - component: {fileID: 1921378468}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58510,7 +58631,7 @@ GameObject:
   - component: {fileID: 1976627414}
   - component: {fileID: 1976627416}
   - component: {fileID: 1976627415}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58600,7 +58721,7 @@ GameObject:
   - component: {fileID: 1987414963}
   - component: {fileID: 1987414967}
   - component: {fileID: 1987414966}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58690,7 +58811,7 @@ GameObject:
   - component: {fileID: 1988373035}
   - component: {fileID: 1988373039}
   - component: {fileID: 1988373038}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59290,6 +59411,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin_02
       objectReference: {fileID: 0}
+    - target: {fileID: 5583695742079069958, guid: 779c5ca3c923f0e4386e047e98dfb46d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6232341700863610579, guid: 779c5ca3c923f0e4386e047e98dfb46d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -59528,7 +59653,7 @@ GameObject:
   - component: {fileID: 2055721439}
   - component: {fileID: 2055721440}
   - component: {fileID: 2055721441}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bridge part 2_OLD
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -59644,6 +59769,7 @@ MonoBehaviour:
   outline: {fileID: 2055721440}
   dissolvable: {fileID: 2055721441}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &2055721440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59708,7 +59834,7 @@ GameObject:
   - component: {fileID: 2068559897}
   - component: {fileID: 2068559898}
   - component: {fileID: 2068559896}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall_NEW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61225,6 +61351,7 @@ MonoBehaviour:
   outline: {fileID: 2068559896}
   dissolvable: {fileID: 2068559898}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &2068559898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63167,7 +63294,7 @@ GameObject:
   - component: {fileID: 2076611748}
   - component: {fileID: 2076611752}
   - component: {fileID: 2076611751}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63261,6 +63388,10 @@ PrefabInstance:
     - target: {fileID: 8390579415333222944, guid: 1596024f73146204a852ff0000f778c2, type: 3}
       propertyPath: m_Name
       value: Cup
+      objectReference: {fileID: 0}
+    - target: {fileID: 8390579415333222944, guid: 1596024f73146204a852ff0000f778c2, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9167784205664673946, guid: 1596024f73146204a852ff0000f778c2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -63470,6 +63601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canPlayerInteract: 1
   isWorking: 1
+  promptOverride: "[E] \u0412\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -64171,7 +64303,7 @@ GameObject:
   - component: {fileID: 2136525133}
   - component: {fileID: 2136525135}
   - component: {fileID: 2136525136}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64602,15 +64734,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2939449934298575833, guid: 15f880ac66be248fd99892852cf03721, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.58106
+      value: -13.961367
       objectReference: {fileID: 0}
     - target: {fileID: 2939449934298575833, guid: 15f880ac66be248fd99892852cf03721, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.35
+      value: -4.417567
       objectReference: {fileID: 0}
     - target: {fileID: 2939449934298575833, guid: 15f880ac66be248fd99892852cf03721, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 25.426691
+      value: 3.456973
       objectReference: {fileID: 0}
     - target: {fileID: 2939449934298575833, guid: 15f880ac66be248fd99892852cf03721, type: 3}
       propertyPath: m_LocalRotation.w
@@ -64715,6 +64847,7 @@ MonoBehaviour:
   outline: {fileID: 3146595361702769912}
   dissolvable: {fileID: 6468872558717052474}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!1001 &5871325473669843339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64768,17 +64901,65 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7110811174806834224, guid: c0faee0bdd42c444888bf137d73b2d0b, type: 3}
+      propertyPath: OnInteractEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110811174806834224, guid: c0faee0bdd42c444888bf137d73b2d0b, type: 3}
+      propertyPath: OnInteractEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110811174806834224, guid: c0faee0bdd42c444888bf137d73b2d0b, type: 3}
+      propertyPath: OnInteractEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110811174806834224, guid: c0faee0bdd42c444888bf137d73b2d0b, type: 3}
+      propertyPath: OnInteractEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110811174806834224, guid: c0faee0bdd42c444888bf137d73b2d0b, type: 3}
       propertyPath: OnInteractEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1239716118}
+      objectReference: {fileID: 1248136785}
     - target: {fileID: 7110811174806834224, guid: c0faee0bdd42c444888bf137d73b2d0b, type: 3}
       propertyPath: OnInteractEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 7889328793387873133}
+      objectReference: {fileID: 1396030406}
+    - target: {fileID: 7110811174806834224, guid: c0faee0bdd42c444888bf137d73b2d0b, type: 3}
+      propertyPath: OnInteractEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 1352528776}
     - target: {fileID: 7110811174806834224, guid: c0faee0bdd42c444888bf137d73b2d0b, type: 3}
       propertyPath: OnInteractEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
       objectReference: {fileID: 1352528776}
+    - target: {fileID: 7110811174806834224, guid: c0faee0bdd42c444888bf137d73b2d0b, type: 3}
+      propertyPath: OnInteractEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: StartDynamicStateSwitching
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110811174806834224, guid: c0faee0bdd42c444888bf137d73b2d0b, type: 3}
+      propertyPath: OnInteractEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Dissolve
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110811174806834224, guid: c0faee0bdd42c444888bf137d73b2d0b, type: 3}
+      propertyPath: OnInteractEvent.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: CollapseToNew
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110811174806834224, guid: c0faee0bdd42c444888bf137d73b2d0b, type: 3}
+      propertyPath: OnInteractEvent.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: CollapseToNew
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110811174806834224, guid: c0faee0bdd42c444888bf137d73b2d0b, type: 3}
+      propertyPath: OnInteractEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: CollapsibleGroupController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110811174806834224, guid: c0faee0bdd42c444888bf137d73b2d0b, type: 3}
+      propertyPath: OnInteractEvent.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: Dissolvable, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110811174806834224, guid: c0faee0bdd42c444888bf137d73b2d0b, type: 3}
+      propertyPath: OnInteractEvent.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: Collapsible, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -64800,6 +64981,7 @@ MonoBehaviour:
   outline: {fileID: 740633780642042859}
   dissolvable: {fileID: 8471240916951029930}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &6468872558717052474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64859,10 +65041,15 @@ MonoBehaviour:
   stateOld: {fileID: 5922493018607250159}
   stateNew: {fileID: 5679998987805732843}
   initialState: 0
-  isDynamic: 0
-  canPlayerCollapse: 1
-  isBroken: 0
+  stabilityLevel: 4
+  _currentState: 1
   OnCollapse:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToOld:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCollapseToNew:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &8471240916951029929

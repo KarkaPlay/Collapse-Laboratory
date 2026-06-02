@@ -12,11 +12,23 @@ public class COState : MonoBehaviour, ICollapsible
 
     public bool isHighlightable = true;
 
+    [Tooltip("Логировать причину, по которой подсветка не включается (для отладки уровней)")]
+    public bool logHighlightDiagnostics = false;
+
     #region Validation
 
     private void Awake()
     {
         ValidateComponents();
+    }
+
+    private void OnDisable()
+    {
+        // Если объект отключают во время перехода, корутина Activating прервётся
+        // и не вызовет NotifyStateTransitionEnded — снимаем блокировку вручную,
+        // иначе родитель навсегда останется в состоянии IsTransitioning.
+        if (parentCollapsible != null)
+            parentCollapsible.NotifyStateTransitionEnded();
     }
 
     private void ValidateComponents()
@@ -52,10 +64,15 @@ public class COState : MonoBehaviour, ICollapsible
         }
     }
 
-    public void SetOutlineColor(Color color) => outline.OutlineColor = color;
+    public void SetOutlineColor(Color color)
+    {
+        if (outline == null) return;
+        outline.OutlineColor = color;
+    }
 
     public void SetOutlineActive(bool active)
     {
+        if (outline == null) return;
         if (outline.enabled != active)
         {
             outline.enabled = active;
@@ -78,7 +95,28 @@ public class COState : MonoBehaviour, ICollapsible
 
     public void OnHighlight()
     {
-        if (!isHighlightable) return;
+        if (!isHighlightable)
+        {
+            // Частая причина "не включается Outline": isHighlightable остался false
+            // (например, переход не довёл SetHighlightable(true), объект Absolute,
+            // или потеряна ссылка на Outline). Логируем, чтобы быстро локализовать на уровне.
+            if (logHighlightDiagnostics)
+            {
+                Debug.Log(
+                    $"[COState] {name}: подсветка пропущена. isHighlightable=false, " +
+                    $"stability={(parentCollapsible != null ? parentCollapsible.stabilityLevel.ToString() : "null")}, " +
+                    $"outlineRef={(outline != null ? "ok" : "MISSING")}, " +
+                    $"goActive={gameObject.activeInHierarchy}",
+                    this);
+            }
+            return;
+        }
+
+        if (outline == null)
+        {
+            Debug.LogError($"[COState] {name}: Outline reference is missing — невозможно включить подсветку.", this);
+            return;
+        }
 
         // Цвет outline зависит от стабильности
         UpdateOutlineColor();
@@ -138,8 +176,10 @@ public class COState : MonoBehaviour, ICollapsible
         {
             yield return StartCoroutine(dissolvable.Undissolving());
 
-            // Highlightable только если объект не Absolute
-            if (parentCollapsible.CanBeChanged)
+            // Highlightable только если объект не Absolute.
+            // Включаем подсветку даже если parentCollapsible временно null,
+            // чтобы баг с "невыделяемым" объектом не возникал из-за порядка инициализации.
+            if (parentCollapsible == null || parentCollapsible.CanBeChanged)
             {
                 SetHighlightable(true);
             }
@@ -148,6 +188,11 @@ public class COState : MonoBehaviour, ICollapsible
         {
             yield return StartCoroutine(dissolvable.Dissolving());
         }
+
+        // Сообщаем родителю, что переход этого состояния завершён,
+        // чтобы снять блокировку повторного схлопывания.
+        if (parentCollapsible != null)
+            parentCollapsible.NotifyStateTransitionEnded();
     }
 
     #endregion

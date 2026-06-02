@@ -26,6 +26,12 @@ public class Collapsible : MonoBehaviour
     [SerializeField] private CollapseState _currentState = CollapseState.Old;
     public CollapseState CurrentState => _currentState;
 
+    // Защита от повторного схлопывания, пока проигрывается анимация перехода.
+    private bool _isTransitioning;
+
+    /// <summary>Идёт ли сейчас анимация перехода между состояниями.</summary>
+    public bool IsTransitioning => _isTransitioning;
+
     [Header("События")]
     [Tooltip("Вызывается при каждом схлопывании с полными данными")]
     public UnityEvent<CollapseEventData> OnCollapse;
@@ -75,6 +81,14 @@ public class Collapsible : MonoBehaviour
     /// <returns>true если схлопывание произошло</returns>
     public bool Collapse(CollapseOrigin origin, CollapseState? targetState = null)
     {
+        // Проверка: уже идёт анимация перехода — нельзя схлопывать повторно,
+        // иначе параллельные dissolve-корутины ломают материал (объект становится невидимым).
+        if (_isTransitioning)
+        {
+            GameDebug.Log($"[Collapsible] {name}: collapse ignored — transition in progress");
+            return false;
+        }
+
         // Проверка: можно ли вообще менять этот объект
         if (!CanBeChanged)
         {
@@ -118,6 +132,7 @@ public class Collapsible : MonoBehaviour
 
         // Выполняем переключение
         _currentState = newState;
+        BeginTransition();
         SetObjectsActive();
 
         // Создаём данные события
@@ -179,6 +194,41 @@ public class Collapsible : MonoBehaviour
     {
         if (stateNew != null) stateNew.Activate(_currentState == CollapseState.New);
         if (stateOld != null) stateOld.Activate(_currentState == CollapseState.Old);
+    }
+
+    // Кол-во состояний, чей переход ещё проигрывается. Когда доходит до нуля — переход завершён.
+    private int _pendingTransitions;
+
+    /// <summary>
+    /// Помечает начало анимации перехода. Блокирует повторное схлопывание до завершения.
+    /// </summary>
+    private void BeginTransition()
+    {
+        _isTransitioning = true;
+        // stateOld и stateNew проигрывают переход независимо; считаем существующие.
+        _pendingTransitions = 0;
+        if (stateNew != null) _pendingTransitions++;
+        if (stateOld != null) _pendingTransitions++;
+
+        // Если состояний нет — переход мгновенный, сразу снимаем блокировку.
+        if (_pendingTransitions == 0)
+            _isTransitioning = false;
+    }
+
+    /// <summary>
+    /// Вызывается дочерним COState по завершении его dissolve-анимации.
+    /// Снимает блокировку, когда все состояния закончили переход.
+    /// </summary>
+    public void NotifyStateTransitionEnded()
+    {
+        if (!_isTransitioning) return;
+
+        _pendingTransitions--;
+        if (_pendingTransitions <= 0)
+        {
+            _pendingTransitions = 0;
+            _isTransitioning = false;
+        }
     }
 
     #endregion

@@ -119,69 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &1278950
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1278952}
-  - component: {fileID: 1278951}
-  - component: {fileID: 1278953}
-  m_Layer: 0
-  m_Name: Linked 2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1278951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1278950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f618864fd5f243b693641230ad413b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LinkedCollapsibles
-  linkedCollapsibles:
-  - {fileID: 2094564453}
-  - {fileID: 1838675042}
-  trailMoveTime: 1
-  invokesChainReaction: 0
---- !u!4 &1278952
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1278950}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1871336605}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1278953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1278950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a388204524044d43b2a9f336c8dd45b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TrailMoving
-  trailPrefab: {fileID: 0}
 --- !u!65 &5166340 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 3332939972972716662, guid: 3ee31620d2f1fe64189ef79ca43a2c03, type: 3}
@@ -385,6 +322,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fridge_OLD
       objectReference: {fileID: 0}
+    - target: {fileID: 4516788737372124500, guid: 3ee31620d2f1fe64189ef79ca43a2c03, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -428,6 +369,7 @@ MonoBehaviour:
   outline: {fileID: 31253059}
   dissolvable: {fileID: 31253058}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &31253058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,6 +429,10 @@ PrefabInstance:
     - target: {fileID: 14847712115371948, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
       propertyPath: m_Name
       value: GlassBottle_03_NEW
+      objectReference: {fileID: 0}
+    - target: {fileID: 14847712115371948, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 828503206201750806, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
       propertyPath: m_LocalPosition.x
@@ -582,6 +528,7 @@ MonoBehaviour:
   outline: {fileID: 32195520}
   dissolvable: {fileID: 32195519}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &32195519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -685,6 +632,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlassBottle_04 (7)_NEW
       objectReference: {fileID: 0}
+    - target: {fileID: 4046689530314105407, guid: 7a4acc0cd2a6a3049adf0484e05d64e2, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -735,6 +686,7 @@ MonoBehaviour:
   outline: {fileID: 46121278}
   dissolvable: {fileID: 46121277}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &46121277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -867,7 +819,9 @@ GameObject:
   m_Component:
   - component: {fileID: 60780405}
   - component: {fileID: 60780404}
-  m_Layer: 0
+  - component: {fileID: 60780407}
+  - component: {fileID: 60780406}
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -893,19 +847,7 @@ MonoBehaviour:
   _currentState: 1
   OnCollapse:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 245024572}
-        m_TargetAssemblyTypeName: LinkedCollapsibles, Assembly-CSharp
-        m_MethodName: CollapseAllLinkedCollapsibles
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnCollapseToOld:
     m_PersistentCalls:
       m_Calls: []
@@ -929,6 +871,52 @@ Transform:
   - {fileID: 642632951}
   m_Father: {fileID: 245024573}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &60780406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60780403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecbedaac2cdbc54794ef70231be2a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollapseLinkController
+  links:
+  - target: {fileID: 903361325}
+    triggerWhen: 3
+    action: 0
+    delay: 0.3
+    showTrail: 1
+    designerNote: 
+  - target: {fileID: 1445003021}
+    triggerWhen: 3
+    action: 0
+    delay: 0.3
+    showTrail: 1
+    designerNote: 
+  - target: {fileID: 2105328081}
+    triggerWhen: 3
+    action: 0
+    delay: 0.3
+    showTrail: 1
+    designerNote: 
+  maxChainDepth: 5
+--- !u!114 &60780407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60780403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a388204524044d43b2a9f336c8dd45b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrailMoving
+  trailPrefab: {fileID: 1367619002952535313, guid: 664c64bbb000f5e428ca3b8f7e0ea923, type: 3}
+  speed: 5
 --- !u!1 &67204947
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,7 +927,7 @@ GameObject:
   m_Component:
   - component: {fileID: 67204949}
   - component: {fileID: 67204948}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -961,7 +949,7 @@ MonoBehaviour:
   stateOld: {fileID: 31253057}
   stateNew: {fileID: 336107168}
   initialState: 1
-  stabilityLevel: 3
+  stabilityLevel: 2
   _currentState: 1
   OnCollapse:
     m_PersistentCalls:
@@ -1138,6 +1126,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlassBottle_03 (4)_NEW
       objectReference: {fileID: 0}
+    - target: {fileID: 14847712115371948, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 828503206201750806, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1232,6 +1224,7 @@ MonoBehaviour:
   outline: {fileID: 112300315}
   dissolvable: {fileID: 112300314}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &112300314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1331,6 +1324,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Food_Seared Ground Beef
       objectReference: {fileID: 0}
+    - target: {fileID: 5214559279995241855, guid: 83aad64f3f078194b97e33a1d49fb2b5, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6007004180365632682, guid: 83aad64f3f078194b97e33a1d49fb2b5, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -1427,6 +1424,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlassBottle_04_NEW
       objectReference: {fileID: 0}
+    - target: {fileID: 4046689530314105407, guid: 7a4acc0cd2a6a3049adf0484e05d64e2, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1477,6 +1478,7 @@ MonoBehaviour:
   outline: {fileID: 133468782}
   dissolvable: {fileID: 133468781}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &133468781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1539,6 +1541,10 @@ PrefabInstance:
     - target: {fileID: 3613718199928060905, guid: 9b5dc512ec347e34eaaae1f9cf497537, type: 3}
       propertyPath: m_Name
       value: GlassBottle_01 (1)_NEW
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613718199928060905, guid: 9b5dc512ec347e34eaaae1f9cf497537, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4138052842913210707, guid: 9b5dc512ec347e34eaaae1f9cf497537, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1630,6 +1636,7 @@ MonoBehaviour:
   outline: {fileID: 147010060}
   dissolvable: {fileID: 147010059}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &147010059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1687,7 +1694,7 @@ GameObject:
   m_Component:
   - component: {fileID: 157399170}
   - component: {fileID: 157399169}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GlassBottle_04 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1709,7 +1716,7 @@ MonoBehaviour:
   stateOld: {fileID: 1583826433}
   stateNew: {fileID: 1040884090}
   initialState: 1
-  stabilityLevel: 3
+  stabilityLevel: 4
   _currentState: 1
   OnCollapse:
     m_PersistentCalls:
@@ -1927,6 +1934,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CannedFood_01_NEW
       objectReference: {fileID: 0}
+    - target: {fileID: 2594811017049069506, guid: 75dcd397f18ec974abb407f6a8a10047, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3407340852547849592, guid: 75dcd397f18ec974abb407f6a8a10047, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
@@ -2022,6 +2033,7 @@ MonoBehaviour:
   outline: {fileID: 177414962}
   dissolvable: {fileID: 177414961}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &177414961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2215,6 +2227,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Food_Oil
       objectReference: {fileID: 0}
+    - target: {fileID: 6791816518937276895, guid: 4caa6851baabe4f40bde9724dafa3b8e, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2266,7 +2282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 188543553}
   - component: {fileID: 188543552}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GlassBottle_03 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2339,6 +2355,10 @@ PrefabInstance:
     - target: {fileID: 14847712115371948, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
       propertyPath: m_Name
       value: GlassBottle_03 (1)_NEW
+      objectReference: {fileID: 0}
+    - target: {fileID: 14847712115371948, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 828503206201750806, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2434,6 +2454,7 @@ MonoBehaviour:
   outline: {fileID: 190335742}
   dissolvable: {fileID: 190335741}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &190335741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2640,6 +2661,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlassBottle_04_OLD
       objectReference: {fileID: 0}
+    - target: {fileID: 4046689530314105407, guid: 7a4acc0cd2a6a3049adf0484e05d64e2, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2690,6 +2715,7 @@ MonoBehaviour:
   outline: {fileID: 196459257}
   dissolvable: {fileID: 196459256}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &196459256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2752,7 +2778,7 @@ GameObject:
   - component: {fileID: 233399435}
   - component: {fileID: 233399432}
   - component: {fileID: 233399431}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube_NEW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2775,6 +2801,7 @@ MonoBehaviour:
   outline: {fileID: 233399435}
   dissolvable: {fileID: 233399432}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &233399432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2931,6 +2958,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Bowel_02
       objectReference: {fileID: 0}
+    - target: {fileID: 6023177781531169710, guid: 1a4629ba2471df04b82c7bbeaf4788af, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6403398400573737236, guid: 1a4629ba2471df04b82c7bbeaf4788af, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.225
@@ -3021,7 +3052,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 245024573}
-  - component: {fileID: 245024572}
   - component: {fileID: 245024574}
   m_Layer: 0
   m_Name: "\u041A\u0432\u0430\u043D\u0442\u043E\u0432\u043E \u0437\u0430\u043F\u0443\u0442\u0430\u043D\u043D\u044B\u0435"
@@ -3030,25 +3060,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &245024572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 245024571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f618864fd5f243b693641230ad413b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LinkedCollapsibles
-  linkedCollapsibles:
-  - {fileID: 1445003021}
-  - {fileID: 903361325}
-  - {fileID: 60780404}
-  - {fileID: 2105328081}
-  trailMoveTime: 1
-  invokesChainReaction: 0
 --- !u!4 &245024573
 Transform:
   m_ObjectHideFlags: 0
@@ -3081,7 +3092,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a388204524044d43b2a9f336c8dd45b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrailMoving
-  trailPrefab: {fileID: 0}
+  trailPrefab: {fileID: 1367619002952535313, guid: 664c64bbb000f5e428ca3b8f7e0ea923, type: 3}
+  speed: 5
 --- !u!1 &248296650
 GameObject:
   m_ObjectHideFlags: 0
@@ -3097,7 +3109,7 @@ GameObject:
   - component: {fileID: 248296657}
   - component: {fileID: 248296656}
   - component: {fileID: 248296655}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube_NEW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3213,6 +3225,7 @@ MonoBehaviour:
   outline: {fileID: 248296657}
   dissolvable: {fileID: 248296656}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &248296656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3297,6 +3310,25 @@ MonoBehaviour:
   minInterval: 0.5
   accelerationRate: 0.05
   randomIntervalVariance: 1
+  clusterSize: 2
+  customSequence: 
+  showWarningEffect: 1
+  warningTime: 0.5
+  warningColor: {r: 0.31132078, g: 0.09545213, b: 0.09545213, a: 0.101960786}
+  collapseSound: {fileID: 0}
+  warningSound: {fileID: 0}
+  audioSource: {fileID: 0}
+  OnCycleStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCycleComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  OnIntervalChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  _isActive: 0
+  _currentInterval: 0
   _timeSinceLastSwitch: 0
 --- !u!4 &251433012
 Transform:
@@ -3330,6 +3362,10 @@ PrefabInstance:
     - target: {fileID: 3613718199928060905, guid: 9b5dc512ec347e34eaaae1f9cf497537, type: 3}
       propertyPath: m_Name
       value: GlassBottle_01 (2)_OLD
+      objectReference: {fileID: 0}
+    - target: {fileID: 3613718199928060905, guid: 9b5dc512ec347e34eaaae1f9cf497537, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4138052842913210707, guid: 9b5dc512ec347e34eaaae1f9cf497537, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3421,6 +3457,7 @@ MonoBehaviour:
   outline: {fileID: 260054736}
   dissolvable: {fileID: 260054735}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &260054735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3524,6 +3561,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlassBottle_04 (5)_NEW
       objectReference: {fileID: 0}
+    - target: {fileID: 4046689530314105407, guid: 7a4acc0cd2a6a3049adf0484e05d64e2, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3574,6 +3615,7 @@ MonoBehaviour:
   outline: {fileID: 273963071}
   dissolvable: {fileID: 273963070}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &273963070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3632,6 +3674,10 @@ PrefabInstance:
     - target: {fileID: 5028759993301923343, guid: 85938f0c69ec2764089c4ae07951faf6, type: 3}
       propertyPath: m_Name
       value: Food_Tomato
+      objectReference: {fileID: 0}
+    - target: {fileID: 5028759993301923343, guid: 85938f0c69ec2764089c4ae07951faf6, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5657205297178258613, guid: 85938f0c69ec2764089c4ae07951faf6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3729,7 +3775,7 @@ GameObject:
   - component: {fileID: 294538223}
   - component: {fileID: 294538228}
   - component: {fileID: 294538229}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere_OLD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3892,6 +3938,7 @@ MonoBehaviour:
   outline: {fileID: 294538224}
   dissolvable: {fileID: 294538223}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &294538229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4415,6 +4462,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fridge_NEW
       objectReference: {fileID: 0}
+    - target: {fileID: 4516788737372124500, guid: 3ee31620d2f1fe64189ef79ca43a2c03, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -4470,6 +4521,7 @@ MonoBehaviour:
   outline: {fileID: 336107170}
   dissolvable: {fileID: 336107169}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &336107169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4532,7 +4584,7 @@ GameObject:
   m_Component:
   - component: {fileID: 338816383}
   - component: {fileID: 338816382}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GlassBottle_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4594,69 +4646,6 @@ Transform:
   - {fileID: 1675727015}
   m_Father: {fileID: 569155424}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &344285582
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 344285584}
-  - component: {fileID: 344285583}
-  - component: {fileID: 344285585}
-  m_Layer: 0
-  m_Name: Linked 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &344285583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344285582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f618864fd5f243b693641230ad413b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LinkedCollapsibles
-  linkedCollapsibles:
-  - {fileID: 1754522032}
-  - {fileID: 2094564453}
-  trailMoveTime: 1
-  invokesChainReaction: 0
---- !u!4 &344285584
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344285582}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1871336605}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &344285585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344285582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a388204524044d43b2a9f336c8dd45b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TrailMoving
-  trailPrefab: {fileID: 0}
 --- !u!43 &357769813
 Mesh:
   m_ObjectHideFlags: 0
@@ -5525,7 +5514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 404153734}
   - component: {fileID: 404153733}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5547,7 +5536,7 @@ MonoBehaviour:
   stateOld: {fileID: 2117237249}
   stateNew: {fileID: 497507266}
   initialState: 0
-  stabilityLevel: 3
+  stabilityLevel: 4
   _currentState: 1
   OnCollapse:
     m_PersistentCalls:
@@ -5586,6 +5575,10 @@ PrefabInstance:
     - target: {fileID: 14847712115371948, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
       propertyPath: m_Name
       value: GlassBottle_03 (1)_OLD
+      objectReference: {fileID: 0}
+    - target: {fileID: 14847712115371948, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 828503206201750806, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5681,6 +5674,7 @@ MonoBehaviour:
   outline: {fileID: 405117429}
   dissolvable: {fileID: 405117428}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &405117428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6322,6 +6316,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlassBottle_01_OLD
       objectReference: {fileID: 0}
+    - target: {fileID: 3613718199928060905, guid: 9b5dc512ec347e34eaaae1f9cf497537, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4138052842913210707, guid: 9b5dc512ec347e34eaaae1f9cf497537, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6412,6 +6410,7 @@ MonoBehaviour:
   outline: {fileID: 435876826}
   dissolvable: {fileID: 435876825}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &435876825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6601,6 +6600,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlassBottle_01 (1)_OLD
       objectReference: {fileID: 0}
+    - target: {fileID: 3613718199928060905, guid: 9b5dc512ec347e34eaaae1f9cf497537, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4138052842913210707, guid: 9b5dc512ec347e34eaaae1f9cf497537, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6691,6 +6694,7 @@ MonoBehaviour:
   outline: {fileID: 477599292}
   dissolvable: {fileID: 477599291}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &477599291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6857,7 +6861,7 @@ GameObject:
   - component: {fileID: 497507270}
   - component: {fileID: 497507267}
   - component: {fileID: 497507266}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube_NEW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6880,6 +6884,7 @@ MonoBehaviour:
   outline: {fileID: 497507270}
   dissolvable: {fileID: 497507267}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &497507267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7036,6 +7041,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlassBottle_01 (2)_NEW
       objectReference: {fileID: 0}
+    - target: {fileID: 3613718199928060905, guid: 9b5dc512ec347e34eaaae1f9cf497537, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4138052842913210707, guid: 9b5dc512ec347e34eaaae1f9cf497537, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7126,6 +7135,7 @@ MonoBehaviour:
   outline: {fileID: 512271331}
   dissolvable: {fileID: 512271330}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &512271330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7480,6 +7490,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1389961326}
     m_Modifications:
+    - target: {fileID: 1242426072092314060, guid: eb96fed80528b944f9220025e7cfec34, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1730842354596702973, guid: eb96fed80528b944f9220025e7cfec34, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -7531,6 +7545,14 @@ PrefabInstance:
     - target: {fileID: 4345780748978648619, guid: eb96fed80528b944f9220025e7cfec34, type: 3}
       propertyPath: m_Name
       value: Table_NEW
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345780748978648619, guid: eb96fed80528b944f9220025e7cfec34, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483065712869885110, guid: eb96fed80528b944f9220025e7cfec34, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7799643558966929124, guid: eb96fed80528b944f9220025e7cfec34, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -7630,6 +7652,7 @@ MonoBehaviour:
   outline: {fileID: 564788530}
   dissolvable: {fileID: 564788529}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &564788528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7715,7 +7738,7 @@ GameObject:
   - component: {fileID: 569155424}
   - component: {fileID: 569155423}
   - component: {fileID: 569155425}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "\u0417\u0430\u043F\u0443\u0442\u0430\u043D\u043D\u044B\u0435"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7777,7 +7800,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a388204524044d43b2a9f336c8dd45b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrailMoving
-  trailPrefab: {fileID: 0}
+  trailPrefab: {fileID: 1367619002952535313, guid: 664c64bbb000f5e428ca3b8f7e0ea923, type: 3}
+  speed: 5
 --- !u!1001 &577011713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7829,6 +7853,10 @@ PrefabInstance:
     - target: {fileID: 7517971900943563881, guid: e587153d97158e54cb4442ea55fbdf6b, type: 3}
       propertyPath: m_Name
       value: Food_Pasta
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517971900943563881, guid: e587153d97158e54cb4442ea55fbdf6b, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8310777302547193276, guid: e587153d97158e54cb4442ea55fbdf6b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -8063,6 +8091,10 @@ PrefabInstance:
     - target: {fileID: 6498476204995570510, guid: b4bc12119c05f3e41917eb3082d12409, type: 3}
       propertyPath: m_Name
       value: Food_Lasagna
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498476204995570510, guid: b4bc12119c05f3e41917eb3082d12409, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8362,6 +8394,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Cup_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1709942457889661851, guid: b84409fc6e1a9964197aa3554ed4c7da, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2085517610294671649, guid: b84409fc6e1a9964197aa3554ed4c7da, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.4905777
@@ -8459,7 +8495,7 @@ GameObject:
   - component: {fileID: 642632946}
   - component: {fileID: 642632945}
   - component: {fileID: 642632952}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube_OLD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8482,6 +8518,7 @@ MonoBehaviour:
   outline: {fileID: 642632947}
   dissolvable: {fileID: 642632946}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &642632946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8738,7 +8775,7 @@ GameObject:
   - component: {fileID: 708267948}
   - component: {fileID: 708267947}
   - component: {fileID: 708267952}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube_OLD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8901,6 +8938,7 @@ MonoBehaviour:
   outline: {fileID: 708267948}
   dissolvable: {fileID: 708267947}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!1 &736999852
 GameObject:
   m_ObjectHideFlags: 0
@@ -8911,7 +8949,7 @@ GameObject:
   m_Component:
   - component: {fileID: 736999854}
   - component: {fileID: 736999853}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GlassBottle_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8983,7 +9021,7 @@ GameObject:
   m_Component:
   - component: {fileID: 742244749}
   - component: {fileID: 742244748}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GlassBottle_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9055,7 +9093,7 @@ GameObject:
   m_Component:
   - component: {fileID: 752309801}
   - component: {fileID: 752309800}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9077,7 +9115,7 @@ MonoBehaviour:
   stateOld: {fileID: 196459255}
   stateNew: {fileID: 133468780}
   initialState: 1
-  stabilityLevel: 3
+  stabilityLevel: 4
   _currentState: 1
   OnCollapse:
     m_PersistentCalls:
@@ -9120,7 +9158,7 @@ GameObject:
   - component: {fileID: 783904208}
   - component: {fileID: 783904207}
   - component: {fileID: 783904212}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube_OLD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9283,6 +9321,7 @@ MonoBehaviour:
   outline: {fileID: 783904208}
   dissolvable: {fileID: 783904207}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!1001 &796092468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9339,6 +9378,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlassBottle_04 (5)_OLD
       objectReference: {fileID: 0}
+    - target: {fileID: 4046689530314105407, guid: 7a4acc0cd2a6a3049adf0484e05d64e2, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9389,6 +9432,7 @@ MonoBehaviour:
   outline: {fileID: 796092475}
   dissolvable: {fileID: 796092474}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &796092474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9436,69 +9480,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!1 &796611422
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 796611424}
-  - component: {fileID: 796611423}
-  - component: {fileID: 796611425}
-  m_Layer: 0
-  m_Name: Linked 3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &796611423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 796611422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f618864fd5f243b693641230ad413b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LinkedCollapsibles
-  linkedCollapsibles:
-  - {fileID: 1754522032}
-  - {fileID: 1838675042}
-  trailMoveTime: 1
-  invokesChainReaction: 0
---- !u!4 &796611424
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 796611422}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1871336605}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &796611425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 796611422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a388204524044d43b2a9f336c8dd45b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TrailMoving
-  trailPrefab: {fileID: 0}
 --- !u!1 &801746442
 GameObject:
   m_ObjectHideFlags: 0
@@ -9951,6 +9932,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CannedFood_02_NEW
       objectReference: {fileID: 0}
+    - target: {fileID: 5189122848560752486, guid: da840f8de93098c458b7604bbcf97246, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5981778442175907507, guid: da840f8de93098c458b7604bbcf97246, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -9990,6 +9975,7 @@ MonoBehaviour:
   outline: {fileID: 844705230}
   dissolvable: {fileID: 844705229}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &844705229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10230,6 +10216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canPlayerInteract: 1
   isWorking: 1
+  promptOverride: "[E] \u0412\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -10821,7 +10808,7 @@ GameObject:
   - component: {fileID: 882015525}
   - component: {fileID: 882015524}
   - component: {fileID: 882015531}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere_NEW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10844,6 +10831,7 @@ MonoBehaviour:
   outline: {fileID: 882015528}
   dissolvable: {fileID: 882015525}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &882015525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11153,6 +11141,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CannedFood_03_OLD
       objectReference: {fileID: 0}
+    - target: {fileID: 8640298745581911134, guid: ecefc89774807a047920150618c4f5c2, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8981111429324728036, guid: ecefc89774807a047920150618c4f5c2, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
@@ -11244,6 +11236,7 @@ MonoBehaviour:
   outline: {fileID: 892282594}
   dissolvable: {fileID: 892282593}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &892282593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11316,7 +11309,9 @@ GameObject:
   m_Component:
   - component: {fileID: 903361326}
   - component: {fileID: 903361325}
-  m_Layer: 0
+  - component: {fileID: 903361328}
+  - component: {fileID: 903361327}
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11342,19 +11337,7 @@ MonoBehaviour:
   _currentState: 1
   OnCollapse:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 245024572}
-        m_TargetAssemblyTypeName: LinkedCollapsibles, Assembly-CSharp
-        m_MethodName: CollapseAllLinkedCollapsibles
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnCollapseToOld:
     m_PersistentCalls:
       m_Calls: []
@@ -11378,6 +11361,52 @@ Transform:
   - {fileID: 1458232128}
   m_Father: {fileID: 245024573}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &903361327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903361324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecbedaac2cdbc54794ef70231be2a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollapseLinkController
+  links:
+  - target: {fileID: 60780404}
+    triggerWhen: 3
+    action: 0
+    delay: 0.3
+    showTrail: 1
+    designerNote: 
+  - target: {fileID: 1445003021}
+    triggerWhen: 3
+    action: 0
+    delay: 0.3
+    showTrail: 1
+    designerNote: 
+  - target: {fileID: 2105328081}
+    triggerWhen: 3
+    action: 0
+    delay: 0.3
+    showTrail: 1
+    designerNote: 
+  maxChainDepth: 5
+--- !u!114 &903361328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903361324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a388204524044d43b2a9f336c8dd45b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrailMoving
+  trailPrefab: {fileID: 1367619002952535313, guid: 664c64bbb000f5e428ca3b8f7e0ea923, type: 3}
+  speed: 5
 --- !u!43 &919840551
 Mesh:
   m_ObjectHideFlags: 0
@@ -11565,8 +11594,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 922797061}
-  - component: {fileID: 922797060}
-  - component: {fileID: 922797062}
   m_Layer: 0
   m_Name: "\u0417\u0430\u043F\u0443\u0442\u0430\u043D\u043D\u044B\u0435 (\u043E\u0434\u0438\u043D
     \u0441\u0442\u0430\u0431\u0438\u043B\u044C\u043D\u044B\u0439)"
@@ -11575,23 +11602,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &922797060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 922797059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f618864fd5f243b693641230ad413b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LinkedCollapsibles
-  linkedCollapsibles:
-  - {fileID: 67204948}
-  - {fileID: 1404184460}
-  trailMoveTime: 1
-  invokesChainReaction: 0
 --- !u!4 &922797061
 Transform:
   m_ObjectHideFlags: 0
@@ -11609,19 +11619,6 @@ Transform:
   - {fileID: 1404184461}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &922797062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 922797059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a388204524044d43b2a9f336c8dd45b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TrailMoving
-  trailPrefab: {fileID: 0}
 --- !u!1 &928582470
 GameObject:
   m_ObjectHideFlags: 0
@@ -14401,7 +14398,7 @@ GameObject:
   - component: {fileID: 1026559438}
   - component: {fileID: 1026559437}
   - component: {fileID: 1026559436}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14451,6 +14448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SimpleInteractable
   canPlayerInteract: 1
   isWorking: 1
+  promptOverride: "[E] \u0412\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls:
@@ -14681,6 +14679,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlassBottle_04 (8)_NEW
       objectReference: {fileID: 0}
+    - target: {fileID: 4046689530314105407, guid: 7a4acc0cd2a6a3049adf0484e05d64e2, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14731,6 +14733,7 @@ MonoBehaviour:
   outline: {fileID: 1040884092}
   dissolvable: {fileID: 1040884091}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1040884091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14794,7 +14797,7 @@ GameObject:
   - component: {fileID: 1043880421}
   - component: {fileID: 1043880420}
   - component: {fileID: 1043880427}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere_OLD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14817,6 +14820,7 @@ MonoBehaviour:
   outline: {fileID: 1043880424}
   dissolvable: {fileID: 1043880421}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1043880421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14993,7 +14997,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1055073718}
   - component: {fileID: 1055073717}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15015,7 +15019,7 @@ MonoBehaviour:
   stateOld: {fileID: 783904212}
   stateNew: {fileID: 1748171034}
   initialState: 1
-  stabilityLevel: 3
+  stabilityLevel: 4
   _currentState: 1
   OnCollapse:
     m_PersistentCalls:
@@ -15099,6 +15103,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlassBottle_04 (6)_OLD
       objectReference: {fileID: 0}
+    - target: {fileID: 4046689530314105407, guid: 7a4acc0cd2a6a3049adf0484e05d64e2, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15149,6 +15157,7 @@ MonoBehaviour:
   outline: {fileID: 1081642007}
   dissolvable: {fileID: 1081642006}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1081642006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15251,6 +15260,10 @@ PrefabInstance:
     - target: {fileID: 8890508618791391049, guid: ca29c74284c40524f8edb533636550f9, type: 3}
       propertyPath: m_Name
       value: Food_Apple
+      objectReference: {fileID: 0}
+    - target: {fileID: 8890508618791391049, guid: ca29c74284c40524f8edb533636550f9, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15389,6 +15402,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Food_Pasta
       objectReference: {fileID: 0}
+    - target: {fileID: 7517971900943563881, guid: e587153d97158e54cb4442ea55fbdf6b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8310777302547193276, guid: e587153d97158e54cb4442ea55fbdf6b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -15475,7 +15492,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1193742014}
   - component: {fileID: 1193742013}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15497,7 +15514,7 @@ MonoBehaviour:
   stateOld: {fileID: 708267952}
   stateNew: {fileID: 233399431}
   initialState: 1
-  stabilityLevel: 3
+  stabilityLevel: 4
   _currentState: 1
   OnCollapse:
     m_PersistentCalls:
@@ -15736,7 +15753,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1238321996}
   - component: {fileID: 1238321995}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GlassBottle_03 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15808,7 +15825,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1239866710}
   - component: {fileID: 1239866709}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15830,7 +15847,7 @@ MonoBehaviour:
   stateOld: {fileID: 1264550024}
   stateNew: {fileID: 2067677779}
   initialState: 1
-  stabilityLevel: 3
+  stabilityLevel: 4
   _currentState: 1
   OnCollapse:
     m_PersistentCalls:
@@ -15873,7 +15890,7 @@ GameObject:
   - component: {fileID: 1240005721}
   - component: {fileID: 1240005718}
   - component: {fileID: 1240005717}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube_OLD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15896,6 +15913,7 @@ MonoBehaviour:
   outline: {fileID: 1240005721}
   dissolvable: {fileID: 1240005718}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1240005718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16195,6 +16213,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlassBottle_04 (1)_OLD
       objectReference: {fileID: 0}
+    - target: {fileID: 4046689530314105407, guid: 7a4acc0cd2a6a3049adf0484e05d64e2, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16245,6 +16267,7 @@ MonoBehaviour:
   outline: {fileID: 1264550026}
   dissolvable: {fileID: 1264550025}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1264550025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16348,6 +16371,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlassBottle_04 (6)_NEW
       objectReference: {fileID: 0}
+    - target: {fileID: 4046689530314105407, guid: 7a4acc0cd2a6a3049adf0484e05d64e2, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16398,6 +16425,7 @@ MonoBehaviour:
   outline: {fileID: 1266232428}
   dissolvable: {fileID: 1266232427}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1266232427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16460,7 +16488,7 @@ GameObject:
   - component: {fileID: 1271648801}
   - component: {fileID: 1271648798}
   - component: {fileID: 1271648797}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube_OLD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16483,6 +16511,7 @@ MonoBehaviour:
   outline: {fileID: 1271648801}
   dissolvable: {fileID: 1271648798}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1271648798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16633,7 +16662,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1271824495}
   - component: {fileID: 1271824494}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Crate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16694,6 +16723,10 @@ PrefabInstance:
     - target: {fileID: 14847712115371948, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
       propertyPath: m_Name
       value: GlassBottle_03 (2)_NEW
+      objectReference: {fileID: 0}
+    - target: {fileID: 14847712115371948, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 828503206201750806, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16789,6 +16822,7 @@ MonoBehaviour:
   outline: {fileID: 1279133428}
   dissolvable: {fileID: 1279133427}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1279133427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16846,7 +16880,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1289817743}
   - component: {fileID: 1289817742}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16868,7 +16902,7 @@ MonoBehaviour:
   stateOld: {fileID: 1271648797}
   stateNew: {fileID: 248296655}
   initialState: 1
-  stabilityLevel: 3
+  stabilityLevel: 4
   _currentState: 1
   OnCollapse:
     m_PersistentCalls:
@@ -16906,7 +16940,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1296550342}
   - component: {fileID: 1296550341}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GameObject (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16928,7 +16962,7 @@ MonoBehaviour:
   stateOld: {fileID: 796092473}
   stateNew: {fileID: 273963069}
   initialState: 1
-  stabilityLevel: 3
+  stabilityLevel: 4
   _currentState: 1
   OnCollapse:
     m_PersistentCalls:
@@ -16966,7 +17000,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1306133235}
   - component: {fileID: 1306133234}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GlassBottle_03 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17038,15 +17072,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2939449934298575833, guid: 15f880ac66be248fd99892852cf03721, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.47
+      value: 8.738632
       objectReference: {fileID: 0}
     - target: {fileID: 2939449934298575833, guid: 15f880ac66be248fd99892852cf03721, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.33
+      value: -4.617567
       objectReference: {fileID: 0}
     - target: {fileID: 2939449934298575833, guid: 15f880ac66be248fd99892852cf03721, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 18.53
+      value: -4.343027
       objectReference: {fileID: 0}
     - target: {fileID: 2939449934298575833, guid: 15f880ac66be248fd99892852cf03721, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17235,6 +17269,10 @@ PrefabInstance:
     - target: {fileID: 6791816518937276895, guid: 4caa6851baabe4f40bde9724dafa3b8e, type: 3}
       propertyPath: m_Name
       value: Food_Oil
+      objectReference: {fileID: 0}
+    - target: {fileID: 6791816518937276895, guid: 4caa6851baabe4f40bde9724dafa3b8e, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18602,7 +18640,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1385924778}
   - component: {fileID: 1385924777}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "\u041D\u0435\u0441\u0442\u0430\u0431\u0438\u043B\u044C\u043D\u044B\u0435"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18635,6 +18673,25 @@ MonoBehaviour:
   minInterval: 0.5
   accelerationRate: 0.05
   randomIntervalVariance: 1
+  clusterSize: 2
+  customSequence: 
+  showWarningEffect: 1
+  warningTime: 0.5
+  warningColor: {r: 1, g: 0.3, b: 0.3, a: 0.8}
+  collapseSound: {fileID: 0}
+  warningSound: {fileID: 0}
+  audioSource: {fileID: 0}
+  OnCycleStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCycleComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  OnIntervalChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  _isActive: 0
+  _currentInterval: 0
   _timeSinceLastSwitch: 0
 --- !u!4 &1385924778
 Transform:
@@ -18667,7 +18724,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1389961326}
   - component: {fileID: 1389961327}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18727,7 +18784,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1404184461}
   - component: {fileID: 1404184460}
-  m_Layer: 0
+  - component: {fileID: 1404184463}
+  - component: {fileID: 1404184462}
+  m_Layer: 6
   m_Name: Cube 00000
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18753,19 +18812,7 @@ MonoBehaviour:
   _currentState: 1
   OnCollapse:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 922797060}
-        m_TargetAssemblyTypeName: LinkedCollapsibles, Assembly-CSharp
-        m_MethodName: CollapseAllLinkedCollapsibles
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnCollapseToOld:
     m_PersistentCalls:
       m_Calls: []
@@ -18789,6 +18836,40 @@ Transform:
   - {fileID: 1240005723}
   m_Father: {fileID: 922797061}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1404184462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404184459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecbedaac2cdbc54794ef70231be2a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollapseLinkController
+  links:
+  - target: {fileID: 67204948}
+    triggerWhen: 0
+    action: 0
+    delay: 0.3
+    showTrail: 1
+    designerNote: 
+  maxChainDepth: 5
+--- !u!114 &1404184463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404184459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a388204524044d43b2a9f336c8dd45b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrailMoving
+  trailPrefab: {fileID: 1367619002952535313, guid: 664c64bbb000f5e428ca3b8f7e0ea923, type: 3}
+  speed: 5
 --- !u!1 &1443273852
 GameObject:
   m_ObjectHideFlags: 0
@@ -18799,7 +18880,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1443273854}
   - component: {fileID: 1443273853}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GameObject (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18821,7 +18902,7 @@ MonoBehaviour:
   stateOld: {fileID: 1081642005}
   stateNew: {fileID: 1266232426}
   initialState: 1
-  stabilityLevel: 3
+  stabilityLevel: 4
   _currentState: 1
   OnCollapse:
     m_PersistentCalls:
@@ -18860,6 +18941,10 @@ PrefabInstance:
     - target: {fileID: 14847712115371948, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
       propertyPath: m_Name
       value: GlassBottle_03 (2)_OLD
+      objectReference: {fileID: 0}
+    - target: {fileID: 14847712115371948, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 828503206201750806, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18955,6 +19040,7 @@ MonoBehaviour:
   outline: {fileID: 1443863710}
   dissolvable: {fileID: 1443863709}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1443863709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19012,7 +19098,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1445003022}
   - component: {fileID: 1445003021}
-  m_Layer: 0
+  - component: {fileID: 1445003024}
+  - component: {fileID: 1445003023}
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19038,19 +19126,7 @@ MonoBehaviour:
   _currentState: 1
   OnCollapse:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 245024572}
-        m_TargetAssemblyTypeName: LinkedCollapsibles, Assembly-CSharp
-        m_MethodName: CollapseAllLinkedCollapsibles
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnCollapseToOld:
     m_PersistentCalls:
       m_Calls: []
@@ -19074,6 +19150,52 @@ Transform:
   - {fileID: 1043880426}
   m_Father: {fileID: 245024573}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1445003023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445003020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecbedaac2cdbc54794ef70231be2a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollapseLinkController
+  links:
+  - target: {fileID: 60780404}
+    triggerWhen: 3
+    action: 0
+    delay: 0.3
+    showTrail: 1
+    designerNote: 
+  - target: {fileID: 903361325}
+    triggerWhen: 3
+    action: 0
+    delay: 0.3
+    showTrail: 1
+    designerNote: 
+  - target: {fileID: 2105328081}
+    triggerWhen: 3
+    action: 0
+    delay: 0.3
+    showTrail: 1
+    designerNote: 
+  maxChainDepth: 5
+--- !u!114 &1445003024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445003020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a388204524044d43b2a9f336c8dd45b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrailMoving
+  trailPrefab: {fileID: 1367619002952535313, guid: 664c64bbb000f5e428ca3b8f7e0ea923, type: 3}
+  speed: 5
 --- !u!1 &1452016237
 GameObject:
   m_ObjectHideFlags: 0
@@ -19216,7 +19338,7 @@ GameObject:
   - component: {fileID: 1458232129}
   - component: {fileID: 1458232134}
   - component: {fileID: 1458232135}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube_OLD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19379,6 +19501,7 @@ MonoBehaviour:
   outline: {fileID: 1458232130}
   dissolvable: {fileID: 1458232129}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1458232135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19674,6 +19797,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CannedFood_03_NEW
       objectReference: {fileID: 0}
+    - target: {fileID: 8640298745581911134, guid: ecefc89774807a047920150618c4f5c2, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8981111429324728036, guid: ecefc89774807a047920150618c4f5c2, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
@@ -19765,6 +19892,7 @@ MonoBehaviour:
   outline: {fileID: 1479904201}
   dissolvable: {fileID: 1479904200}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1479904200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19969,6 +20097,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Bowel_02
       objectReference: {fileID: 0}
+    - target: {fileID: 6023177781531169710, guid: 1a4629ba2471df04b82c7bbeaf4788af, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6403398400573737236, guid: 1a4629ba2471df04b82c7bbeaf4788af, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.06771088
@@ -20061,6 +20193,10 @@ PrefabInstance:
     - target: {fileID: 14847712115371948, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
       propertyPath: m_Name
       value: GlassBottle_03 (3)_NEW
+      objectReference: {fileID: 0}
+    - target: {fileID: 14847712115371948, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 828503206201750806, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20156,6 +20292,7 @@ MonoBehaviour:
   outline: {fileID: 1568425060}
   dissolvable: {fileID: 1568425059}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1568425059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20259,6 +20396,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlassBottle_04 (8)_OLD
       objectReference: {fileID: 0}
+    - target: {fileID: 4046689530314105407, guid: 7a4acc0cd2a6a3049adf0484e05d64e2, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20309,6 +20450,7 @@ MonoBehaviour:
   outline: {fileID: 1583826435}
   dissolvable: {fileID: 1583826434}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1583826434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20367,6 +20509,10 @@ PrefabInstance:
     - target: {fileID: 2596905523559583450, guid: e41b9cce28c2aa542abacad6d2c5af47, type: 3}
       propertyPath: m_Name
       value: Food_Susage
+      objectReference: {fileID: 0}
+    - target: {fileID: 2596905523559583450, guid: e41b9cce28c2aa542abacad6d2c5af47, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3405248517301900384, guid: e41b9cce28c2aa542abacad6d2c5af47, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20464,7 +20610,7 @@ GameObject:
   - component: {fileID: 1628557041}
   - component: {fileID: 1628557040}
   - component: {fileID: 1628557047}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere_NEW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20487,6 +20633,7 @@ MonoBehaviour:
   outline: {fileID: 1628557044}
   dissolvable: {fileID: 1628557041}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1628557041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20801,7 +20948,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1640471684}
   - component: {fileID: 1640471683}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GlassBottle_03 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20919,6 +21066,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Food_Apple
       objectReference: {fileID: 0}
+    - target: {fileID: 8890508618791391049, guid: ca29c74284c40524f8edb533636550f9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20971,6 +21122,10 @@ PrefabInstance:
     - target: {fileID: 14847712115371948, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
       propertyPath: m_Name
       value: GlassBottle_03_OLD
+      objectReference: {fileID: 0}
+    - target: {fileID: 14847712115371948, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 828503206201750806, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21066,6 +21221,7 @@ MonoBehaviour:
   outline: {fileID: 1675727018}
   dissolvable: {fileID: 1675727017}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1675727017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21272,6 +21428,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Food_Sunny Egg
       objectReference: {fileID: 0}
+    - target: {fileID: 8915999439380582647, guid: af23549e861e00242b56bbd1c51a3c9d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21460,7 +21620,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1704992411}
   - component: {fileID: 1704992410}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GlassBottle_04 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21482,7 +21642,7 @@ MonoBehaviour:
   stateOld: {fileID: 1957069192}
   stateNew: {fileID: 46121276}
   initialState: 1
-  stabilityLevel: 3
+  stabilityLevel: 4
   _currentState: 1
   OnCollapse:
     m_PersistentCalls:
@@ -21565,6 +21725,10 @@ PrefabInstance:
     - target: {fileID: 6452987395473004570, guid: ddc590ae56d02484faba95939304dc79, type: 3}
       propertyPath: m_Name
       value: Food_Steak
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452987395473004570, guid: ddc590ae56d02484faba95939304dc79, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21755,7 +21919,7 @@ GameObject:
   - component: {fileID: 1748171038}
   - component: {fileID: 1748171035}
   - component: {fileID: 1748171034}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube_NEW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21778,6 +21942,7 @@ MonoBehaviour:
   outline: {fileID: 1748171038}
   dissolvable: {fileID: 1748171035}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1748171035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21944,6 +22109,7 @@ MonoBehaviour:
   outline: {fileID: 1748249881}
   dissolvable: {fileID: 1748249880}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1748249880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22019,7 +22185,7 @@ GameObject:
   - component: {fileID: 1748371115}
   - component: {fileID: 1748371112}
   - component: {fileID: 1748371111}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube_NEW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22042,6 +22208,7 @@ MonoBehaviour:
   outline: {fileID: 1748371115}
   dissolvable: {fileID: 1748371112}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1748371112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22198,6 +22365,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Cup_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1709942457889661851, guid: b84409fc6e1a9964197aa3554ed4c7da, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2085517610294671649, guid: b84409fc6e1a9964197aa3554ed4c7da, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.5371609
@@ -22289,7 +22460,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1754522033}
   - component: {fileID: 1754522032}
-  m_Layer: 0
+  - component: {fileID: 1754522035}
+  - component: {fileID: 1754522034}
+  m_Layer: 6
   m_Name: CannedFood_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22315,19 +22488,7 @@ MonoBehaviour:
   _currentState: 1
   OnCollapse:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 344285583}
-        m_TargetAssemblyTypeName: LinkedCollapsibles, Assembly-CSharp
-        m_MethodName: CollapseAllLinkedCollapsibles
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnCollapseToOld:
     m_PersistentCalls:
       m_Calls: []
@@ -22351,6 +22512,40 @@ Transform:
   - {fileID: 2114778256}
   m_Father: {fileID: 1871336605}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1754522034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754522031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecbedaac2cdbc54794ef70231be2a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollapseLinkController
+  links:
+  - target: {fileID: 2094564453}
+    triggerWhen: 0
+    action: 0
+    delay: 1
+    showTrail: 1
+    designerNote: 
+  maxChainDepth: 3
+--- !u!114 &1754522035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754522031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a388204524044d43b2a9f336c8dd45b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrailMoving
+  trailPrefab: {fileID: 1367619002952535313, guid: 664c64bbb000f5e428ca3b8f7e0ea923, type: 3}
+  speed: 1
 --- !u!1 &1757696718
 GameObject:
   m_ObjectHideFlags: 0
@@ -23865,6 +24060,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -9.21
       objectReference: {fileID: 0}
+    - target: {fileID: 1242426072092314060, guid: eb96fed80528b944f9220025e7cfec34, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1730842354596702973, guid: eb96fed80528b944f9220025e7cfec34, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -23936,6 +24135,14 @@ PrefabInstance:
     - target: {fileID: 4345780748978648619, guid: eb96fed80528b944f9220025e7cfec34, type: 3}
       propertyPath: m_Name
       value: Table_OLD
+      objectReference: {fileID: 0}
+    - target: {fileID: 4345780748978648619, guid: eb96fed80528b944f9220025e7cfec34, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483065712869885110, guid: eb96fed80528b944f9220025e7cfec34, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7799643558966929124, guid: eb96fed80528b944f9220025e7cfec34, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -24029,6 +24236,7 @@ MonoBehaviour:
   outline: {fileID: 1811430212}
   dissolvable: {fileID: 1811430211}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1811430210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24109,7 +24317,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1838675043}
   - component: {fileID: 1838675042}
-  m_Layer: 0
+  - component: {fileID: 1838675045}
+  - component: {fileID: 1838675044}
+  m_Layer: 6
   m_Name: CannedFood_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24135,19 +24345,7 @@ MonoBehaviour:
   _currentState: 1
   OnCollapse:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 796611423}
-        m_TargetAssemblyTypeName: LinkedCollapsibles, Assembly-CSharp
-        m_MethodName: CollapseAllLinkedCollapsibles
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnCollapseToOld:
     m_PersistentCalls:
       m_Calls: []
@@ -24171,6 +24369,40 @@ Transform:
   - {fileID: 892282597}
   m_Father: {fileID: 1871336605}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1838675044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838675041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecbedaac2cdbc54794ef70231be2a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollapseLinkController
+  links:
+  - target: {fileID: 1754522032}
+    triggerWhen: 0
+    action: 0
+    delay: 1
+    showTrail: 1
+    designerNote: 
+  maxChainDepth: 3
+--- !u!114 &1838675045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838675041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a388204524044d43b2a9f336c8dd45b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrailMoving
+  trailPrefab: {fileID: 1367619002952535313, guid: 664c64bbb000f5e428ca3b8f7e0ea923, type: 3}
+  speed: 1
 --- !u!1 &1856463298
 GameObject:
   m_ObjectHideFlags: 0
@@ -24185,7 +24417,7 @@ GameObject:
   - component: {fileID: 1856463301}
   - component: {fileID: 1856463300}
   - component: {fileID: 1856463299}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24206,6 +24438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SimpleInteractable
   canPlayerInteract: 1
   isWorking: 1
+  promptOverride: "[E] \u0412\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls:
@@ -24503,9 +24736,6 @@ Transform:
   - {fileID: 1754522033}
   - {fileID: 2094564454}
   - {fileID: 1838675043}
-  - {fileID: 344285584}
-  - {fileID: 1278952}
-  - {fileID: 796611424}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1877223972
@@ -24576,6 +24806,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CannedFood_02_OLD
       objectReference: {fileID: 0}
+    - target: {fileID: 5189122848560752486, guid: da840f8de93098c458b7604bbcf97246, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5981778442175907507, guid: da840f8de93098c458b7604bbcf97246, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -24615,6 +24849,7 @@ MonoBehaviour:
   outline: {fileID: 1877223976}
   dissolvable: {fileID: 1877223975}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1877223975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24693,7 +24928,7 @@ GameObject:
   - component: {fileID: 1899416417}
   - component: {fileID: 1899416416}
   - component: {fileID: 1899416423}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube_NEW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24716,6 +24951,7 @@ MonoBehaviour:
   outline: {fileID: 1899416420}
   dissolvable: {fileID: 1899416417}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1899416417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25569,6 +25805,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlassBottle_01_NEW
       objectReference: {fileID: 0}
+    - target: {fileID: 3613718199928060905, guid: 9b5dc512ec347e34eaaae1f9cf497537, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4138052842913210707, guid: 9b5dc512ec347e34eaaae1f9cf497537, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -25659,6 +25899,7 @@ MonoBehaviour:
   outline: {fileID: 1917234432}
   dissolvable: {fileID: 1917234431}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1917234431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25837,6 +26078,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlassBottle_04 (7)_OLD
       objectReference: {fileID: 0}
+    - target: {fileID: 4046689530314105407, guid: 7a4acc0cd2a6a3049adf0484e05d64e2, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25887,6 +26132,7 @@ MonoBehaviour:
   outline: {fileID: 1957069194}
   dissolvable: {fileID: 1957069193}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1957069193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26174,6 +26420,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlassBottle_03 (3)_OLD
       objectReference: {fileID: 0}
+    - target: {fileID: 14847712115371948, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 828503206201750806, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -26268,6 +26518,7 @@ MonoBehaviour:
   outline: {fileID: 1995008584}
   dissolvable: {fileID: 1995008583}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &1995008583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26326,6 +26577,10 @@ PrefabInstance:
     - target: {fileID: 14847712115371948, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
       propertyPath: m_Name
       value: GlassBottle_03 (4)_OLD
+      objectReference: {fileID: 0}
+    - target: {fileID: 14847712115371948, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 828503206201750806, guid: d27b73dcbd2a4014ba76c6a64e432f86, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26421,6 +26676,7 @@ MonoBehaviour:
   outline: {fileID: 2031113731}
   dissolvable: {fileID: 2031113730}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &2031113730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26478,7 +26734,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2066412410}
   - component: {fileID: 2066412409}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GlassBottle_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26596,6 +26852,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlassBottle_04 (1)_NEW
       objectReference: {fileID: 0}
+    - target: {fileID: 4046689530314105407, guid: 7a4acc0cd2a6a3049adf0484e05d64e2, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26646,6 +26906,7 @@ MonoBehaviour:
   outline: {fileID: 2067677781}
   dissolvable: {fileID: 2067677780}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &2067677780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26719,6 +26980,7 @@ MonoBehaviour:
   outline: {fileID: 2090106640}
   dissolvable: {fileID: 2090106639}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &2090106639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26818,6 +27080,25 @@ MonoBehaviour:
   minInterval: 0.5
   accelerationRate: 0.05
   randomIntervalVariance: 1
+  clusterSize: 2
+  customSequence: 
+  showWarningEffect: 1
+  warningTime: 0.5
+  warningColor: {r: 0.31132078, g: 0.09838911, b: 0.09838911, a: 0.101960786}
+  collapseSound: {fileID: 0}
+  warningSound: {fileID: 0}
+  audioSource: {fileID: 0}
+  OnCycleStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCycleComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  OnIntervalChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  _isActive: 0
+  _currentInterval: 0
   _timeSinceLastSwitch: 0
 --- !u!4 &2091727098
 Transform:
@@ -26848,7 +27129,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2094564454}
   - component: {fileID: 2094564453}
-  m_Layer: 0
+  - component: {fileID: 2094564456}
+  - component: {fileID: 2094564455}
+  m_Layer: 6
   m_Name: CannedFood_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26874,19 +27157,7 @@ MonoBehaviour:
   _currentState: 1
   OnCollapse:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1278951}
-        m_TargetAssemblyTypeName: LinkedCollapsibles, Assembly-CSharp
-        m_MethodName: CollapseAllLinkedCollapsibles
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnCollapseToOld:
     m_PersistentCalls:
       m_Calls: []
@@ -26910,6 +27181,40 @@ Transform:
   - {fileID: 1877223979}
   m_Father: {fileID: 1871336605}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2094564455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094564452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecbedaac2cdbc54794ef70231be2a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollapseLinkController
+  links:
+  - target: {fileID: 1838675042}
+    triggerWhen: 0
+    action: 0
+    delay: 1
+    showTrail: 1
+    designerNote: 
+  maxChainDepth: 3
+--- !u!114 &2094564456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094564452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a388204524044d43b2a9f336c8dd45b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrailMoving
+  trailPrefab: {fileID: 1367619002952535313, guid: 664c64bbb000f5e428ca3b8f7e0ea923, type: 3}
+  speed: 1
 --- !u!1 &2105328080
 GameObject:
   m_ObjectHideFlags: 0
@@ -26920,7 +27225,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2105328082}
   - component: {fileID: 2105328081}
-  m_Layer: 0
+  - component: {fileID: 2105328084}
+  - component: {fileID: 2105328083}
+  m_Layer: 6
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26946,19 +27253,7 @@ MonoBehaviour:
   _currentState: 1
   OnCollapse:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 245024572}
-        m_TargetAssemblyTypeName: LinkedCollapsibles, Assembly-CSharp
-        m_MethodName: CollapseAllLinkedCollapsibles
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnCollapseToOld:
     m_PersistentCalls:
       m_Calls: []
@@ -26982,6 +27277,52 @@ Transform:
   - {fileID: 294538222}
   m_Father: {fileID: 245024573}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2105328083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105328080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecbedaac2cdbc54794ef70231be2a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollapseLinkController
+  links:
+  - target: {fileID: 60780404}
+    triggerWhen: 3
+    action: 0
+    delay: 0.3
+    showTrail: 1
+    designerNote: 
+  - target: {fileID: 903361325}
+    triggerWhen: 3
+    action: 0
+    delay: 0.3
+    showTrail: 1
+    designerNote: 
+  - target: {fileID: 1445003021}
+    triggerWhen: 3
+    action: 0
+    delay: 0.3
+    showTrail: 1
+    designerNote: 
+  maxChainDepth: 5
+--- !u!114 &2105328084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105328080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a388204524044d43b2a9f336c8dd45b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TrailMoving
+  trailPrefab: {fileID: 1367619002952535313, guid: 664c64bbb000f5e428ca3b8f7e0ea923, type: 3}
+  speed: 5
 --- !u!1 &2111627608
 GameObject:
   m_ObjectHideFlags: 0
@@ -27207,6 +27548,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CannedFood_01_OLD
       objectReference: {fileID: 0}
+    - target: {fileID: 2594811017049069506, guid: 75dcd397f18ec974abb407f6a8a10047, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3407340852547849592, guid: 75dcd397f18ec974abb407f6a8a10047, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
@@ -27302,6 +27647,7 @@ MonoBehaviour:
   outline: {fileID: 2114778253}
   dissolvable: {fileID: 2114778252}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &2114778252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27379,7 +27725,7 @@ GameObject:
   - component: {fileID: 2117237245}
   - component: {fileID: 2117237244}
   - component: {fileID: 2117237249}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube_OLD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27542,6 +27888,7 @@ MonoBehaviour:
   outline: {fileID: 2117237245}
   dissolvable: {fileID: 2117237244}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!1 &2119509554
 GameObject:
   m_ObjectHideFlags: 0
@@ -27558,7 +27905,7 @@ GameObject:
   - component: {fileID: 2119509556}
   - component: {fileID: 2119509555}
   - component: {fileID: 2119509562}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube_NEW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27581,6 +27928,7 @@ MonoBehaviour:
   outline: {fileID: 2119509557}
   dissolvable: {fileID: 2119509556}
   isHighlightable: 1
+  logHighlightDiagnostics: 0
 --- !u!114 &2119509556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27939,6 +28287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Objects.AnimatedCollapsible
   canPlayerInteract: 1
   isWorking: 1
+  promptOverride: "[E] \u0412\u0437\u0430\u0438\u043C\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C"
   OnInteractEvent:
     m_PersistentCalls:
       m_Calls: []

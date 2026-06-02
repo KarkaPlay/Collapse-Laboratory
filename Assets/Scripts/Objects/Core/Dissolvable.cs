@@ -15,7 +15,12 @@ public class Dissolvable : MonoBehaviour
     public UnityEvent OnDissolved;
     public UnityEvent OnUndissolved;
 
-#region Editor
+    private Coroutine _activeRoutine;
+
+    /// <summary>Идёт ли сейчас анимация растворения/проявления.</summary>
+    public bool IsTransitioning => _activeRoutine != null;
+
+    #region Editor
     public void SetRendererThis()
     {
         renderers.Add(GetComponent<Renderer>());
@@ -36,9 +41,9 @@ public class Dissolvable : MonoBehaviour
         colliders.Clear();
         colliders.AddRange(GetComponentsInChildren<Collider>());
     }
-#endregion
+    #endregion
 
-#region Dissolve
+    #region Dissolve
 
     public void Dissolve()
     {
@@ -47,9 +52,22 @@ public class Dissolvable : MonoBehaviour
 
     public IEnumerator Dissolving()
     {
+        // Прерываем предыдущий незавершённый переход, иначе две корутины пишут
+        // в один и тот же материал (_Dissolve) и оставляют его в "невидимом" состоянии.
+        if (_activeRoutine != null)
+        {
+            StopCoroutine(_activeRoutine);
+            _activeRoutine = null;
+        }
+
+        _activeRoutine = StartCoroutine(DissolvingRoutine());
+        yield return _activeRoutine;
+    }
+
+    private IEnumerator DissolvingRoutine()
+    {
         OnTransitionStarted.Invoke();
 
-        
         SetRenderersActive(true);
 
         for (float i = 0; i < timeToDissolve; i += Time.deltaTime)
@@ -63,13 +81,15 @@ public class Dissolvable : MonoBehaviour
         SetRenderersActive(false);
         SetCollidersActive(false);
 
+        _activeRoutine = null;
+
         OnTransitionEnded.Invoke();
         OnDissolved.Invoke();
     }
-    
-#endregion
 
-#region Undissolve
+    #endregion
+
+    #region Undissolve
 
     public void Undissolve()
     {
@@ -77,6 +97,18 @@ public class Dissolvable : MonoBehaviour
     }
 
     public IEnumerator Undissolving()
+    {
+        if (_activeRoutine != null)
+        {
+            StopCoroutine(_activeRoutine);
+            _activeRoutine = null;
+        }
+
+        _activeRoutine = StartCoroutine(UndissolvingRoutine());
+        yield return _activeRoutine;
+    }
+
+    private IEnumerator UndissolvingRoutine()
     {
         OnTransitionStarted.Invoke();
 
@@ -91,13 +123,15 @@ public class Dissolvable : MonoBehaviour
         SetAllRenderers(renderers, 0);
         SetCollidersActive(true);
 
+        _activeRoutine = null;
+
         OnUndissolved.Invoke();
         OnTransitionEnded.Invoke();
     }
 
-#endregion
+    #endregion
 
-#region Setters
+    #region Setters
 
     private void SetAllRenderers(List<Renderer> newRenderers, float amount)
     {
@@ -123,5 +157,5 @@ public class Dissolvable : MonoBehaviour
         }
     }
 
-#endregion
+    #endregion
 }

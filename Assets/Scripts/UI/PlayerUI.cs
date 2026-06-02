@@ -49,6 +49,18 @@ public class PlayerUI : SingletonBehaviour<PlayerUI>
     [Tooltip("Пульсирующая рамка предупреждения")]
     public Image warningBorder;
 
+    [Tooltip("Максимальная непрозрачность предупреждения (1 = полностью перекрывает экран)")]
+    [Range(0f, 1f)]
+    public float warningMaxAlpha = 0.35f;
+
+    [Tooltip("Минимальная непрозрачность в нижней точке пульсации")]
+    [Range(0f, 1f)]
+    public float warningMinAlpha = 0f;
+
+    [Tooltip("Скорость пульсации (полных циклов в секунду)")]
+    [Range(0.1f, 3f)]
+    public float warningPulseSpeed = 1f;
+
     private Coroutine _warningPulseCoroutine;
 
     private void Start()
@@ -244,6 +256,15 @@ public class PlayerUI : SingletonBehaviour<PlayerUI>
             StopCoroutine(_warningPulseCoroutine);
             _warningPulseCoroutine = null;
         }
+
+        // Сбрасываем альфу, чтобы рамка не осталась "застывшей" подсвеченной,
+        // если корутину остановили на пике пульсации.
+        if (warningBorder != null)
+        {
+            Color c = warningBorder.color;
+            c.a = warningMinAlpha;
+            warningBorder.color = c;
+        }
     }
 
     private IEnumerator PulseWarning()
@@ -252,8 +273,13 @@ public class PlayerUI : SingletonBehaviour<PlayerUI>
 
         while (true)
         {
-            time += Time.deltaTime * 3f; // Скорость пульсации
-            float alpha = Mathf.PingPong(time, 0.8f) + 0.2f; // От 0.2 до 1.0
+            time += Time.deltaTime * warningPulseSpeed;
+
+            // Плавная синусоида в диапазоне [0..1]. Полный цикл за один период,
+            // поэтому warningPulseSpeed задаёт частоту в циклах в секунду.
+            float t = (Mathf.Sin(time * Mathf.PI * 2f) + 1f) * 0.5f;
+            float alpha = Mathf.Lerp(warningMinAlpha, warningMaxAlpha, t);
+
             Color c = warningBorder.color;
             c.a = alpha;
             warningBorder.color = c;
