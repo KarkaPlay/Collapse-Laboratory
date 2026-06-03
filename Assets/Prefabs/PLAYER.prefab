@@ -962,7 +962,7 @@ MonoBehaviour:
   interactionDistance: 2
   interactableLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 65
   playerCamera: {fileID: 8165942649740886943}
 --- !u!114 &3454829546375502915
 MonoBehaviour:

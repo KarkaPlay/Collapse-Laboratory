@@ -9,6 +9,9 @@ public class PlayerDeath : MonoBehaviour
     public Animation GameOverScreen;
     public TextMeshProUGUI GameOverText;
 
+    [Tooltip("Имя сцены меню, в которую возвращаемся по Escape")]
+    public string menuSceneName = "Menu";
+
     public int currentRoom = 0;
     public bool isDead = false;
 
@@ -48,7 +51,7 @@ public class PlayerDeath : MonoBehaviour
 
     public void OnEscape()
     {
-        //SceneManager.LoadScene("Menu");
-        //Cursor.lockState = CursorLockMode.None;
+        // Курсор в меню разблокирует CursorManager при загрузке сцены меню.
+        SceneManager.LoadScene(menuSceneName);
     }
 }
