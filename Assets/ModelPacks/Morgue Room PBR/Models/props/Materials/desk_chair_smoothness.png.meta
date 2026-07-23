@@ -1,12 +1,5 @@
 fileFormatVersion: 2
-guid: c0b0b67532bea4543a58f022fef3d92a
-AssetOrigin:
-  serializedVersion: 1
-  productId: 65817
-  packageName: Morgue Room PBR
-  packageVersion: 1.0
-  assetPath: Assets/Morgue Room PBR/Models/props/Materials/desk_chair_smoothness.tga
-  uploadId: 448714
+guid: c87d03bc1f3b24e6b8bf4fd9967dae7b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -37,7 +30,7 @@ TextureImporter:
   generateCubemap: 6
   cubemapConvolution: 0
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
@@ -70,18 +63,18 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
+  applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 1
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0

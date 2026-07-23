@@ -1,12 +1,5 @@
 fileFormatVersion: 2
-guid: c59de40ae3f07db4fb1820532bd2545c
-AssetOrigin:
-  serializedVersion: 1
-  productId: 65817
-  packageName: Morgue Room PBR
-  packageVersion: 1.0
-  assetPath: Assets/Morgue Room PBR/Models/props/Materials/corpse_drawers_basecolor.tga
-  uploadId: 448714
+guid: d8c800d9c6f6549e9846d6cbd83b1a9e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -37,7 +30,7 @@ TextureImporter:
   generateCubemap: 6
   cubemapConvolution: 0
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
@@ -70,18 +63,18 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
+  applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 1
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
