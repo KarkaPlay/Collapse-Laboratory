@@ -1,12 +1,5 @@
 fileFormatVersion: 2
-guid: 9108529ab04c6ee4483b5c220f726246
-AssetOrigin:
-  serializedVersion: 1
-  productId: 48529
-  packageName: Flooded Grounds
-  packageVersion: 1.1
-  assetPath: Assets/Flooded_Grounds/Content/Trees/SrcTextures/FOL_Trunk3_D.tif
-  uploadId: 227274
+guid: f66bb60a13d954f84b2aa8957febf531
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -37,7 +30,7 @@ TextureImporter:
   generateCubemap: 6
   cubemapConvolution: 0
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
@@ -70,18 +63,18 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
+  applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 1
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
