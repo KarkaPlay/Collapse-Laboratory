@@ -160044,7 +160044,7 @@ PrefabInstance:
       objectReference: {fileID: 554550742}
     - target: {fileID: 6055116820904700354, guid: 225bd3b42eb85944e8d7fd989fbeb391, type: 3}
       propertyPath: m_VersionIndex
-      value: 3209
+      value: 3212
       objectReference: {fileID: 0}
     - target: {fileID: 6209310437777911163, guid: 225bd3b42eb85944e8d7fd989fbeb391, type: 3}
       propertyPath: precomputeOutline
@@ -161084,7 +161084,7 @@ PrefabInstance:
       objectReference: {fileID: 120402198}
     - target: {fileID: 8258576847760416194, guid: 225bd3b42eb85944e8d7fd989fbeb391, type: 3}
       propertyPath: m_VersionIndex
-      value: 5692
+      value: 5695
       objectReference: {fileID: 0}
     - target: {fileID: 8558938751178007988, guid: 225bd3b42eb85944e8d7fd989fbeb391, type: 3}
       propertyPath: precomputeOutline
