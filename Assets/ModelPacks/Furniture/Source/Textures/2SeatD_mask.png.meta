@@ -1,12 +1,5 @@
 fileFormatVersion: 2
-guid: f1d33e39cf03d834ba5ac2aaf7260c9c
-AssetOrigin:
-  serializedVersion: 1
-  productId: 192628
-  packageName: Furniture FREE Pack
-  packageVersion: 1.0
-  assetPath: Assets/Furniture/Source/Textures/2SeatD_mask.tga
-  uploadId: 426116
+guid: c4edb738872a741328c6dc8dc500873f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,16 +65,16 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 1
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0

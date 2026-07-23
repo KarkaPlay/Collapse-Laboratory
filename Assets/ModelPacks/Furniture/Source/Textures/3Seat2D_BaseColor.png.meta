@@ -1,12 +1,5 @@
 fileFormatVersion: 2
-guid: 81f0e90dc8142c943a860a051695d76d
-AssetOrigin:
-  serializedVersion: 1
-  productId: 192628
-  packageName: Furniture FREE Pack
-  packageVersion: 1.0
-  assetPath: Assets/Furniture/Source/Textures/3Seat2D_BaseColor.tga
-  uploadId: 426116
+guid: 565543c452b6f487e9a72e5a7003a2fb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,16 +65,16 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 1
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0

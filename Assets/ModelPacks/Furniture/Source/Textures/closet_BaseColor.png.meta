@@ -1,12 +1,5 @@
 fileFormatVersion: 2
-guid: b30fe4002f5cf234e8a13f459c809505
-AssetOrigin:
-  serializedVersion: 1
-  productId: 192628
-  packageName: Furniture FREE Pack
-  packageVersion: 1.0
-  assetPath: Assets/Furniture/Source/Textures/closet_BaseColor.tga
-  uploadId: 426116
+guid: 3940c189344a145779214930ad15f61f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,16 +65,16 @@ TextureImporter:
   ignorePngGamma: 0
   applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 1
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
