@@ -6253,7 +6253,7 @@ GameObject:
   - component: {fileID: 483970633}
   - component: {fileID: 483970632}
   - component: {fileID: 483970631}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61192,7 +61192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5064671474188354185, guid: 9f03e916fa5184d2baf4901223dc063a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5264332637914751918, guid: 9f03e916fa5184d2baf4901223dc063a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -67106,9 +67106,57 @@ PrefabInstance:
       propertyPath: 'respawnPoints.Array.data[2]'
       value: 
       objectReference: {fileID: 129356693}
+    - target: {fileID: 3889556193482669239, guid: 15f880ac66be248fd99892852cf03721, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.33399925
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889556193482669239, guid: 15f880ac66be248fd99892852cf03721, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.161317
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889556193482669239, guid: 15f880ac66be248fd99892852cf03721, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -19.781006
+      objectReference: {fileID: 0}
     - target: {fileID: 6599012738084978401, guid: 15f880ac66be248fd99892852cf03721, type: 3}
       propertyPath: m_Name
       value: PLAYER
+      objectReference: {fileID: 0}
+    - target: {fileID: 8075140870145231099, guid: 15f880ac66be248fd99892852cf03721, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8075140870145231099, guid: 15f880ac66be248fd99892852cf03721, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8075140870145231099, guid: 15f880ac66be248fd99892852cf03721, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8165942649740886936, guid: 15f880ac66be248fd99892852cf03721, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.33399925
+      objectReference: {fileID: 0}
+    - target: {fileID: 8165942649740886936, guid: 15f880ac66be248fd99892852cf03721, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.161317
+      objectReference: {fileID: 0}
+    - target: {fileID: 8165942649740886936, guid: 15f880ac66be248fd99892852cf03721, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -19.781006
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888831858709533254, guid: 15f880ac66be248fd99892852cf03721, type: 3}
+      propertyPath: MoveSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888831858709533254, guid: 15f880ac66be248fd99892852cf03721, type: 3}
+      propertyPath: SprintSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888831858709533254, guid: 15f880ac66be248fd99892852cf03721, type: 3}
+      propertyPath: GroundLayers.m_Bits
+      value: 192
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -810,7 +810,7 @@ GameObject:
   - component: {fileID: 23607014}
   - component: {fileID: 23607013}
   - component: {fileID: 23607012}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3636,7 +3636,7 @@ GameObject:
   - component: {fileID: 65404822}
   - component: {fileID: 65404821}
   - component: {fileID: 65404820}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5704,7 +5704,7 @@ GameObject:
   - component: {fileID: 87949415}
   - component: {fileID: 87949414}
   - component: {fileID: 87949413}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7894,7 +7894,7 @@ GameObject:
   - component: {fileID: 146368278}
   - component: {fileID: 146368277}
   - component: {fileID: 146368276}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14637,7 +14637,7 @@ GameObject:
   - component: {fileID: 236645696}
   - component: {fileID: 236645695}
   - component: {fileID: 236645694}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18330,7 +18330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8888831858709533254, guid: 15f880ac66be248fd99892852cf03721, type: 3}
       propertyPath: GroundLayers.m_Bits
-      value: 65
+      value: 192
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -33624,7 +33624,7 @@ GameObject:
   - component: {fileID: 348120971}
   - component: {fileID: 348120970}
   - component: {fileID: 348120969}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57850,7 +57850,7 @@ GameObject:
   - component: {fileID: 650590419}
   - component: {fileID: 650590418}
   - component: {fileID: 650590417}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58893,7 +58893,7 @@ GameObject:
   - component: {fileID: 677596024}
   - component: {fileID: 677596023}
   - component: {fileID: 677596022}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59862,7 +59862,7 @@ GameObject:
   - component: {fileID: 703491663}
   - component: {fileID: 703491662}
   - component: {fileID: 703491661}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60217,7 +60217,7 @@ GameObject:
   - component: {fileID: 704536717}
   - component: {fileID: 704536716}
   - component: {fileID: 704536715}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61384,7 +61384,7 @@ GameObject:
   - component: {fileID: 720478077}
   - component: {fileID: 720478076}
   - component: {fileID: 720478075}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67170,7 +67170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Collapsible
   stateOld: {fileID: 1332278860}
   stateNew: {fileID: 1428402743}
-  initialState: 1
+  initialState: 0
   stabilityLevel: 3
   _currentState: 0
   OnCollapse:
@@ -71200,7 +71200,7 @@ GameObject:
   - component: {fileID: 944309105}
   - component: {fileID: 944309104}
   - component: {fileID: 944309103}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stairs (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76792,7 +76792,7 @@ GameObject:
   - component: {fileID: 1037118958}
   - component: {fileID: 1037118957}
   - component: {fileID: 1037118956}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122174,7 +122174,7 @@ GameObject:
   - component: {fileID: 1584179396}
   - component: {fileID: 1584179395}
   - component: {fileID: 1584179394}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133027,7 +133027,7 @@ GameObject:
   - component: {fileID: 1781973621}
   - component: {fileID: 1781973620}
   - component: {fileID: 1781973626}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "\u041A\u043E\u043D\u0432\u0435\u0439\u0435\u0440"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138187,7 +138187,7 @@ GameObject:
   - component: {fileID: 1924628961}
   - component: {fileID: 1924628960}
   - component: {fileID: 1924628959}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148806,7 +148806,7 @@ GameObject:
   - component: {fileID: 2101988763}
   - component: {fileID: 2101988762}
   - component: {fileID: 2101988761}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158767,7 +158767,7 @@ GameObject:
   - component: {fileID: 862336430269088872}
   - component: {fileID: 6103918401898919974}
   - component: {fileID: 4505291072239070989}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
